@@ -2,6 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
-  "framework": null,
-  "rootDirectory": "wiki-site"
+  "framework": null
 }
