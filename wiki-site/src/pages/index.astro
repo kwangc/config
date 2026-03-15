@@ -1,4 +1,17 @@
 ---
+// Redirect / -> /en/ without showing "Redirecting..." (Vercel does this via vercel.json; this is fallback)
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
-return Astro.redirect(base + '/en/');
+const dest = base + '/en/';
 ---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${dest}`} />
+    <script set:html={`location.replace(${JSON.stringify(dest)});`} />
+    <title>Redirect</title>
+  </head>
+  <body>
+    <a href={dest}>Go to /en/</a>
+  </body>
+</html>
