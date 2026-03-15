@@ -1,0 +1,694 @@
+---
+import type { Locale } from '../data/i18n';
+import { i18n } from '../data/i18n';
+import { getWikiNav } from '../data/wikiNav';
+
+interface Props {
+  currentPath: string;
+  locale?: Locale;
+  /** sidebar: 왼쪽 목차 토글 | dropdown: News/About 에서 빠른 메뉴 */
+  menuMode?: 'sidebar' | 'dropdown';
+}
+const { currentPath, locale = 'en', menuMode = 'sidebar' } = Astro.props;
+const sidebarLabel = locale === 'ko' ? '목차 열기·닫기' : 'Toggle table of contents';
+const quickLabel = locale === 'ko' ? '위키 빠른 이동' : 'Wiki quick menu';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+const path = currentPath.replace(base, '') || '/';
+const isNews = new RegExp(`^/${locale}/news(/|$)`).test(path);
+const isAboutMe = new RegExp(`^/${locale}/about(/|$)`).test(path);
+const isWiki = !isNews && !isAboutMe;
+const prefix = `${base}/${locale}`;
+const t = i18n[locale]?.nav ?? i18n.en.nav;
+const currentLabel = locale === 'en' ? 'ENG' : 'KOR';
+const pathForLocale = (l: Locale) => path.replace(new RegExp(`^/${locale}(/|$)`), `/${l}$1`);
+const hrefEn = pathForLocale('en') ? `${base}${pathForLocale('en')}` : `${base}/en/`;
+const hrefKo = pathForLocale('ko') ? `${base}${pathForLocale('ko')}` : `${base}/ko/`;
+const wikiNav = getWikiNav(locale, base);
+---
+
+<header class="topnav">
+  <div class="topnav-left">
+    <div class:list={['topnav-menu-wrap', { 'topnav-menu-wrap--dropdown': menuMode === 'dropdown' }]}>
+      {menuMode === 'sidebar' ? (
+        <button
+          type="button"
+          class="topnav-menu"
+          id="wiki-sidebar-toggle"
+          aria-label={sidebarLabel}
+          title={sidebarLabel}
+          aria-expanded="true"
+          aria-controls="wiki-sidebar-shell"
+        >
+          <span class="topnav-menu-bars" aria-hidden="true"></span>
+        </button>
+      ) : (
+        <>
+          <button
+            type="button"
+            class="topnav-menu"
+            id="wiki-quick-trigger"
+            aria-label={quickLabel}
+            title={quickLabel}
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="wiki-quick-panel"
+          >
+            <span class="topnav-menu-bars" aria-hidden="true"></span>
+          </button>
+          <div id="wiki-quick-panel" class="topnav-quick-panel" hidden role="menu" aria-label={quickLabel}>
+            {wikiNav.map((item) =>
+              item.children ? (
+                <div class="topnav-quick-group">
+                  <div class="topnav-quick-group-title">{item.label}</div>
+                  {item.children.map((child) => (
+                    <a href={child.href} class="topnav-quick-link" role="menuitem">{child.label}</a>
+                  ))}
+                </div>
+              ) : (
+                <a href={item.href} class="topnav-quick-link topnav-quick-link--flat" role="menuitem">{item.label}</a>
+              ),
+            )}
+          </div>
+        </>
+      )}
+    </div>
+    <a href={prefix + '/'} class="topnav-brand">
+      <img
+        src={`${base}/images/config-logo.png`}
+        alt=""
+        width="28"
+        height="28"
+        class="topnav-logo-img"
+        decoding="async"
+      />
+      <span class="topnav-logo-text">Config Wiki</span>
+    </a>
+  </div>
+  <nav class="topnav-links">
+    <a href={prefix + '/'} class:list={['topnav-link', { 'is-active': isWiki }]}>{t.wiki}</a>
+    <a href={prefix + '/news/'} class:list={['topnav-link', { 'is-active': isNews }]}>{t.news}</a>
+    <a href={prefix + '/about/'} class:list={['topnav-link', { 'is-active': isAboutMe }]}>{t.aboutMe}</a>
+    <div class="topnav-lang-wrap">
+      <button type="button" class="topnav-lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" id="lang-trigger">
+        <span class="topnav-lang-current">{currentLabel}</span>
+        <svg class="topnav-lang-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+      </button>
+      <div class="topnav-lang-dropdown" id="lang-dropdown" role="listbox" aria-label="Language" hidden>
+        <a href={hrefEn} role="option" class:list={['topnav-lang-option', { 'is-current': locale === 'en' }]} aria-selected={locale === 'en'}>ENG</a>
+        <a href={hrefKo} role="option" class:list={['topnav-lang-option', { 'is-current': locale === 'ko' }]} aria-selected={locale === 'ko'}>KOR</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- 모바일 전용: 햄버거로 열리는 전체 메뉴 드로어 -->
+<div id="topnav-drawer" class="topnav-drawer" aria-hidden="true">
+  <div class="topnav-drawer-backdrop" id="topnav-drawer-backdrop"></div>
+  <div class="topnav-drawer-panel">
+    <div class="topnav-drawer-header">
+      <span class="topnav-drawer-title">{t.drawerTitle}</span>
+      <button type="button" class="topnav-drawer-close" id="topnav-drawer-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="topnav-drawer-nav">
+      <a href={prefix + '/'} class:list={['topnav-drawer-link', { 'is-active': isWiki }]}>{t.wiki}</a>
+      <a href={prefix + '/news/'} class:list={['topnav-drawer-link', { 'is-active': isNews }]}>{t.news}</a>
+      <a href={prefix + '/about/'} class:list={['topnav-drawer-link', { 'is-active': isAboutMe }]}>{t.aboutMe}</a>
+    </nav>
+    <div class="topnav-drawer-divider"></div>
+    <div class="topnav-drawer-wiki">
+      {wikiNav.map((item) =>
+        item.children ? (
+          <div class="topnav-drawer-group">
+            <div class="topnav-drawer-group-title">{item.label}</div>
+            {item.children.map((child) => (
+              <a href={child.href} class="topnav-drawer-wiki-link">{child.label}</a>
+            ))}
+          </div>
+        ) : (
+          <a href={item.href} class="topnav-drawer-wiki-link topnav-drawer-wiki-link--flat">{item.label}</a>
+        ),
+      )}
+    </div>
+    <div class="topnav-drawer-footer">
+      <a href={hrefEn} class:list={['topnav-drawer-lang', { 'is-current': locale === 'en' }]}>ENG</a>
+      <span class="topnav-drawer-lang-sep">|</span>
+      <a href={hrefKo} class:list={['topnav-drawer-lang', { 'is-current': locale === 'ko' }]}>KOR</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    function run() {
+      var MOBILE = '(max-width: 768px)';
+      var langTrigger = document.getElementById('lang-trigger');
+      var langDropdown = document.getElementById('lang-dropdown');
+      var quickTrigger = document.getElementById('wiki-quick-trigger');
+      var quickPanel = document.getElementById('wiki-quick-panel');
+      var drawer = document.getElementById('topnav-drawer');
+      var drawerBackdrop = document.getElementById('topnav-drawer-backdrop');
+      var drawerClose = document.getElementById('topnav-drawer-close');
+      var layout = document.getElementById('wiki-layout');
+      var sidebarShell = document.getElementById('wiki-sidebar-shell');
+      var sidebarToggle = document.getElementById('wiki-sidebar-toggle');
+      var menuBtn = document.querySelector('.topnav-menu-wrap .topnav-menu');
+
+      function isMobile() {
+        return window.matchMedia(MOBILE).matches;
+      }
+
+    function closeDrawer() {
+      if (!drawer) return;
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.removeEventListener('click', closeDrawerOutside);
+    }
+    function openDrawer() {
+      if (!drawer) return;
+      if (langDropdown && !langDropdown.hasAttribute('hidden')) {
+        langDropdown.setAttribute('hidden', '');
+        if (langTrigger) langTrigger.setAttribute('aria-expanded', 'false');
+      }
+      if (quickPanel && !quickPanel.hasAttribute('hidden')) {
+        quickPanel.setAttribute('hidden', '');
+        if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
+      }
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('click', closeDrawerOutside);
+    }
+    function closeDrawerOutside(e) {
+      var t = e.target;
+      if (drawer && drawer.contains(t) && !drawerBackdrop.contains(t) && !drawerClose.contains(t)) return;
+      closeDrawer();
+    }
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawer) {
+      drawer.querySelectorAll('a[href]').forEach(function (a) {
+        a.addEventListener('click', closeDrawer);
+      });
+    }
+
+    function setSidebarCollapsed(on) {
+      if (!layout || !sidebarShell || !sidebarToggle) return;
+      layout.classList.toggle('wiki-layout--sidebar-collapsed', Boolean(on));
+      sidebarToggle.setAttribute('aria-expanded', on ? 'false' : 'true');
+      try { localStorage.setItem('wiki-sidebar-collapsed', on ? '1' : '0'); } catch (_) {}
+    }
+    if (sidebarShell && sidebarToggle) {
+      try {
+        if (localStorage.getItem('wiki-sidebar-collapsed') === '1') setSidebarCollapsed(true);
+      } catch (_) {}
+      sidebarToggle.addEventListener('click', function (e) {
+        if (isMobile()) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (drawer) openDrawer();
+          return;
+        }
+        setSidebarCollapsed(!layout.classList.contains('wiki-layout--sidebar-collapsed'));
+      });
+    }
+
+    if (quickTrigger && quickPanel) {
+      quickTrigger.addEventListener('click', function (e) {
+        if (isMobile()) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (drawer) openDrawer();
+          return;
+        }
+        if (langDropdown && !langDropdown.hasAttribute('hidden')) {
+          langDropdown.setAttribute('hidden', '');
+          if (langTrigger) langTrigger.setAttribute('aria-expanded', 'false');
+        }
+        if (quickPanel.hasAttribute('hidden')) {
+          quickPanel.removeAttribute('hidden');
+          quickTrigger.setAttribute('aria-expanded', 'true');
+          document.addEventListener('click', closeQuickOutside);
+        } else {
+          quickPanel.setAttribute('hidden', '');
+          quickTrigger.setAttribute('aria-expanded', 'false');
+          document.removeEventListener('click', closeQuickOutside);
+        }
+      });
+    }
+
+    function closeQuickOutside(e) {
+      var t = e.target;
+      if (quickPanel && !quickPanel.contains(t) && quickTrigger && !quickTrigger.contains(t)) {
+        quickPanel.setAttribute('hidden', '');
+        if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', closeQuickOutside);
+      }
+    }
+    if (quickTrigger && quickPanel) {
+      quickPanel.querySelectorAll('a[href]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          quickPanel.setAttribute('hidden', '');
+          if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
+          document.removeEventListener('click', closeQuickOutside);
+        });
+      });
+    }
+
+    function closeLang() {
+      if (!langDropdown || !langTrigger) return;
+      langDropdown.setAttribute('hidden', '');
+      langTrigger.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', closeLangOutside);
+    }
+    function openLang() {
+      if (!langDropdown || !langTrigger) return;
+      if (quickPanel && !quickPanel.hasAttribute('hidden')) {
+        quickPanel.setAttribute('hidden', '');
+        if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
+      }
+      langDropdown.removeAttribute('hidden');
+      langTrigger.setAttribute('aria-expanded', 'true');
+      document.addEventListener('click', closeLangOutside);
+    }
+    function closeLangOutside(e) {
+      var t = e.target;
+      if (langDropdown && !langDropdown.contains(t) && langTrigger && !langTrigger.contains(t)) closeLang();
+    }
+    if (langTrigger && langDropdown) {
+      langTrigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (isMobile()) {
+          e.preventDefault();
+          if (drawer) openDrawer();
+          return;
+        }
+        if (langDropdown.hasAttribute('hidden')) openLang();
+        else closeLang();
+      });
+    }
+
+    if (menuBtn && drawer) {
+      menuBtn.addEventListener('click', function (e) {
+        if (isMobile()) {
+          e.preventDefault();
+          e.stopPropagation();
+          openDrawer();
+        }
+      });
+    }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  })();
+</script>
+
+<style>
+  .topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3rem;
+    padding: 0 1.5rem 0 0.75rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+  .topnav-menu-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .topnav-menu {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .topnav-menu:hover,
+  .topnav-menu:focus-visible {
+    background: rgba(51, 123, 250, 0.12);
+    color: var(--accent);
+    outline: none;
+  }
+  .topnav-menu-bars,
+  .topnav-menu-bars::before,
+  .topnav-menu-bars::after {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    position: relative;
+  }
+  .topnav-menu-bars::before,
+  .topnav-menu-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+  .topnav-menu-bars::before { top: -5px; }
+  .topnav-menu-bars::after { top: 5px; }
+  .topnav-quick-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: min(300px, calc(100vw - 2rem));
+    max-height: min(70vh, 420px);
+    overflow-y: auto;
+    padding: 0.5rem 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    z-index: 250;
+  }
+  .topnav-quick-panel[hidden] {
+    display: none;
+  }
+  .topnav-quick-group {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-quick-group:last-of-type {
+    border-bottom: none;
+  }
+  .topnav-quick-group-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 0.25rem 0.75rem 0.35rem;
+  }
+  .topnav-quick-link {
+    display: block;
+    padding: 0.35rem 0.75rem 0.35rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-quick-link:hover {
+    background: rgba(51, 123, 250, 0.1);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .topnav-quick-link--flat {
+    padding-left: 0.75rem;
+    margin: 0.15rem 0;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  .topnav-brand:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  .topnav-logo-img {
+    flex-shrink: 0;
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .topnav-logo-text { line-height: 1; }
+  .topnav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .topnav-link {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .topnav-link:hover { color: var(--accent); background: rgba(51, 123, 250, 0.1); text-decoration: none; }
+  .topnav-link.is-active {
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(51, 123, 250, 0.15);
+  }
+  .topnav-lang-wrap {
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
+    position: relative;
+  }
+  .topnav-lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .topnav-lang-trigger:hover {
+    color: var(--accent);
+    background: rgba(51, 123, 250, 0.1);
+  }
+  .topnav-lang-chevron {
+    transition: transform 0.15s ease;
+  }
+  .topnav-lang-trigger[aria-expanded="true"] .topnav-lang-chevron {
+    transform: rotate(180deg);
+  }
+  .topnav-lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.25rem;
+    min-width: 6rem;
+    padding: 0.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 200;
+  }
+  .topnav-lang-dropdown[hidden] {
+    display: none;
+  }
+  .topnav-lang-option {
+    display: block;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .topnav-lang-option:hover {
+    color: var(--accent);
+    background: rgba(51, 123, 250, 0.1);
+    text-decoration: none;
+  }
+  .topnav-lang-option.is-current {
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(51, 123, 250, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    .topnav-links {
+      display: none;
+    }
+    .topnav-quick-panel {
+      display: none !important;
+    }
+  }
+
+  .topnav-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    pointer-events: none;
+  }
+  .topnav-drawer.is-open {
+    pointer-events: auto;
+    display: block;
+  }
+  .topnav-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .topnav-drawer.is-open .topnav-drawer-backdrop {
+    opacity: 1;
+  }
+  .topnav-drawer-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(300px, 85vw);
+    max-width: 300px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow: hidden;
+  }
+  .topnav-drawer.is-open .topnav-drawer-panel {
+    transform: translateX(0);
+  }
+  .topnav-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .topnav-drawer-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .topnav-drawer-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: -0.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .topnav-drawer-close:hover {
+    background: rgba(51, 123, 250, 0.12);
+    color: var(--accent);
+  }
+  .topnav-drawer-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-drawer-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-drawer-link:hover {
+    background: rgba(51, 123, 250, 0.1);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .topnav-drawer-link.is-active {
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(51, 123, 250, 0.12);
+  }
+  .topnav-drawer-divider {
+    flex-shrink: 0;
+    height: 1px;
+    background: var(--border);
+  }
+  .topnav-drawer-wiki {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem 0;
+  }
+  .topnav-drawer-group {
+    padding: 0.35rem 0;
+  }
+  .topnav-drawer-group-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 0.25rem 1rem 0.2rem;
+  }
+  .topnav-drawer-wiki-link {
+    display: block;
+    padding: 0.35rem 1rem 0.35rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-drawer-wiki-link:hover {
+    background: rgba(51, 123, 250, 0.1);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .topnav-drawer-wiki-link--flat {
+    padding-left: 1rem;
+  }
+  .topnav-drawer-footer {
+    flex-shrink: 0;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .topnav-drawer-lang {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .topnav-drawer-lang:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .topnav-drawer-lang.is-current {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .topnav-drawer-lang-sep {
+    color: var(--border);
+    user-select: none;
+  }
+
+  @media (min-width: 769px) {
+    .topnav-drawer {
+      display: none !important;
+    }
+  }
+</style>

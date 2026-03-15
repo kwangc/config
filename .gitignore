@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build / cache
+wiki-site/dist/
+wiki-site/.astro/
+wiki-site/src/content/wiki/
+.wiki-site/
+*.log
+.DS_Store
+
+# Env (do not commit secrets)
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

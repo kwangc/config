@@ -1,0 +1,63 @@
+---
+import WikiLayout from '../../../layouts/WikiLayout.astro';
+import TableOfContents from '../../../components/TableOfContents.astro';
+import { getCollection } from 'astro:content';
+import type { Locale } from '../../../data/i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('wiki');
+  const paths: { params: { locale: string; slug: string | string[] } }[] = [];
+  for (const e of entries) {
+    if (!e.id.includes('/')) continue;
+    const [locale, ...parts] = e.id.split('/');
+    if (locale !== 'en' && locale !== 'ko') continue;
+    const slug = parts.join('/');
+    paths.push({ params: { locale, slug } });
+  }
+  return paths;
+}
+
+const { locale, slug } = Astro.params as { locale: Locale; slug: string | string[] };
+const slugStr = typeof slug === 'string' ? slug : (Array.isArray(slug) ? slug.join('/') : '');
+const id = `${locale}/${slugStr}`;
+const entries = await getCollection('wiki');
+const entry = entries.find((e) => e.id === id);
+if (!entry) return Astro.redirect(import.meta.env.BASE_URL.replace(/\/$/, '') + '/' + locale + '/');
+
+const { Content, headings } = await entry.render();
+const title = (entry.data as { title?: string }).title ?? slugStr.split('/').pop() ?? 'Wiki';
+---
+
+<WikiLayout title={title} locale={locale}>
+  <div class="content-with-toc">
+    <article class="wiki-article">
+      <Content />
+    </article>
+    <TableOfContents headings={headings} />
+  </div>
+</WikiLayout>
+
+<style>
+  .content-with-toc {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .wiki-article {
+    flex: 1;
+    min-width: 0;
+    max-width: 720px;
+    padding: 0 1rem 3rem;
+  }
+  .wiki-article :global(h1) { font-size: 1.75rem; margin-top: 0; }
+  .wiki-article :global(h2) { font-size: 1.25rem; margin-top: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; scroll-margin-top: 4rem; }
+  .wiki-article :global(h3) { font-size: 1.05rem; margin-top: 1rem; scroll-margin-top: 4rem; }
+  .wiki-article :global(h4) { scroll-margin-top: 4rem; }
+  .wiki-article :global(table) { border-collapse: collapse; width: 100%; }
+  .wiki-article :global(th), .wiki-article :global(td) { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+  .wiki-article :global(blockquote) { margin: 1rem 0; padding-left: 1rem; border-left: 4px solid var(--accent); color: var(--muted); }
+  .wiki-article :global(code) { background: var(--surface); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+  .wiki-article :global(pre) { background: var(--surface); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+  .wiki-article :global(pre code) { padding: 0; background: none; }
+</style>

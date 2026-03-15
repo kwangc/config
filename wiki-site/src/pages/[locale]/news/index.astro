@@ -1,0 +1,51 @@
+---
+import WikiLayout from '../../../layouts/WikiLayout.astro';
+import newsData from '../../../data/news.json';
+import { i18n } from '../../../data/i18n';
+import type { Locale } from '../../../data/i18n';
+
+export async function getStaticPaths() {
+  return [{ params: { locale: 'en' } }, { params: { locale: 'ko' } }];
+}
+
+const { locale } = Astro.params as { locale: Locale };
+const t = i18n[locale] ?? i18n.en;
+const items = (newsData as { items: { id: string; title: string; url: string; summary: string; date: string; source?: string; tags?: string[] }[] }).items;
+const sorted = [...items].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+---
+
+<WikiLayout title={t.news.title} locale={locale}>
+  <article class="news-page">
+    <h1>{t.news.title}</h1>
+    <p class="lead">{t.news.lead}</p>
+    <ul class="news-list">
+      {sorted.map((item) => (
+        <li class="news-item">
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="news-title">{item.title}</a>
+          <p class="news-summary">{item.summary}</p>
+          <div class="news-meta">
+            <span>{item.date}</span>
+            {item.source && <span class="source">{item.source}</span>}
+            {item.tags?.length ? <span class="tags">{item.tags.join(', ')}</span> : null}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </article>
+</WikiLayout>
+
+<style>
+  .news-page { max-width: 720px; padding: 0 1rem 3rem; }
+  .lead { color: var(--muted); margin-bottom: 1.5rem; }
+  .lead code { font-size: 0.85em; }
+  .news-list { list-style: none; padding: 0; margin: 0; }
+  .news-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-title { font-weight: 600; font-size: 1.05rem; }
+  .news-summary { color: var(--muted); font-size: 0.95rem; margin: 0.35rem 0 0; line-height: 1.5; }
+  .news-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.35rem; }
+  .news-meta .source, .news-meta .tags { margin-left: 0.75rem; }
+</style>

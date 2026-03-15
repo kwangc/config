@@ -1,0 +1,81 @@
+---
+import WikiLayout from '../../layouts/WikiLayout.astro';
+import { i18n } from '../../data/i18n';
+import type { Locale } from '../../data/i18n';
+
+export async function getStaticPaths() {
+  return [{ params: { locale: 'en' } }, { params: { locale: 'ko' } }];
+}
+
+const { locale } = Astro.params as { locale: Locale };
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+const t = i18n[locale] ?? i18n.en;
+const prefix = `${base}/${locale}`;
+
+const sections: { key: string; path: string }[] = [
+  { key: 'company', path: 'company/about.md' },
+  { key: 'product', path: 'product/README.md' },
+  { key: 'domains', path: 'domains/ai-ml.md' },
+  { key: 'research', path: 'research/README.md' },
+  { key: 'industry', path: 'industry/README.md' },
+  { key: 'glossary', path: 'glossary/README.md' },
+  { key: 'safety-eval', path: 'safety-eval/README.md' },
+];
+---
+
+<WikiLayout title={t.home.title} locale={locale}>
+  <article class="home">
+    <h1>{t.home.title}</h1>
+    <p class="lead">{t.home.lead}</p>
+    <p class="intro">{t.home.intro}</p>
+    <p><a href={`${prefix}/news/`} class="news-link">📰 {t.home.newsLink}</a></p>
+
+    <section class="browse">
+      <h2 class="browse-title">{t.home.browseLabel}</h2>
+      <ul class="browse-list">
+        {sections.map(({ key, path }) => (
+          <li>
+            <a href={`${prefix}/wiki/${path}`}>{t.dirNames[key] ?? key}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</WikiLayout>
+
+<style>
+  .home { max-width: 640px; }
+  .lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .intro {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .news-link { font-weight: 600; }
+  .browse { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .browse-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .browse-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .browse-list a {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+  .browse-list a:hover { color: var(--accent); text-decoration: none; }
+</style>

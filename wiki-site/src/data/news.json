@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "placeholder-1",
+      "title": "News 항목 예시",
+      "url": "https://config.inc/",
+      "summary": "automation/scripts에서 스크래핑·요약 스크립트로 이 JSON을 갱신하면 여기에 자동 반영됩니다.",
+      "date": "2026-03-15",
+      "source": "manual",
+      "tags": ["example"]
+    }
+  ]
+}

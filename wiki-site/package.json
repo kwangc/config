@@ -1,0 +1,18 @@
+{
+  "name": "config-wiki-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "copy-wiki": "node scripts/copy-wiki.js",
+    "dev": "npm run copy-wiki && astro dev",
+    "build": "npm run copy-wiki && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/mdx": "^3.1.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

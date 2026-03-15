@@ -1,0 +1,95 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TopNav from '../components/TopNav.astro';
+import Sidebar from '../components/Sidebar.astro';
+import type { Locale } from '../data/i18n';
+
+interface Props {
+  title: string;
+  locale?: Locale;
+}
+const { title, locale = 'en' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+const path = currentPath.replace(base, '') || '/';
+const isNoSidebar =
+  new RegExp(`^/${locale}/news(/|$)`).test(path) ||
+  new RegExp(`^/${locale}/about(/|$)`).test(path);
+---
+
+<BaseLayout title={title}>
+  <TopNav currentPath={currentPath} locale={locale} menuMode={isNoSidebar ? 'dropdown' : 'sidebar'} />
+  <div class="wiki-app">
+    <div class="wiki-layout" id="wiki-layout" class:list={{ 'wiki-layout--no-sidebar': isNoSidebar }}>
+      {!isNoSidebar && (
+        <div class="wiki-sidebar-shell" id="wiki-sidebar-shell">
+          <Sidebar currentPath={currentPath} locale={locale} />
+        </div>
+      )}
+      <main class="wiki-main">
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+
+<style is:global>
+  :root {
+    --wiki-sidebar-w: 192px;
+  }
+</style>
+<style>
+  .wiki-app {
+    padding-top: 3rem;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .wiki-layout {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .wiki-sidebar-shell {
+    flex-shrink: 0;
+    width: var(--wiki-sidebar-w);
+    max-width: var(--wiki-sidebar-w);
+    min-width: 0;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    transition: max-width 0.2s ease, width 0.2s ease, opacity 0.15s ease;
+    overflow: hidden;
+  }
+  .wiki-layout--sidebar-collapsed .wiki-sidebar-shell {
+    max-width: 0;
+    width: 0;
+    opacity: 0;
+    border-right: none;
+    pointer-events: none;
+  }
+  .wiki-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  .wiki-layout--no-sidebar .wiki-main {
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    .wiki-layout {
+      flex-direction: row;
+    }
+    .wiki-sidebar-shell {
+      display: none !important;
+    }
+    .wiki-main {
+      flex: 1;
+      min-height: 0;
+      padding: 1rem;
+    }
+  }
+</style>

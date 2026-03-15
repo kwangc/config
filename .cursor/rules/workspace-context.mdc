@@ -1,0 +1,17 @@
+---
+description: Config workspace context — Wiki, study, automation for Head of Product
+globs: wiki/**/*.md, study/**/*, automation/**/*, references/**/*
+alwaysApply: true
+---
+
+# Config Private Workspace
+
+- **Owner:** Tony Lee. Head of Product @ Config Intelligence Inc. (from 2026-04-06). PM background: Lineable, Tridge, Toss.
+- **Purpose:** Learning (AI, LLM, VLA, Robotics), industry research, and a living **Config Wiki**; automation via Claude/Claude Code.
+- **Conventions:**
+  - **Wiki** (`wiki/`): Curated knowledge — company, domains, research summaries, industry. Link new pages from `wiki/README.md`.
+  - **Study** (`study/`): Raw notes; refine and promote to wiki when ready.
+  - **Automation** (`automation/`): Scripts and workflows; document usage in `automation/README.md`.
+  - Mark speculative or unverified content (e.g. "추정", "출처: ..."). Prefer general accuracy; details may be updated after onboarding.
+
+When editing wiki or study content, keep tone professional and structure navigable (tables, clear headings, backlinks to wiki index where useful).

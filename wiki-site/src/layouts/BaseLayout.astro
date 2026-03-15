@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Config Wiki — AI, LLM, VLA, Robotics' } = Astro.props;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={`${base}/images/config-logo.png`} sizes="32x32" />
+    <title>{title} | Config Wiki</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0f0f12;
+    --surface: #18181c;
+    --border: #2a2a30;
+    --text: #e4e4e7;
+    --muted: #a1a1aa;
+    --accent: rgb(51, 123, 250);
+    --accent-hover: rgb(0, 45, 203);
+  }
+  html { font-family: system-ui, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+  body { margin: 0; min-height: 100vh; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; }
+</style>

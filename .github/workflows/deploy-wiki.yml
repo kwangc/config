@@ -1,0 +1,32 @@
+name: Deploy Wiki to GitHub Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - 'wiki-site/**'
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: wiki-site/package.json
+      - run: npm install
+        working-directory: wiki-site
+      - run: npm run build
+        working-directory: wiki-site
+      - uses: actions/upload-pages-artifact@3
+        with:
+          path: wiki-site/dist
+      - id: deploy
+        uses: actions/deploy-pages@4
+        if: github.ref == 'refs/heads/main'

@@ -1,0 +1,88 @@
+---
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+  createdBy?: string;
+  lastEditedBy?: string;
+  lastEdited?: string;
+}
+const { headings, createdBy = 'Tony Lee', lastEditedBy = 'Tony Lee', lastEdited = '2026-03-15' } = Astro.props;
+---
+
+<aside class="toc" aria-label="On this page">
+  {headings.length > 0 && (
+    <nav class="toc-nav">
+      <p class="toc-title">On this page</p>
+      <ul class="toc-list">
+        {headings.map((h) => (
+          <li class="toc-item" style={`--depth: ${h.depth}`}>
+            <a href={`#${h.slug}`} class="toc-link">{h.text}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )}
+  <div class="toc-meta">
+    <p class="toc-meta-line">Created by: {createdBy}</p>
+    <p class="toc-meta-line">Last edited by: {lastEditedBy}</p>
+    <p class="toc-meta-line">Last edited: {lastEdited}</p>
+  </div>
+</aside>
+
+<style>
+  .toc {
+    flex-shrink: 0;
+    width: 200px;
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  .toc-nav {
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
+  }
+  .toc-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin: 0 0 0.5rem 0;
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc-item {
+    padding: 0.2rem 0;
+    padding-left: calc((var(--depth, 2) - 1) * 0.75rem);
+  }
+  .toc-link {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    display: block;
+    line-height: 1.4;
+  }
+  .toc-link:hover {
+    color: var(--accent);
+  }
+  .toc-meta {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
+  }
+  .toc-meta-line {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0.25rem 0;
+    line-height: 1.4;
+  }
+  @media (max-width: 1024px) {
+    .toc { display: none; }
+  }
+</style>
