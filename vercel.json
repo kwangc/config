@@ -2,5 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    { "source": "/", "destination": "/en/", "permanent": false }
+  ]
 }
