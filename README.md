@@ -1,6 +1,6 @@
 # Config — Private Workspace
 
-**Owner:** Tony Lee | **Role:** Head of Product @ [Config Intelligence Inc.](https://config.inc/) (from 2026-04-06)
+**Owner:** Tony Lee | **Role:** Head of Product @ [Config Intelligence Inc.](https://config.inc/)
 
 이 폴더는 Config 입사 전·후 **학습, 리서치, 업계 동향 파악, 업무 자동화**를 한곳에서 관리하기 위한 private workspace입니다.
 
