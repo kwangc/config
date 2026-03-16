@@ -24,9 +24,9 @@ jobs:
         working-directory: wiki-site
       - run: npm run build
         working-directory: wiki-site
-      - uses: actions/upload-pages-artifact@3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: wiki-site/dist
       - id: deploy
-        uses: actions/deploy-pages@4
+        uses: actions/deploy-pages@v4
         if: github.ref == 'refs/heads/main'
