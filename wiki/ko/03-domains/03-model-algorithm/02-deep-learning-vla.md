@@ -81,9 +81,9 @@ RL을 함께 쓸 때:
 
 ## 참고
 
-- [Robot Learning (RL)](../04-model-training/04-robot-learning-rl.md)
-- [AI / ML 기초](ai-ml.md)
-- [VLA](../02-model-class/03-vla.md)
+- [Robot Learning (RL)](../../04-model-training/04-robot-learning-rl.md/)
+- [AI / ML 기초](../../ai-ml.md/)
+- [VLA](../../02-model-class/03-vla.md/)
 
 ---
 

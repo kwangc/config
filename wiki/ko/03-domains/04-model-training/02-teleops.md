@@ -68,11 +68,31 @@ $$
 
 ---
 
+## 온라인 closed-loop 리파인먼트 (strategy + data)
+
+tech preview에서는 “데모 수집”만큼이나 중요한 것이 **모델이 실제로 상호작용하는 상태에서 전략/데이터를 반복적으로 개선**하는 것임을 강조합니다.
+
+전형적인 패턴:
+
+- **~24시간 내 파인튜닝**(소량의 태스크별 텔레옵 데이터)
+- **online rollouts**을 돌리고, human-in-the-loop로
+  - suboptimal action에서 복구
+  - 방문한 상태 공간을 확장(새 데이터가 초기 실패에 편향되지 않도록)
+  - 수집 전략을 리파인해서 불필요한 분산을 줄임
+
+전략 리파인이 잘 되고 있는지 확인하는 예시 지표(프리뷰 기반):
+
+- **DTW 기반 trajectory 일관성:** 엔드이펙터 cartesian(x/y/z) trajectory를 episode pair로 비교해 DTW를 계산합니다. DTW가 낮을수록 리파인된 전략이 더 일관된 공간 궤적을 만든다는 뜻입니다.
+
+팝콘 서빙 예시에서 초기 scoop-holding 전략은 underperform했고, 전략을 다듬은 뒤 success가 **43% (±9%)**로 개선됐으며 두 라운드 후 **76% (±7%)**까지 올라갔다고 보고합니다.
+
+---
+
 ## 참고
 
-- [Behavior Cloning](03-behavior-cloning.md)
-- [Robotics](../01-robotics/01-robotics.md)
-- [Data & Scaling](../05-data-scaling/01-data-scaling.md)
+- [Behavior Cloning](../03-behavior-cloning.md/)
+- [Robotics](../../01-robotics/01-robotics.md/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
 
 ---
 

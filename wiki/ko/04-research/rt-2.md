@@ -101,7 +101,7 @@ VLA 모델은 온로봇(on-robot)에서 즉시 돌리기 어렵기 때문에,
 
 ---
 
-## 4) Config가 배울 점
+## 4) Config 적용 사례
 
 - **액션 토큰 유효성 제약**: RT-2의 “액션 어휘 마스킹(유효 토큰만 디코딩)”은 제품화 가능한 아이디어입니다. Config에서도 policy ↔ supervisor 경계에서 action masking + safety gating으로 안정성을 만들 수 있습니다.
 - **co-fine-tuning 레시피**: 의미적 grounding(웹 지식)과 로봇 액션 학습을 함께 가져가며, “의미 이해를 잃지 않고 로봇을 배운다”는 관점이 Config의 학습/데이터 전략과 잘 맞습니다.

@@ -14,4 +14,4 @@ How VLA and related models are built: **deep learning**, **NN**, **backprop**, *
 
 ## See also
 
-- [Deep Learning & VLA](02-deep-learning-vla.md) — full deepdive
+- [Deep Learning & VLA](../02-deep-learning-vla.md/) — full deepdive

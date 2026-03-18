@@ -20,7 +20,7 @@
 - **Data infrastructure** — 로봇/멀티모달 데이터 파이프라인, 품질, 폐루프 검증
 - **Foundation model** — (제품이 로봇 파운데이션 모델에 초점인지 추후 보완)
 
-→ 상세는 [Data Platform](../02-product/01-data-platform.md), [Foundation Model](../02-product/02-foundation-model.md) 참고.
+→ 상세는 [Data Platform](../../02-product/01-data-platform.md/), [Foundation Model](../../02-product/02-foundation-model.md/) 참고.
 
 ---
 

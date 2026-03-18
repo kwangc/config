@@ -14,6 +14,7 @@ High-level model families: **VLM**, **LLM**, **VLA**.
 
 ## See also
 
-- [LLM](02-llm.md)
-- [VLA](03-vla.md)
+- [VLM](../02-vlm.md/)
+- [LLM](../02-llm.md/)
+- [VLA](../03-vla.md/)
 - Model Algorithm (VLA deepdive) for how these are implemented and trained

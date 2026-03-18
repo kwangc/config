@@ -68,11 +68,31 @@ This role split should be reflected in:
 
 ---
 
+## Online closed-loop refinement (strategy + data)
+
+The tech preview emphasizes that collecting demos is only the start: the bottleneck is improving strategy and data *iteratively* while the model is already interacting with the world.
+
+Typical pattern:
+
+- **Fine-tune within ~24 hours** using a small amount of task-specific teleoperation data.
+- Run **online rollouts** with human-in-the-loop intervention to:
+  - recover from suboptimal actions
+  - expand visited state space (so new data is less biased toward early failures)
+  - refine the data acquisition strategy to reduce unnecessary variance.
+
+How to measure strategy refinement (example metric from the preview):
+
+- **DTW-based trajectory consistency:** compute pairwise Dynamic Time Warping (DTW) between end-effector Cartesian trajectories (e.g., x/y/z) across episode pairs; lower DTW indicates the refined strategy produces more consistent spatial trajectories.
+
+In the popcorn-serving example, an initial scoop-holding strategy underperformed, and a refined strategy improved success to **43% (±9%)**; after two online rounds, success reached **76% (±7%)**.
+
+---
+
 ## See also
 
-- [Behavior Cloning](03-behavior-cloning.md)
-- [Robotics](../01-robotics/01-robotics.md)
-- [Data & Scaling](../05-data-scaling/01-data-scaling.md)
+- [Behavior Cloning](../03-behavior-cloning.md/)
+- [Robotics](../../01-robotics/01-robotics.md/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
 
 ---
 

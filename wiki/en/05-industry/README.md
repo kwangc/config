@@ -20,7 +20,17 @@ Market, competitors, trends, news. Update by quarter/month.
 
 ---
 
-## Competitors & similar (TBD)
+## Companies to monitor (docs)
 
-- Robot foundation model / bimanual data infrastructure companies
-- (To be filled after onboarding)
+- [Physical Intelligence](../01-physical-intelligence.md/) — robotics foundation models / general-purpose physical AI
+- [Generalist](../02-generalist.md/) — embodied foundation models for dexterity and general-purpose robots
+- [1x (1X Technologies)](../03-1x.md/) — humanoid robots for home/real environments (hardware-first)
+- [Figure](../04-figure.md/) — autonomous humanoid robots (hardware-first, large funding)
+
+---
+
+## How to use this page
+
+- Keep this list focused on “closest competitors / similar approaches” relevant to Config’s bimanual data-to-deploy pipeline.
+- Add new companies as separate docs in the same folder, then link them here.
+

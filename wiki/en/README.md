@@ -8,7 +8,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [About](company/about.md) | Company overview, mission, product direction, bimanual robotics data infrastructure |
+| [About](../01-company/about.md/) | Company overview, mission, product direction, bimanual robotics data infrastructure |
 
 ---
 
@@ -16,9 +16,9 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [Product overview](product/README.md) | Data Platform & Foundation Model summary |
-| [Data Platform](02-product/01-data-platform.md) | Data Platform structure & tech stack (to be filled) |
-| [Foundation Model](02-product/02-foundation-model.md) | Foundation Model encoding & training (to be filled) |
+| [Product overview](../02-product/README.md/) | Data Platform & Foundation Model summary |
+| [Data Platform](../02-product/01-data-platform.md/) | Data Platform structure & tech stack (to be filled) |
+| [Foundation Model](../02-product/02-foundation-model.md/) | Foundation Model encoding & training (to be filled) |
 
 ---
 
@@ -26,13 +26,14 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [AI / ML basics](domains/ai-ml.md) | ML/DL concepts, Foundation Model context |
-| [LLM](03-domains/02-model-class/02-llm.md) | Large Language Model, transformer, prompting, evaluation |
-| [VLA](03-domains/02-model-class/03-vla.md) | Vision-Language-Action, multimodal, robot control |
-| [Robotics](03-domains/01-robotics/01-robotics.md) | Robotics basics, bimanual manipulation, sim & real |
-| [Simulation & Sim2Real](03-domains/06-simulation-sim2real/01-simulation-sim2real.md) | Sim–real transfer, reality gap, domain randomization |
-| [Data & Scaling](03-domains/05-data-scaling/01-data-scaling.md) | Data scale, coverage, diversity, strategy |
-| [Deployment](03-domains/08-deployment/01-deployment.md) | Form factors, on-device deployment, quantization |
+| [AI / ML basics](../03-domains/ai-ml.md/) | ML/DL concepts, Foundation Model context |
+| [LLM](../03-domains/02-model-class/02-llm.md/) | Large Language Model, transformer, prompting, evaluation |
+| [VLM](../03-domains/02-model-class/02-vlm.md/) | Vision-Language Model, grounding, multimodal perception |
+| [VLA](../03-domains/02-model-class/03-vla.md/) | Vision-Language-Action, multimodal, robot control |
+| [Robotics](../03-domains/01-robotics/01-robotics.md/) | Robotics basics, bimanual manipulation, sim & real |
+| [Simulation & Sim2Real](../03-domains/06-simulation-sim2real/01-simulation-sim2real.md/) | Sim–real transfer, reality gap, domain randomization |
+| [Data & Scaling](../03-domains/05-data-scaling/01-data-scaling.md/) | Data scale, coverage, diversity, strategy |
+| [Deployment](../03-domains/08-deployment/01-deployment.md/) | Form factors, on-device deployment, quantization |
 
 ---
 
@@ -40,7 +41,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [Research index](research/README.md) | Papers & technical blog summaries |
+| [Research index](../04-research/README.md/) | Papers & technical blog summaries |
 
 ---
 
@@ -48,7 +49,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [Industry index](industry/README.md) | Market, competitors, trends |
+| [Industry index](../05-industry/README.md/) | Market, competitors, trends |
 
 ---
 
@@ -56,7 +57,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [Glossary](glossary/README.md) | Key terms (teleop, sim2real, proprioception, etc.) |
+| [Glossary](../06-glossary/README.md/) | Key terms (teleop, sim2real, proprioception, etc.) |
 
 ---
 
@@ -64,7 +65,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [Safety & Evaluation](safety-eval/README.md) | Safety principles, evaluation methods, benchmarks |
+| [Safety & Evaluation](../03-domains/07-evaluation/01-overview.md/) | Safety principles, evaluation methods, benchmarks |
 
 ---
 

@@ -14,7 +14,7 @@
 ## 핵심 개념 (채워나가기)
 
 - **Manipulation** — 그랩, 플레이스, 조립
-- **Bimanual** — 두 손 협응, 대칭/비대칭 태스크 → [Bimanual manipulation](04-bimanual.md)
+- **Bimanual** — 두 손 협응, 대칭/비대칭 태스크 → [Bimanual manipulation](../04-bimanual.md/)
 - **Simulation vs Real** — sim-to-real, domain gap, 데이터 수집
 - **Control** — position/velocity/torque, 정책 인터페이스
 - **데이터** — teleop, demonstration, reward 설계
@@ -27,15 +27,7 @@
 - **콤팩트 그리퍼 암:** 소형 바이매뉴얼(예: 3+3 DOF), 웨어러블·휴대형, 테이블탑 장착
 - **장착 방식:** 테이블탑, 모바일 베이스, 고정 설비 — 배포·전력·연산 제약과 연관
 
-→ on-device 배포·양자화 등은 [Deployment](../08-deployment/01-deployment.md) 참고.
-
----
-
-## Study 노트 (초안)
-
-- `../../../../study/robotics/01-hardware-taxonomy.md`
-- `../../../../study/robotics/02-system-architecture.md`
-- `../../../../study/robotics/03-bimanual.md`
+→ on-device 배포·양자화 등은 [Deployment](../../08-deployment/01-deployment.md/) 참고.
 
 ---
 
@@ -48,8 +40,8 @@
 
 ## 참고
 
-- [VLA](../02-model-class/03-vla.md) — 비전·언어·액션 모델
-- [Deployment](../08-deployment/01-deployment.md) — 폼팩터·on-device·양자화
-- [Simulation & Sim2Real](../06-simulation-sim2real/01-simulation-sim2real.md) — 시뮬·전이
+- [VLA](../../02-model-class/03-vla.md/) — 비전·언어·액션 모델
+- [Deployment](../../08-deployment/01-deployment.md/) — 폼팩터·on-device·양자화
+- [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real.md/) — 시뮬·전이
 - `../../04-research/`, `../../05-industry/` — 로봇 트렌드
 

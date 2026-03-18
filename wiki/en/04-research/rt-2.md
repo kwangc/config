@@ -101,7 +101,7 @@ The paper also shows that adding **chain-of-thought / planning** improves multi-
 
 ---
 
-## 4) What Config can learn
+## 4) What Config can apply
 
 - **Action token validity constraints:** RT-2’s action-vocabulary restriction is a concrete productizable idea for the “policy ↔ supervisor” boundary. Config can formalize this as action masking / constrained decoding + safety gating.
 - **Co-fine-tuning strategy:** mixing web-scale grounding with robotics trajectories reduces the risk of losing semantic understanding while learning robot actions; this aligns with “stable multimodal representations + trustworthy feedback loops.”

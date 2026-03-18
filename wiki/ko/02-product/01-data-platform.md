@@ -1,40 +1,95 @@
 # Product — Data Platform
 
-Config의 **Data Platform**이 어떤 식으로 구성되어 있고, 어떤 기술로 이뤄져 있는지 정리하는 문서입니다.  
-(입사 후 실제 아키텍처·기술 스택으로 채워나가면 됩니다.)
+Config의 Data Platform은 인간(두 손) 조작 데이터를 로봇에 맞는(로봇-얼라인) 학습 신호로 바꾸고, CFG-1과 신규 태스크의 빠른 적응을 위한 “closing the loop” 기반을 제공합니다.
 
 ---
 
 ## 개요
 
-- **역할:** general-purpose bimanipulation을 위한 데이터 인프라
-- **Closing the loop:** 수집 → 파이프라인 → 품질 검증 → (모델 학습) → 실세계 검증
+- **역할:** 일반화 가능한 바이매뉴얼 조작을 위한 데이터 인프라(고정밀 액션 라벨링, scenario 기반 다양성 계획, closed-loop 반복 포함).
+- **인간 기반으로 action data를 스케일:** 비싼 로봇 텔레옵만으로 해결하지 않고, 인간을 1차 학습 신호 소스로 삼아 데이터를 빠르고 경제적으로 확장합니다.
+- **Closing the loop:** 수집 → 전처리/라벨 → 품질 검증 → (학습/파인튜닝) → 실세계 물리 검증.
 
 ---
 
-## 구성 (채워나가기)
+## 1) 인간 비디오 → 로봇-얼라인 액션 표현(라벨)로 변환
 
-- **데이터 수집:** 시뮬레이션 / 실세계, teleop, 멀티모달 (vision, proprioception, …)
-- **파이프라인:** 수집 → 전처리 → 라벨/어노테이션 → 스토리지·버저닝
-- **품질·검증:** 데이터 무결성, 실세계 테스트 연동
-- **고객 연동:** 파트너/고객 데이터 통합, 배포 지원
+실무에서 raw human video는 구조화된 제어 신호가 부족합니다. 그래서 학습 품질을 위해서는, 타깃 로봇의 action/control space와 호환되는 형태로 액션 라벨을 만들어야 합니다.
+
+Config의 접근:
+
+- **인간 조작 hand gripper:** 타깃 로봇 엔드이펙터를 모사하도록 인간이 조작하는 gripper를 설계/제작합니다.
+- **로봇-얼라인 액션 추정:** 인간 gripper의 trajectory로부터 로봇 엔드이펙터에 얼라인된 액션 표현을 추정합니다(예: 로봇 엔드이펙터에 얼라인된 7-DoF 스타일 액션 표현).
+- **왜 중요한가:** 이것이 있어야 “인간 비디오”가 학습에 실제로 쓸 수 있게 됩니다. 없으면 라벨이 모호해져 모델 성능이 정체됩니다.
+
+기술 프리뷰의 결과:
+
+- 현재까지 **~100k hours** 수준의 인간 액션 데이터를 수집
+- 파이프라인 기준으로 월 **~20k hours** 정도를 수집
 
 ---
 
-## 기술 스택 (채워나가기)
+## 2) Scenario 기반 다양성 계획(coverage 관리)
+
+일반화는 “운”이 아니라 시나리오 수준에서 관리해야 합니다.
+
+- **Scenario 정의:** 한 태스크의 서로 다른 변형(환경/오브젝트/동작 스타일) 각각을 scenario로 취급합니다.
+- **Scenario 마이닝:** 태스크별로 scenario instruction을 임베딩한 뒤(예: 텍스트 임베딩 모델), scenario를 클러스터링해 coverage 그룹을 만듭니다.
+- **UMAP + HDBSCAN 클러스터링:** tech preview에서는 다음을 보고합니다.
+  - UMAP으로 instruction embedding을 3D로 투영
+  - HDBSCAN으로 클러스터 식별
+  - 클러스터 마커 크기를 총 수집 시간(데이터 수집 duration)으로 반영
+- **수집 가이드:** 커버리지를 찾은 뒤에는, 수집자가 불필요한 분산을 만들지 않도록 reference video 같은 시각 가이드를 제공합니다.
+
+---
+
+## 3) 데이터 파이프라인, 라인리지(lineage) & 품질 게이트
+
+“closing the loop”가 돌아가려면 품질을 측정하고 재현 가능해야 합니다.
+
+핵심 요구사항:
+
+- **데이터 lineage/버전관리:** 원시 캡처 → 추정된 액션 표현 → 라벨/메타데이터까지의 매핑이 각 버전마다 보존되어야 합니다.
+- **품질 정의 = precision + accuracy + diversity**
+  - 액션 표현 추정의 precision/accuracy
+  - scenario 관점에서의 다양성(롱테일 커버리지)
+  - 실패 원인 attribution(그래야 무엇을 고칠지 결정 가능)
+- **품질 게이트:** 캘리브레이션/센서/운영자 변화가 있어도 데이터가 “계속 쓸 수 있는 상태”로 남도록 자동 체크를 둡니다.
+
+---
+
+## 4) 빠른 태스크 적응 입력(24h 파인튜닝 + ~48h closed loop)
+
+새 태스크/새 타깃 로봇으로 적응할 때:
+
+1. **타깃 로봇 특성과 센싱 제약**을 기준으로 acquisition strategy를 설계
+2. 타깃 태스크에 대해 **소량 텔레옵 데이터** 수집
+3. **CFG-1을 태스크별로 파인튜닝**(자동 end-to-end 파이프라인), 보통 **~24시간** 내 완료
+4. **온라인 롤아웃**(human-in-the-loop)으로 전략/데이터 계획을 동시에 다듬고, 배포까지 **~48시간** 내 도달
+
+프리뷰의 구체 사례:
+
+- 초기 전략(scoop-holding)이 wrist-view 기반 fine control이 충분히 반영되지 않아 underperform
+- 전략을 수정한 뒤 success가 **43% (±9%)**로 개선
+- 온라인 closed-loop 2라운드 이후 success가 **76% (±7%)**까지 도달
+
+---
+
+## 기술 스택 (TBD)
 
 | 영역 | 기술/도구 | 비고 |
 |------|-----------|------|
-| 스토리지·버저닝 | (추가) | |
-| 전처리·파이프라인 | (추가) | |
-| 시뮬레이션 | (추가) | |
-| 실세계 로봇·센서 | (추가) | |
+| 스토리지 & 버저닝 | 데이터셋 매니페스트/라인리지 트래킹 | (실제 툴링은 채우기) |
+| 액션 추정/라벨링 | human gripper → robot-aligned 액션 추정 | precision/accuracy가 핵심 |
+| Scenario 마이닝/커버리지 | embedding + UMAP/HDBSCAN | scenario 레벨 다양성 관리 |
+| 품질 스코어링/게이트 | 자동 체크 + 실패 원인 추적 | “데이터가 쓸 수 있는 상태” 유지 |
+| 온라인 closed-loop 반복 | 롤아웃 로깅 + 전략 리파인 | 배포 타임라인에 직접 영향 |
 
 ---
 
 ## 참고
 
-- [About](../01-company/about.md) — 회사·미션
-- [Foundation Model](02-foundation-model.md) — 인코딩·학습 방식
-- [Simulation & Sim2Real](../03-domains/06-simulation-sim2real/01-simulation-sim2real.md), [Data & Scaling](../03-domains/05-data-scaling/01-data-scaling.md) — 도메인 지식
+- [About](../../01-company/about.md/)
+- [Foundation Model](../02-foundation-model.md/)
+- [Simulation & Sim2Real](../../03-domains/06-simulation-sim2real/01-simulation-sim2real.md/), [Data & Scaling](../../03-domains/05-data-scaling/01-data-scaling.md/)
 

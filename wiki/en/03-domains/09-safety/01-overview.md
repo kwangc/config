@@ -14,6 +14,6 @@
 
 ## See also
 
-- [Evaluation](../07-evaluation/01-overview.md)
-- [Deployment](../08-deployment/01-deployment.md)
-- [Research](../../04-research/README.md)
+- [Evaluation](../../07-evaluation/01-overview.md/)
+- [Deployment](../../08-deployment/01-deployment.md/)
+- [Research](../../../04-research/README.md/)

@@ -23,6 +23,6 @@
 
 ## See also
 
-- [Deployment](../08-deployment/01-deployment.md)
-- [Safety](../09-safety/01-overview.md)
-- [Research](../../04-research/README.md)
+- [Deployment](../../08-deployment/01-deployment.md/)
+- [Safety](../../09-safety/01-overview.md/)
+- [Research](../../../04-research/README.md/)

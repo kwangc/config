@@ -43,6 +43,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
           children: [
             { label: 'Overview', href: w('03-domains/02-model-class/01-overview.md') },
             { label: 'LLM', href: w('03-domains/02-model-class/02-llm.md') },
+            { label: 'VLM', href: w('03-domains/02-model-class/02-vlm.md') },
             { label: 'VLA', href: w('03-domains/02-model-class/03-vla.md') },
           ],
         },
@@ -73,11 +74,21 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     },
     {
       label: 'Research',
-      children: [{ label: 'Overview', href: w('04-research/README.md') }],
+      children: [
+        { label: 'Overview', href: w('04-research/README.md') },
+        { label: 'RT-2', href: w('04-research/rt-2.md') },
+        { label: 'SmolVLM', href: w('04-research/smolvlm.md') },
+      ],
     },
     {
       label: 'Industry',
-      children: [{ label: 'Overview', href: w('05-industry/README.md') }],
+      children: [
+        { label: 'Overview', href: w('05-industry/README.md') },
+        { label: 'Physical Intelligence', href: w('05-industry/01-physical-intelligence.md') },
+        { label: 'Generalist', href: w('05-industry/02-generalist.md') },
+        { label: '1x', href: w('05-industry/03-1x.md') },
+        { label: 'Figure', href: w('05-industry/04-figure.md') },
+      ],
     },
     {
       label: 'Glossary',

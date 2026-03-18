@@ -22,8 +22,8 @@ Vision + Language + **Action** — 로봇 제어를 위한 멀티모달 모델.
 
 ## 참고
 
-- [Robotics](../01-robotics/01-robotics.md) — 로봇 기초
-- [LLM](02-llm.md) — 언어/계획
+- [Robotics](../../01-robotics/01-robotics.md/) — 로봇 기초
+- [LLM](../02-llm.md/) — 언어/계획
 - `../../04-research/` — VLA 논문 (RT-2, OpenVLA, 등)
 
 ---

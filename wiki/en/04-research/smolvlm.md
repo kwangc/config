@@ -94,7 +94,7 @@ SmolVLM includes throughput measurements and demonstrates local/browser inferenc
 
 ---
 
-## 4) What Config can learn
+## 4) What Config can apply
 
 Even if SmolVLM is not a robotics paper, it directly informs how Config can build on-device multimodal components for robotics/VLA systems:
 

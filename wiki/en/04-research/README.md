@@ -18,10 +18,13 @@ Summaries of papers, technical blogs, and articles. One-line summary + key point
 
 ## List (TBD)
 
-| Title | One-line | Keywords | Link |
-|-------|----------|----------|------|
-| RT-2 | VLA that transfers web vision-language knowledge to low-level robot actions | #VLA #data #foundation-model #sim2real | [rt-2.md](rt-2.md) |
-| SmolVLM | Small & efficient multimodal models with resource-efficient tokenization | #VLM #efficient #on-device | [smolvlm.md](smolvlm.md) |
+### [RT-2](../rt-2.md/)
+- **One line:** VLA that transfers web vision-language knowledge to low-level robot actions
+- **Keywords:** #VLA #data #foundation-model #sim2real
+
+### [SmolVLM](../smolvlm.md/)
+- **One line:** Small & efficient multimodal models with resource-efficient tokenization
+- **Keywords:** #VLM #efficient #on-device
 
 ---
 

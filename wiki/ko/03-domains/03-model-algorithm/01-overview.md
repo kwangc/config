@@ -14,4 +14,4 @@ VLA·관련 모델이 어떻게 구성되는지: **딥러닝**, **NN**, **역전
 
 ## 참고
 
-- [Deep Learning & VLA](02-deep-learning-vla.md) — 상세 정리
+- [Deep Learning & VLA](../02-deep-learning-vla.md/) — 상세 정리

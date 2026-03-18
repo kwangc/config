@@ -85,9 +85,9 @@ Often:
 
 ## See also
 
-- [Robot Learning (RL)](../04-model-training/04-robot-learning-rl.md)
-- [AI / ML basics](ai-ml.md)
-- [VLA](../02-model-class/03-vla.md)
+- [Robot Learning (RL)](../../04-model-training/04-robot-learning-rl.md/)
+- [AI / ML basics](../../ai-ml.md/)
+- [VLA](../../02-model-class/03-vla.md/)
 
 ---
 

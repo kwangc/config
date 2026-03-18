@@ -19,7 +19,7 @@
 - **Data infrastructure** — robot/multimodal data pipeline, quality, closed-loop validation
 - **Foundation model** — (TBD: product focus on robot foundation model)
 
-→ See [Data Platform](../02-product/01-data-platform.md), [Foundation Model](../02-product/02-foundation-model.md).
+→ See [Data Platform](../../02-product/01-data-platform.md/), [Foundation Model](../../02-product/02-foundation-model.md/).
 
 ---
 

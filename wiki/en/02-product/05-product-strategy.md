@@ -36,9 +36,20 @@ In industry, bimanual needs are especially strong in:
 
 ## 4) Why Data Platform & Foundation Model besides other types of products?
 
-Data Platform is where teams try to make learning operational, but the painful part in practice is not “collect more data”—it’s keeping data *usable*: sensor/calibration drift, perception/action synchronization mismatches, schema inconsistencies, label noise, and unclear failure reason attribution. Without strong data lineage/versioning and quality gates, “closing the loop” turns into slow manual investigations and iteration cycles that don’t fit production timelines.
+The tech preview’s core belief is that the primary bottleneck for general-purpose robot foundation models is **data**—not merely more data, but *data with sufficient richness and diversity* and with the right notion of accuracy/precision for action learning.
 
-Foundation Model is the learned interface between instructions/context and the robot’s action space, but real deployments add constraints: grounding ambiguity, distribution shift with new objects/environments, and the need to keep action generation compatible with safety and timing requirements. If Data Platform makes feedback trustworthy and Foundation Model provides stable multimodal representations with consistent action interfaces, improvements can compound across tasks and hardware without repeating the same commissioning work.
+Data Platform turns human video into robot-usable training signals by:
+
+- estimating robot-aligned action representations from a **human-operated hand gripper** (so action labels are precise and measurable)
+- managing task diversity through **scenario planning** (clustered instruction variation, then guided collection to reduce unnecessary variance)
+- enforcing quality via **data lineage/versioning** and quality gates tied to precision + accuracy + diversity + failure attribution
+
+Foundation Model complements this by being the learned policy backbone (CFG-1) that can be adapted quickly:
+
+- **fine-tune within ~24 hours** using a small amount of target task teleoperation data
+- then improve via **online rollouts** with human-in-the-loop strategy refinement, typically reaching task deployment within **~48 hours**
+
+Finally, “the right robot” depends on cost and end-effector embodiment. By focusing the representation layer on action interfaces that match target embodiments, the system remains robust under the economics constraint—not only academically capable.
 
 ---
 
@@ -63,8 +74,8 @@ Software is where we can standardize interfaces, encode safety/supervision patte
 
 ## See also
 
-- [Robotics](../README.md#domains)
-- [Data & Scaling](../README.md#domains)
-- [Simulation & Sim2Real](../README.md#domains)
-- [Deployment](../README.md#domains)
+- [Robotics](../../README.md/#domains)
+- [Data & Scaling](../../README.md/#domains)
+- [Simulation & Sim2Real](../../README.md/#domains)
+- [Deployment](../../README.md/#domains)
 
