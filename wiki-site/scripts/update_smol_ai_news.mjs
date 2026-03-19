@@ -48,6 +48,8 @@ if (!GEMINI_API_KEY) {
   throw new Error('Missing GEMINI_API_KEY env var');
 }
 
+const GEMINI_MAX_OUTPUT_TOKENS = Number(process.env.GEMINI_MAX_OUTPUT_TOKENS ?? '2000');
+
 function parseIssueSlugToDate(slug) {
   // Expected: 26-03-16-not-much  => 2026-03-16
   const m = slug.match(/^(\d{2})-(\d{2})-(\d{2})-/);
@@ -222,7 +224,7 @@ async function callGeminiForModel({ prompt, model }) {
       temperature: 0.4,
       topP: 0.9,
       // Keep output tight because we only need 3 sections.
-      maxOutputTokens: 900,
+      maxOutputTokens: GEMINI_MAX_OUTPUT_TOKENS,
       // Ask Gemini to return strict JSON when supported.
       responseMimeType: 'application/json',
     },
@@ -276,6 +278,14 @@ function parseGeminiJson(text) {
       )}`
     );
   }
+}
+
+function isLikelyTruncatedJson(text) {
+  const first = text.indexOf('{');
+  if (first < 0) return false;
+  // If there is no closing brace, output is probably truncated.
+  const last = text.lastIndexOf('}');
+  return last < first;
 }
 
 async function loadExistingNews() {
@@ -341,9 +351,28 @@ async function main() {
       issueTitle,
     };
 
-    const prompt = buildGeminiPrompt(payload);
-    const geminiText = await callGemini({ prompt });
-    const parsed = parseGeminiJson(geminiText);
+    const basePrompt = buildGeminiPrompt(payload);
+    const prompt = basePrompt;
+
+    let geminiText = await callGemini({ prompt });
+    let parsed = null;
+    try {
+      parsed = parseGeminiJson(geminiText);
+    } catch (err) {
+      // Most common failure: Gemini output got truncated (missing closing `}`).
+      if (isLikelyTruncatedJson(geminiText)) {
+        console.warn(
+          `Gemini output truncated for ${issue.slug}. Retrying with stronger "JSON only" instruction...`
+        );
+        const retryPrompt =
+          basePrompt +
+          '\n\nCRITICAL: The previous output was truncated. Regenerate and output ONLY a complete JSON object that fully closes braces. Do not use markdown fences.'; 
+        geminiText = await callGemini({ prompt: retryPrompt });
+        parsed = parseGeminiJson(geminiText);
+      } else {
+        throw err;
+      }
+    }
 
     const twitter = parsed?.twitter ?? {};
     const reddit = parsed?.reddit ?? {};
