@@ -37,7 +37,7 @@ const GEMINI_MODEL_CANDIDATES = (
   [
     process.env.GEMINI_MODEL ?? 'gemini-2.5-flash-lite',
     'gemini-2.5-flash',
-    'gemini-1.5-flash-latest',
+    'gemini-2.0-flash',
   ].join(',')
 )
   .split(',')
@@ -49,6 +49,56 @@ if (!GEMINI_API_KEY) {
 }
 
 const GEMINI_MAX_OUTPUT_TOKENS = Number(process.env.GEMINI_MAX_OUTPUT_TOKENS ?? '2000');
+
+async function listGeminiModels() {
+  // Used to avoid calling retired/unsupported model names (404) during retries.
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(
+    GEMINI_API_KEY
+  )}`;
+  const res = await fetch(endpoint);
+  if (!res.ok) return [];
+  const data = await res.json();
+  return data?.models ?? [];
+}
+
+function extractModelName(modelEntry) {
+  // Possible shapes:
+  // - { name: "models/gemini-2.5-flash" }
+  // - { model: "gemini-2.5-flash" }
+  // - { id: "gemini-2.5-flash" }
+  const raw = modelEntry?.name ?? modelEntry?.model ?? modelEntry?.id;
+  if (typeof raw !== 'string') return null;
+  const parts = raw.split('/');
+  return parts[parts.length - 1];
+}
+
+function modelSupportsGenerateContent(modelEntry) {
+  const methods =
+    modelEntry?.supportedGenerationMethods ??
+    modelEntry?.supportedGenerationMethods ??
+    modelEntry?.supportedMethods ??
+    [];
+  if (!Array.isArray(methods) || methods.length === 0) return true; // unknown => be permissive
+  return methods.some((m) => String(m).toLowerCase().includes('generatecontent'));
+}
+
+let USABLE_MODEL_CANDIDATES = GEMINI_MODEL_CANDIDATES;
+
+async function resolveGeminiModelCandidates() {
+  const available = await listGeminiModels();
+  if (!available.length) return GEMINI_MODEL_CANDIDATES;
+
+  const availableNames = new Set();
+  for (const m of available) {
+    const name = extractModelName(m);
+    if (!name) continue;
+    if (modelSupportsGenerateContent(m)) availableNames.add(name);
+  }
+
+  const filtered = GEMINI_MODEL_CANDIDATES.filter((c) => availableNames.has(c));
+  // If everything filtered out, be permissive (avoid empty list).
+  return filtered.length ? filtered : GEMINI_MODEL_CANDIDATES;
+}
 
 function parseIssueSlugToDate(slug) {
   // Expected: 26-03-16-not-much  => 2026-03-16
@@ -281,7 +331,7 @@ async function callGeminiForModel({ prompt, model }) {
 
 async function callGemini({ prompt }) {
   let lastErr;
-  for (const model of GEMINI_MODEL_CANDIDATES) {
+  for (const model of USABLE_MODEL_CANDIDATES) {
     try {
       return await callGeminiForModel({ prompt, model });
     } catch (err) {
@@ -337,8 +387,10 @@ function parseBulletsForMarker(text, marker) {
   const bullets = [];
 
   for (const line of lines) {
-    if (!/^[-•*]\s*/.test(line)) continue; // only accept explicit bullet lines
-    const clean = line.replace(/^[-•*]\s*/, '').trim();
+    // Accept common bullet prefixes: "-", "•", "*", "1.", "1)"
+    const bulletMatch = line.match(/^([-•*]|\d+\.\s*|\d+\)\s*)\s*/);
+    if (!bulletMatch) continue; // only accept explicit bullet lines
+    const clean = line.replace(/^([-•*]|\d+\.\s*|\d+\)\s*)\s*/, '').trim();
     if (!clean) continue;
     if (ALL_MARKERS.includes(clean)) continue; // never treat marker tokens as bullets
     bullets.push(clean);
@@ -397,6 +449,9 @@ async function main() {
     return true;
   });
   const existingById = new Map(existingItems.map((x) => [x.id, x]));
+
+  // Ensure we only try currently supported model names (avoid 404 on retries).
+  USABLE_MODEL_CANDIDATES = await resolveGeminiModelCandidates();
 
   const issuesRes = await fetch(ISSUES_URL);
   if (!issuesRes.ok) throw new Error(`Failed to fetch issues list: ${issuesRes.status} ${issuesRes.statusText}`);
