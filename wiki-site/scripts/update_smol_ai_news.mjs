@@ -314,27 +314,37 @@ function parseGeminiJson(text) {
 const ALL_MARKERS = ['TWITTER_EN', 'TWITTER_KO', 'REDDIT_EN', 'REDDIT_KO', 'DISCORD_EN', 'DISCORD_KO'];
 
 function parseBulletsForMarker(text, marker) {
-  const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const markersAlt = ALL_MARKERS.map((m) => m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
-  // Allow optional ":" right after marker, e.g. "TWITTER_EN:".
-  const re = new RegExp(
-    `${escaped}\\s*:?\\s*\\n([\\s\\S]*?)(?=\\n(?:${markersAlt})\\s*:?\\s*\\n|$)`,
-    'm'
-  );
-  const m = text.match(re);
-  const block = m?.[1] ?? '';
+  const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  const lines = block
-    .split('\n')
-    .map((l) => l.trim())
-    .filter(Boolean);
+  const anyMarkerAlt = ALL_MARKERS.map((m) => escapeRegExp(m)).join('|');
+  const markerRe = new RegExp(`${escapeRegExp(marker)}\\s*:?'`, 'i');
 
+  // Find marker start (position-based parsing to avoid newline-format issues).
+  const startMatch = markerRe.exec(text);
+  if (!startMatch) return [];
+
+  const startIdx = startMatch.index + startMatch[0].length;
+
+  // Find the earliest next marker after start.
+  const nextRe = new RegExp(`(?:${anyMarkerAlt})\\s*:?`, 'g');
+  nextRe.lastIndex = startIdx;
+  const nextMatch = nextRe.exec(text);
+  const endIdx = nextMatch ? nextMatch.index : text.length;
+
+  const block = text.slice(startIdx, endIdx);
+
+  const lines = block.split(/\r?\n/).map((l) => l.trim());
   const bullets = [];
+
   for (const line of lines) {
-    const clean = line.replace(/^[-•]\s*/, '').trim();
-    if (clean) bullets.push(clean);
-    if (bullets.length >= 10) break; // keep it bounded for UI
+    if (!/^[-•*]\s*/.test(line)) continue; // only accept explicit bullet lines
+    const clean = line.replace(/^[-•*]\s*/, '').trim();
+    if (!clean) continue;
+    if (ALL_MARKERS.includes(clean)) continue; // never treat marker tokens as bullets
+    bullets.push(clean);
+    if (bullets.length >= 10) break;
   }
+
   return bullets;
 }
 
