@@ -184,14 +184,11 @@ We need short, readable section recaps.
 
 Task:
 - For each section (Twitter / Reddit / Discord), output:
-  - bullets_en: array of 4-5 bullet strings in English
-  - bullets_ko: array of 4-5 bullet strings in Korean
-- Each bullet string should be a short sentence.
-- Output must be valid JSON only.
-- Output must be a single JSON object with keys exactly: twitter, reddit, discord.
-- Do not wrap in markdown fences.
-- Do not include any additional commentary.
-- If a section has no useful content, return an empty array for that section.
+  - bulleted English recap (4-5 bullets max)
+  - bulleted Korean recap (4-5 bullets max)
+- Each bullet must be a single line starting with "- ".
+- Each bullet line must be a short sentence and must not contain newline characters.
+- Do NOT output any text other than the markers and their bullet lines.
 
 Issue title (card): ${issueTitle}
 
@@ -204,12 +201,27 @@ ${redditText}
 === AI Discords SECTION TEXT ===
 ${discordText}
 
-Output JSON schema:
-{
-  "twitter": { "bullets_en": string[], "bullets_ko": string[] },
-  "reddit": { "bullets_en": string[], "bullets_ko": string[] },
-  "discord": { "bullets_en": string[], "bullets_ko": string[] }
-}
+Output format (exact markers; no markdown fences):
+TWITTER_EN
+- bullet...
+- bullet...
+TWITTER_KO
+- bullet...
+- bullet...
+
+REDDIT_EN
+- bullet...
+REDDIT_KO
+- bullet...
+
+DISCORD_EN
+- bullet...
+DISCORD_KO
+- bullet...
+
+Rules:
+- Output 4-5 bullets per section. If the input section is empty, output 0 bullets (just the marker).
+- Use only "-" bullet lines. No numbering.
 `.trim();
 }
 
@@ -225,8 +237,6 @@ async function callGeminiForModel({ prompt, model }) {
       topP: 0.9,
       // Keep output tight because we only need 3 sections.
       maxOutputTokens: GEMINI_MAX_OUTPUT_TOKENS,
-      // Ask Gemini to return strict JSON when supported.
-      responseMimeType: 'application/json',
     },
   };
 
@@ -278,6 +288,47 @@ function parseGeminiJson(text) {
       )}`
     );
   }
+}
+
+const ALL_MARKERS = ['TWITTER_EN', 'TWITTER_KO', 'REDDIT_EN', 'REDDIT_KO', 'DISCORD_EN', 'DISCORD_KO'];
+
+function parseBulletsForMarker(text, marker) {
+  const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const markersAlt = ALL_MARKERS.map((m) => m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const re = new RegExp(`${escaped}\\s*\\n([\\s\\S]*?)(?=\\n(?:${markersAlt})\\s*\\n|$)`, 'm');
+  const m = text.match(re);
+  const block = m?.[1] ?? '';
+
+  const lines = block
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
+
+  const bullets = [];
+  for (const line of lines) {
+    const clean = line.replace(/^[-•]\s*/, '').trim();
+    if (clean) bullets.push(clean);
+    if (bullets.length >= 5) break; // we request 4-5 max; keep it tight
+  }
+  return bullets;
+}
+
+function parseGeminiMarkers(text) {
+  // Accept either markers alone or markers + bullet lines.
+  return {
+    twitter: {
+      bullets_en: parseBulletsForMarker(text, 'TWITTER_EN'),
+      bullets_ko: parseBulletsForMarker(text, 'TWITTER_KO'),
+    },
+    reddit: {
+      bullets_en: parseBulletsForMarker(text, 'REDDIT_EN'),
+      bullets_ko: parseBulletsForMarker(text, 'REDDIT_KO'),
+    },
+    discord: {
+      bullets_en: parseBulletsForMarker(text, 'DISCORD_EN'),
+      bullets_ko: parseBulletsForMarker(text, 'DISCORD_KO'),
+    },
+  };
 }
 
 function isLikelyTruncatedJson(text) {
@@ -355,23 +406,24 @@ async function main() {
     const prompt = basePrompt;
 
     let geminiText = await callGemini({ prompt });
-    let parsed = null;
-    try {
-      parsed = parseGeminiJson(geminiText);
-    } catch (err) {
-      // Most common failure: Gemini output got truncated (missing closing `}`).
-      if (isLikelyTruncatedJson(geminiText)) {
-        console.warn(
-          `Gemini output truncated for ${issue.slug}. Retrying with stronger "JSON only" instruction...`
-        );
-        const retryPrompt =
-          basePrompt +
-          '\n\nCRITICAL: The previous output was truncated. Regenerate and output ONLY a complete JSON object that fully closes braces. Do not use markdown fences.'; 
-        geminiText = await callGemini({ prompt: retryPrompt });
-        parsed = parseGeminiJson(geminiText);
-      } else {
-        throw err;
-      }
+    let parsed = parseGeminiMarkers(geminiText);
+
+    // If the model failed to follow the marker format, parsed bullets will be all empty.
+    const allEmpty =
+      !parsed?.twitter?.bullets_en?.length &&
+      !parsed?.twitter?.bullets_ko?.length &&
+      !parsed?.reddit?.bullets_en?.length &&
+      !parsed?.reddit?.bullets_ko?.length &&
+      !parsed?.discord?.bullets_en?.length &&
+      !parsed?.discord?.bullets_ko?.length;
+
+    if (allEmpty) {
+      console.warn(`Gemini marker format failed for ${issue.slug}. Retrying...`);
+      const retryPrompt =
+        basePrompt +
+        '\n\nCRITICAL: Output EXACTLY the markers listed. After each marker, output ONLY "-" bullet lines. No other text.';
+      geminiText = await callGemini({ prompt: retryPrompt });
+      parsed = parseGeminiMarkers(geminiText);
     }
 
     const twitter = parsed?.twitter ?? {};
