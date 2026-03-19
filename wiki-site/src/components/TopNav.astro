@@ -830,16 +830,17 @@ const wikiNav = getWikiNav(locale, base);
     display: none;
     align-items: center;
     justify-content: center;
-    background: rgba(15, 23, 42, 0.95);
+    /* Increase contrast on mobile: use highlight/accent-like background */
+    background: rgba(51, 123, 250, 0.95);
     color: #fff;
     box-shadow:
-      0 10px 25px rgba(15, 23, 42, 0.4),
-      0 0 0 1px rgba(148, 163, 184, 0.45);
+      0 10px 25px rgba(51, 123, 250, 0.35),
+      0 0 0 1px rgba(51, 123, 250, 0.55);
     cursor: pointer;
     backdrop-filter: blur(10px);
   }
   .topnav-fab:hover {
-    background: rgba(37, 99, 235, 0.98);
+    background: rgba(0, 45, 203, 0.98);
   }
   .topnav-fab-icon,
   .topnav-fab-icon::before,

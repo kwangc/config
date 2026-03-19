@@ -27,6 +27,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     {
       label: 'Domains',
       children: [
+        { label: 'Overview', href: w('03-domains/README.md') },
         {
           id: 'robotics',
           label: 'Robotics',

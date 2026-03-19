@@ -15,7 +15,7 @@ const prefix = `${base}/${locale}`;
 const sections: { key: string; path: string }[] = [
   { key: 'company', path: '01-company/about.md' },
   { key: 'product', path: '02-product/README.md' },
-  { key: 'domains', path: '03-domains/ai-ml.md' },
+  { key: 'domains', path: '03-domains/README.md' },
   { key: 'research', path: '04-research/README.md' },
   { key: 'industry', path: '05-industry/README.md' },
   { key: 'glossary', path: '06-glossary/README.md' },
@@ -27,7 +27,58 @@ const sections: { key: string; path: string }[] = [
     <h1>{t.home.title}</h1>
     <p class="lead">{t.home.lead}</p>
     <p class="intro">{t.home.intro}</p>
-    <p><a href={`${prefix}/news/`} class="news-link">📰 {t.home.newsLink}</a></p>
+    <section class="home-browse-hint" aria-label="Quick browse hint">
+      <ul>
+        {locale === 'ko' ? (
+          <>
+            <li>Company/Products: 데이터 → 모델 → 운영(rollout) 흐름을 한눈에.</li>
+            <li>Domains: 로보틱스, VLA, 학습/데이터/배포를 구조화.</li>
+            <li>Research/Industry/Glossary: 최신 참고와 용어를 바로 연결.</li>
+          </>
+        ) : (
+          <>
+            <li>Company/Products: data → model → operations(rollout) at a glance.</li>
+            <li>Domains: robotics, VLA, and the full learning/data/deployment stack.</li>
+            <li>Research/Industry/Glossary: latest references and one-stop terminology.</li>
+          </>
+        )}
+      </ul>
+    </section>
+
+    <section class="home-start" aria-label="Suggested start paths">
+      <h2 class="home-start-title">{locale === 'ko' ? '어디부터 볼까요?' : 'Suggested start'}</h2>
+      <ul class="home-start-list">
+        {locale === 'ko' ? (
+          <>
+            <li>
+              <strong>엔지니어</strong>: <a href={`${prefix}/wiki/02-product/README.md/`}>Product 개요</a> → <a href={`${prefix}/wiki/03-domains/05-data-scaling/01-data-scaling.md/`}>Data & Scaling</a>
+            </li>
+            <li>
+              <strong>아키텍트</strong>: <a href={`${prefix}/wiki/03-domains/README.md/`}>Domains 개요</a> → <a href={`${prefix}/wiki/03-domains/02-model-class/01-overview.md/`}>Model Class</a> → <a href={`${prefix}/wiki/03-domains/09-safety/01-overview.md/`}>Safety</a>
+            </li>
+            <li>
+              <strong>전체 맥락</strong>: <a href={`${prefix}/wiki/04-research/README.md/`}>Research index</a> → <a href={`${prefix}/wiki/06-glossary/README.md/`}>Glossary</a>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <strong>Engineer</strong>: <a href={`${prefix}/wiki/02-product/README.md/`}>Product overview</a> →{' '}
+              <a href={`${prefix}/wiki/03-domains/05-data-scaling/01-data-scaling.md/`}>Data & Scaling</a>
+            </li>
+            <li>
+              <strong>Architect</strong>: <a href={`${prefix}/wiki/03-domains/README.md/`}>Domains overview</a> →{' '}
+              <a href={`${prefix}/wiki/03-domains/02-model-class/01-overview.md/`}>Model Class</a> →{' '}
+              <a href={`${prefix}/wiki/03-domains/09-safety/01-overview.md/`}>Safety</a>
+            </li>
+            <li>
+              <strong>Big picture</strong>: <a href={`${prefix}/wiki/04-research/README.md/`}>Research index</a> →{' '}
+              <a href={`${prefix}/wiki/06-glossary/README.md/`}>Glossary</a>
+            </li>
+          </>
+        )}
+      </ul>
+    </section>
 
     <section class="browse">
       <h2 class="browse-title">{t.home.browseLabel}</h2>
@@ -55,8 +106,30 @@ const sections: { key: string; path: string }[] = [
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
-  .news-link { font-weight: 600; }
+  .home-browse-hint {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+  .home-browse-hint ul {
+    padding-left: 1.1rem;
+    margin: 0.35rem 0 0;
+  }
+  .home-browse-hint li {
+    margin: 0.35rem 0;
+    line-height: 1.5;
+  }
   .browse { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .home-start { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .home-start-title {
+    font-size: 0.85rem;
+    margin: 0 0 0.7rem 0;
+    color: var(--muted);
+    font-weight: 650;
+  }
+  .home-start-list { padding-left: 1.1rem; margin: 0; }
+  .home-start-list li { margin: 0.35rem 0; line-height: 1.55; color: var(--text); }
+  .home-start-list a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .home-start-list a:hover { text-decoration: underline; }
   .browse-title {
     font-size: 0.75rem;
     text-transform: uppercase;

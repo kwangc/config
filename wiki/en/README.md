@@ -26,7 +26,7 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 
 | Doc | Description |
 |-----|-------------|
-| [AI / ML basics](../03-domains/ai-ml.md/) | ML/DL concepts, Foundation Model context |
+| [Domains overview](../03-domains/README.md/) | Robotics → Model Class → Training/Data/Simulation → Evaluation/Deployment — how the stack connects |
 | [LLM](../03-domains/02-model-class/02-llm.md/) | Large Language Model, transformer, prompting, evaluation |
 | [VLM](../03-domains/02-model-class/02-vlm.md/) | Vision-Language Model, grounding, multimodal perception |
 | [VLA](../03-domains/02-model-class/03-vla.md/) | Vision-Language-Action, multimodal, robot control |
