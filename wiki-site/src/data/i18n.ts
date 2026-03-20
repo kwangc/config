@@ -9,11 +9,10 @@ export const i18n: Record<
       news: string;
       aboutMe: string;
       drawerTitle: string;
-      themeToggle: string;
-      themeSwitchToLight: string;
-      themeSwitchToDark: string;
-      themeLight: string;
-      themeDark: string;
+      themeSelect: string;
+      themeLightLabel: string;
+      themeDarkLabel: string;
+      themeSystemLabel: string;
     };
     sidebar: { home: string; wikiDocs: string; companyGroup: string; companyAbout: string; productOverview: string };
     home: { title: string; lead: string; intro: string; newsLink: string; browseLabel: string };
@@ -40,11 +39,10 @@ export const i18n: Record<
       news: 'News',
       aboutMe: 'About me',
       drawerTitle: 'Menu',
-      themeToggle: 'Toggle light or dark theme',
-      themeSwitchToLight: 'Switch to light mode',
-      themeSwitchToDark: 'Switch to dark mode',
-      themeLight: 'LIGHT',
-      themeDark: 'DARK',
+      themeSelect: 'Color theme',
+      themeLightLabel: 'Light',
+      themeDarkLabel: 'Dark',
+      themeSystemLabel: 'System',
     },
     sidebar: {
       home: 'Wiki home',
@@ -99,11 +97,10 @@ export const i18n: Record<
       news: 'News',
       aboutMe: '소개',
       drawerTitle: '메뉴',
-      themeToggle: '라이트/다크 테마 전환',
-      themeSwitchToLight: '라이트 모드로 전환',
-      themeSwitchToDark: '다크 모드로 전환',
-      themeLight: 'LIGHT',
-      themeDark: 'DARK',
+      themeSelect: '색 테마',
+      themeLightLabel: '라이트',
+      themeDarkLabel: '다크',
+      themeSystemLabel: '시스템',
     },
     sidebar: {
       home: 'Wiki 홈',

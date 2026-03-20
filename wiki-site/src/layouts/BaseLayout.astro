@@ -13,12 +13,29 @@ const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
     <meta charset="UTF-8" />
     <script is:inline>
       (function () {
-        function applyTheme(mode, origin) {
-          if (mode === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        var THEME_KEY = 'wiki-theme';
+
+        function readStoredMode() {
+          try {
+            var t = localStorage.getItem(THEME_KEY);
+            if (t === 'light' || t === 'dark' || t === 'system') return t;
+          } catch (e) {}
+          return null;
+        }
+
+        function resolvedFromMode(mode) {
+          if (mode === 'light' || mode === 'dark') return mode;
+          return fromMq();
+        }
+
+        function applyResolved(resolved, origin) {
+          if (resolved === 'light') document.documentElement.setAttribute('data-theme', 'light');
           else document.documentElement.removeAttribute('data-theme');
           try {
             window.dispatchEvent(
-              new CustomEvent('wiki-theme-changed', { detail: { theme: mode, origin: origin || 'system' } }),
+              new CustomEvent('wiki-theme-changed', {
+                detail: { resolved: resolved, mode: readStoredMode(), origin: origin || 'init' },
+              }),
             );
           } catch (_) {}
         }
@@ -28,13 +45,17 @@ const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
           return mq && mq.matches ? 'dark' : 'light';
         };
 
-        // Initial theme from OS (default).
-        applyTheme(fromMq(), 'system');
+        var storedMode = readStoredMode();
+        applyResolved(resolvedFromMode(storedMode), storedMode ? 'storage' : 'system');
 
-        // Keep in sync with OS changes (e.g. day -> night).
         if (mq) {
-          if (mq.addEventListener) mq.addEventListener('change', function () { applyTheme(fromMq(), 'system'); });
-          else if (mq.addListener) mq.addListener(function () { applyTheme(fromMq(), 'system'); });
+          var onOsChange = function () {
+            var m = readStoredMode();
+            if (m === 'light' || m === 'dark') return;
+            applyResolved(fromMq(), 'system');
+          };
+          if (mq.addEventListener) mq.addEventListener('change', onOsChange);
+          else if (mq.addListener) mq.addListener(onOsChange);
         }
       })();
     </script>

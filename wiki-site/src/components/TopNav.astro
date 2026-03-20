@@ -101,22 +101,47 @@ const wikiNav = getWikiNav(locale, base);
     <div class="topnav-theme-wrap">
       <button
         type="button"
-        class="topnav-theme-toggle"
-        id="theme-toggle"
-        data-i18n-theme-toggle={t.themeToggle}
-        data-i18n-to-light={t.themeSwitchToLight}
-        data-i18n-to-dark={t.themeSwitchToDark}
-        aria-label={t.themeToggle}
-        title={t.themeSwitchToLight}
+        class="topnav-lang-trigger topnav-theme-trigger"
+        id="theme-trigger"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-label={t.themeSelect}
+        title={t.themeSelect}
       >
-        <svg class="topnav-theme-icon topnav-theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-        </svg>
-        <svg class="topnav-theme-icon topnav-theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
+        <span class="topnav-theme-current is-mode-system" id="theme-current-icon" aria-hidden="true">
+          <svg class="topnav-theme-svg topnav-theme-svg--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="topnav-theme-svg topnav-theme-svg--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="topnav-theme-svg topnav-theme-svg--system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+        </span>
+        <svg class="topnav-lang-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
       </button>
+      <div class="topnav-lang-dropdown topnav-theme-dropdown" id="theme-dropdown" role="listbox" aria-label={t.themeSelect} hidden>
+        <button type="button" role="option" class="topnav-lang-option topnav-theme-option" data-theme-mode="light" aria-label={t.themeLightLabel} title={t.themeLightLabel}>
+          <svg class="topnav-theme-icon-inline" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+        <button type="button" role="option" class="topnav-lang-option topnav-theme-option" data-theme-mode="dark" aria-label={t.themeDarkLabel} title={t.themeDarkLabel}>
+          <svg class="topnav-theme-icon-inline" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button type="button" role="option" class="topnav-lang-option topnav-theme-option" data-theme-mode="system" aria-label={t.themeSystemLabel} title={t.themeSystemLabel}>
+          <svg class="topnav-theme-icon-inline" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 </header>
@@ -172,10 +197,24 @@ const wikiNav = getWikiNav(locale, base);
         <span class="topnav-drawer-lang-sep">|</span>
         <a href={hrefKo} class:list={['topnav-drawer-lang', { 'is-current': locale === 'ko' }]}>KOR</a>
       </span>
-      <span class="topnav-drawer-theme-block" role="group" aria-label={t.themeToggle}>
-        <button type="button" class="topnav-drawer-theme" data-theme-set="light">{t.themeLight}</button>
-        <span class="topnav-drawer-lang-sep">|</span>
-        <button type="button" class="topnav-drawer-theme" data-theme-set="dark">{t.themeDark}</button>
+      <span class="topnav-drawer-theme-block" role="group" aria-label={t.themeSelect}>
+        <button type="button" class="topnav-drawer-theme topnav-drawer-theme--icononly" data-theme-set="light" aria-label={t.themeLightLabel} title={t.themeLightLabel}>
+          <svg class="topnav-theme-icon-inline" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+        <button type="button" class="topnav-drawer-theme topnav-drawer-theme--icononly" data-theme-set="dark" aria-label={t.themeDarkLabel} title={t.themeDarkLabel}>
+          <svg class="topnav-theme-icon-inline" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button type="button" class="topnav-drawer-theme topnav-drawer-theme--icononly" data-theme-set="system" aria-label={t.themeSystemLabel} title={t.themeSystemLabel}>
+          <svg class="topnav-theme-icon-inline" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+        </button>
       </span>
     </div>
   </div>
@@ -208,52 +247,120 @@ const wikiNav = getWikiNav(locale, base);
       var sidebarToggle = document.getElementById('wiki-sidebar-toggle');
       var menuBtn = document.querySelector('.topnav-menu-wrap .topnav-menu');
       var fabBtn = document.getElementById('topnav-fab');
-      var themeToggle = document.getElementById('theme-toggle');
+      var themeTrigger = document.getElementById('theme-trigger');
+      var themeDropdown = document.getElementById('theme-dropdown');
+      var THEME_KEY = 'wiki-theme';
 
-      function wikiGetTheme() {
-        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      function readStoredMode() {
+        try {
+          var t = localStorage.getItem(THEME_KEY);
+          if (t === 'light' || t === 'dark' || t === 'system') return t;
+        } catch (_) {}
+        return null;
       }
-      function wikiSetTheme(mode) {
-        if (mode === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      function fromMq() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function storedOrSystem() {
+        var m = readStoredMode();
+        return m === 'light' || m === 'dark' || m === 'system' ? m : 'system';
+      }
+      function resolvedTheme() {
+        var m = readStoredMode();
+        if (m === 'light' || m === 'dark') return m;
+        return fromMq();
+      }
+      function applyDomResolved(resolved) {
+        if (resolved === 'light') document.documentElement.setAttribute('data-theme', 'light');
         else document.documentElement.removeAttribute('data-theme');
+      }
+      function wikiSetMode(mode) {
+        if (mode !== 'light' && mode !== 'dark' && mode !== 'system') return;
+        try {
+          localStorage.setItem(THEME_KEY, mode);
+        } catch (_) {}
+        applyDomResolved(resolvedTheme());
         wikiSyncThemeUi();
         try {
           window.dispatchEvent(
-            new CustomEvent('wiki-theme-changed', { detail: { theme: mode, origin: 'user' } }),
+            new CustomEvent('wiki-theme-changed', {
+              detail: { mode: mode, resolved: resolvedTheme(), origin: 'user' },
+            }),
           );
         } catch (_) {}
       }
       function wikiSyncThemeUi() {
-        var th = wikiGetTheme();
-        if (themeToggle) {
-          var toggleLabel = themeToggle.getAttribute('data-i18n-theme-toggle') || 'Toggle theme';
-          var toLight = themeToggle.getAttribute('data-i18n-to-light') || 'Light mode';
-          var toDark = themeToggle.getAttribute('data-i18n-to-dark') || 'Dark mode';
-          themeToggle.setAttribute('aria-pressed', th === 'light' ? 'true' : 'false');
-          themeToggle.setAttribute('title', th === 'dark' ? toLight : toDark);
-          themeToggle.setAttribute('aria-label', toggleLabel);
+        var stored = storedOrSystem();
+        var curIcon = document.getElementById('theme-current-icon');
+        if (curIcon) {
+          curIcon.classList.remove('is-mode-light', 'is-mode-dark', 'is-mode-system');
+          if (stored === 'light') curIcon.classList.add('is-mode-light');
+          else if (stored === 'dark') curIcon.classList.add('is-mode-dark');
+          else curIcon.classList.add('is-mode-system');
         }
+        document.querySelectorAll('.topnav-theme-option[data-theme-mode]').forEach(function (btn) {
+          var m = btn.getAttribute('data-theme-mode');
+          var isSel = m === stored;
+          btn.classList.toggle('is-current', isSel);
+          btn.setAttribute('aria-selected', isSel ? 'true' : 'false');
+        });
         document.querySelectorAll('.topnav-drawer-theme[data-theme-set]').forEach(function (btn) {
           var m = btn.getAttribute('data-theme-set');
-          btn.classList.toggle('is-current', m === th);
+          btn.classList.toggle('is-current', m === stored);
         });
       }
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function (e) {
+
+      function closeTheme() {
+        if (!themeDropdown || !themeTrigger) return;
+        themeDropdown.setAttribute('hidden', '');
+        themeTrigger.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', closeThemeOutside);
+      }
+      function closeThemeOutside(e) {
+        var t = e.target;
+        if (themeDropdown && !themeDropdown.contains(t) && themeTrigger && !themeTrigger.contains(t)) closeTheme();
+      }
+      function openTheme() {
+        if (!themeDropdown || !themeTrigger) return;
+        closeLang();
+        if (quickPanel && !quickPanel.hasAttribute('hidden')) {
+          quickPanel.setAttribute('hidden', '');
+          if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
+        }
+        themeDropdown.removeAttribute('hidden');
+        themeTrigger.setAttribute('aria-expanded', 'true');
+        document.addEventListener('click', closeThemeOutside);
+      }
+
+      if (themeTrigger && themeDropdown) {
+        themeTrigger.addEventListener('click', function (e) {
           e.stopPropagation();
-          wikiSetTheme(wikiGetTheme() === 'dark' ? 'light' : 'dark');
+          if (isMobile()) {
+            e.preventDefault();
+            if (drawer) openDrawer();
+            return;
+          }
+          if (themeDropdown.hasAttribute('hidden')) openTheme();
+          else closeTheme();
+        });
+        themeDropdown.querySelectorAll('.topnav-theme-option[data-theme-mode]').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var m = btn.getAttribute('data-theme-mode');
+            if (m === 'light' || m === 'dark' || m === 'system') wikiSetMode(m);
+            closeTheme();
+          });
         });
       }
       document.querySelectorAll('.topnav-drawer-theme[data-theme-set]').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.stopPropagation();
           var m = btn.getAttribute('data-theme-set');
-          if (m === 'light' || m === 'dark') wikiSetTheme(m);
+          if (m === 'light' || m === 'dark' || m === 'system') wikiSetMode(m);
         });
       });
       wikiSyncThemeUi();
       window.addEventListener('wiki-theme-changed', function () {
-        // OS change or other components updated the attribute.
         wikiSyncThemeUi();
       });
 
@@ -283,6 +390,7 @@ const wikiNav = getWikiNav(locale, base);
     }
     function openDrawer() {
       if (!drawer) return;
+      closeTheme();
       if (langDropdown && !langDropdown.hasAttribute('hidden')) {
         langDropdown.setAttribute('hidden', '');
         if (langTrigger) langTrigger.setAttribute('aria-expanded', 'false');
@@ -381,6 +489,7 @@ const wikiNav = getWikiNav(locale, base);
           langDropdown.setAttribute('hidden', '');
           if (langTrigger) langTrigger.setAttribute('aria-expanded', 'false');
         }
+        closeTheme();
         if (quickPanel.hasAttribute('hidden')) {
           quickPanel.removeAttribute('hidden');
           quickTrigger.setAttribute('aria-expanded', 'true');
@@ -419,6 +528,7 @@ const wikiNav = getWikiNav(locale, base);
     }
     function openLang() {
       if (!langDropdown || !langTrigger) return;
+      closeTheme();
       if (quickPanel && !quickPanel.hasAttribute('hidden')) {
         quickPanel.setAttribute('hidden', '');
         if (quickTrigger) quickTrigger.setAttribute('aria-expanded', 'false');
@@ -690,40 +800,48 @@ const wikiNav = getWikiNav(locale, base);
     margin-left: 0.5rem;
     padding-left: 0.75rem;
     border-left: 1px solid var(--border);
+    position: relative;
     display: flex;
     align-items: center;
   }
-  .topnav-theme-toggle {
+  .topnav-theme-current {
+    line-height: 1;
+    min-width: 1.25rem;
+    min-height: 1.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    margin: 0;
-    padding: 0;
+  }
+  .topnav-theme-current .topnav-theme-svg {
+    display: none;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .topnav-theme-current.is-mode-light .topnav-theme-svg--light,
+  .topnav-theme-current.is-mode-dark .topnav-theme-svg--dark,
+  .topnav-theme-current.is-mode-system .topnav-theme-svg--system {
+    display: block;
+  }
+  .topnav-theme-dropdown {
+    min-width: auto;
+  }
+  .topnav-theme-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     border: none;
-    border-radius: 6px;
     background: transparent;
-    color: var(--muted);
+    font: inherit;
+    text-align: center;
     cursor: pointer;
+    box-sizing: border-box;
+    padding: 0.45rem 0.55rem;
   }
-  .topnav-theme-toggle:hover,
-  .topnav-theme-toggle:focus-visible {
-    background: rgba(51, 123, 250, 0.12);
-    color: var(--accent);
-    outline: none;
-  }
-  .topnav-theme-icon {
+  .topnav-theme-icon-inline {
     display: block;
-  }
-  .topnav-theme-icon--moon {
-    display: none;
-  }
-  html[data-theme='light'] .topnav-theme-icon--sun {
-    display: none;
-  }
-  html[data-theme='light'] .topnav-theme-icon--moon {
-    display: block;
+    flex-shrink: 0;
   }
 
   @media (max-width: 768px) {
@@ -917,7 +1035,7 @@ const wikiNav = getWikiNav(locale, base);
   .topnav-drawer-theme-block {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
     margin-left: 0.35rem;
     padding-left: 0.85rem;
     border-left: 1px solid var(--border);
@@ -938,6 +1056,19 @@ const wikiNav = getWikiNav(locale, base);
   .topnav-drawer-theme.is-current {
     color: var(--accent);
     font-weight: 700;
+  }
+  .topnav-drawer-theme--icononly {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.35rem;
+    min-height: 2rem;
+    padding: 0.2rem 0.35rem;
+    border-radius: 6px;
+  }
+  .topnav-drawer-theme--icononly:hover {
+    background: rgba(51, 123, 250, 0.1);
+    color: var(--accent);
   }
   .topnav-drawer-lang {
     color: var(--muted);
