@@ -27,9 +27,9 @@ Single place for **company, domain, research, and industry** knowledge. Updated 
 | Doc | Description |
 |-----|-------------|
 | [Domains overview](../03-domains/README.md/) | Robotics → Model Class → Training/Data/Simulation → Evaluation/Deployment — how the stack connects |
-| [LLM](../03-domains/02-model-class/02-llm.md/) | Large Language Model, transformer, prompting, evaluation |
-| [VLM](../03-domains/02-model-class/02-vlm.md/) | Vision-Language Model, grounding, multimodal perception |
-| [VLA](../03-domains/02-model-class/03-vla.md/) | Vision-Language-Action, multimodal, robot control |
+| [LLM](../03-domains/02-model-class/03-llm.md/) | Large Language Model, transformer, prompting, evaluation |
+| [VLM](../03-domains/02-model-class/04-vlm.md/) | Vision-Language Model, grounding, multimodal perception |
+| [VLA](../03-domains/02-model-class/05-vla.md/) | Vision-Language-Action, multimodal, robot control |
 | [Robotics](../03-domains/01-robotics/01-robotics.md/) | Robotics basics, bimanual manipulation, sim & real |
 | [Simulation & Sim2Real](../03-domains/06-simulation-sim2real/01-simulation-sim2real.md/) | Sim–real transfer, reality gap, domain randomization |
 | [Data & Scaling](../03-domains/05-data-scaling/01-data-scaling.md/) | Data scale, coverage, diversity, strategy |

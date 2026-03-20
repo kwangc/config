@@ -80,7 +80,7 @@ RL의 강점:
 
 - [Teleoperation](../02-teleops.md/)
 - [Robot Learning (RL)](../04-robot-learning-rl.md/)
-- [VLA](../../02-model-class/03-vla.md/)
+- [VLA](../../02-model-class/05-vla.md/)
 
 ---
 

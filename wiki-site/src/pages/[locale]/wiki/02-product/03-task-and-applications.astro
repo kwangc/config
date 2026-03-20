@@ -255,7 +255,11 @@ const allTags = Array.from(new Set(items.flatMap((i) => i.tags ?? []))).sort((a,
   }
   .task-link:hover { color: var(--accent); border-color: rgba(51, 123, 250, 0.55); }
   .task-link--filter { cursor: pointer; }
-  .task-link--filter.is-active { color: #fff; background: rgba(37, 99, 235, 0.95); border-color: rgba(37, 99, 235, 0.95); }
+  .task-link--filter.is-active {
+    color: var(--on-accent);
+    background: rgba(37, 99, 235, 0.95);
+    border-color: rgba(37, 99, 235, 0.95);
+  }
 
   .task-filter { margin: 0.25rem 0 1.25rem; padding: 0.75rem 0.85rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
   .task-filter-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
@@ -265,7 +269,7 @@ const allTags = Array.from(new Set(items.flatMap((i) => i.tags ?? []))).sort((a,
     padding: 0.5rem 0.7rem;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background: rgba(15, 23, 42, 0.35);
+    background: var(--input-bg);
     color: var(--text);
     outline: none;
     font-size: 0.9rem;
@@ -301,7 +305,7 @@ const allTags = Array.from(new Set(items.flatMap((i) => i.tags ?? []))).sort((a,
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #0b1220;
+    background: var(--media-chrome-bg);
   }
   .task-video iframe {
     position: absolute;
@@ -320,7 +324,7 @@ const allTags = Array.from(new Set(items.flatMap((i) => i.tags ?? []))).sort((a,
     border: 1px solid var(--border);
     padding: 0.15rem 0.45rem;
     border-radius: 999px;
-    background: rgba(51, 123, 250, 0.06);
+    background: var(--tag-tint);
   }
 </style>
 

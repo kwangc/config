@@ -38,7 +38,7 @@ Basics and bimanual manipulation context — focusing on **hardware taxonomy** a
 
 ## See also
 
-- [VLA](../../02-model-class/03-vla.md/)
+- [VLA](../../02-model-class/05-vla.md/)
 - [Deployment](../../08-deployment/01-deployment.md/)
 - [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real.md/)
 - `../../04-research/`, `../../05-industry/`

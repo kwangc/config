@@ -50,7 +50,7 @@ Putting robots & VLAs on **real hardware** and into production — **form factor
 ## See also
 
 - [Robotics](../../01-robotics/01-robotics.md/)
-- [VLA](../../02-model-class/03-vla.md/)
+- [VLA](../../02-model-class/05-vla.md/)
 - [Foundation Model](../../../02-product/02-foundation-model.md/)
 - [Evaluation](../../07-evaluation/01-overview.md/), [Safety](../../09-safety/01-overview.md/)
 

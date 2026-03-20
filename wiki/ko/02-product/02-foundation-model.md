@@ -60,6 +60,6 @@ CFG-1의 입력은 Data Platform에서 생성되는 action representation과 연
 
 - [About](../../01-company/about.md/)
 - [Data Platform](../01-data-platform.md/)
-- [VLA](../../03-domains/02-model-class/03-vla.md/)
+- [VLA](../../03-domains/02-model-class/05-vla.md/)
 - [Deployment](../../03-domains/08-deployment/01-deployment.md/)
 

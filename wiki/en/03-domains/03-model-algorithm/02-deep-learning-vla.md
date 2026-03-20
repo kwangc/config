@@ -87,7 +87,7 @@ Often:
 
 - [Robot Learning (RL)](../../04-model-training/04-robot-learning-rl.md/)
 - [Domains overview](../README.md/)
-- [VLA](../../02-model-class/03-vla.md/)
+- [VLA](../../02-model-class/05-vla.md/)
 
 ---
 

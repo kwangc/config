@@ -43,9 +43,10 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
           label: 'Model Class',
           children: [
             { label: 'Overview', href: w('03-domains/02-model-class/01-overview.md') },
-            { label: 'LLM', href: w('03-domains/02-model-class/02-llm.md') },
-            { label: 'VLM', href: w('03-domains/02-model-class/02-vlm.md') },
-            { label: 'VLA', href: w('03-domains/02-model-class/03-vla.md') },
+            { label: 'ML Fundamentals', href: w('03-domains/02-model-class/02-ml-fundamentals.md') },
+            { label: 'LLM', href: w('03-domains/02-model-class/03-llm.md') },
+            { label: 'VLM', href: w('03-domains/02-model-class/04-vlm.md') },
+            { label: 'VLA', href: w('03-domains/02-model-class/05-vla.md') },
           ],
         },
         {

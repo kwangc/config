@@ -114,14 +114,14 @@ const t = i18n[locale] ?? i18n.en;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(15, 23, 42, 0.9);
-    color: #e5e7eb;
+    background: var(--social-btn-bg);
+    color: var(--social-btn-fg);
     text-decoration: none;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+    box-shadow: var(--social-btn-shadow);
   }
   .about-link:hover {
     background: rgba(37, 99, 235, 0.95);
-    color: #fff;
+    color: var(--on-accent);
     text-decoration: none;
   }
   .about-link-icon {

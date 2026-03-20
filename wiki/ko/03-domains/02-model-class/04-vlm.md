@@ -30,8 +30,8 @@
 ## 참고
 
 - [Robotics](../../01-robotics/01-robotics.md/)
-- [LLM](../02-llm.md/)
-- [VLA](../03-vla.md/)
+- [LLM](../03-llm.md/)
+- [VLA](../05-vla.md/)
 - `../../04-research/` — VLM 논문(멀티모달 지각, 그라운딩, 비디오 이해)
 
 ---

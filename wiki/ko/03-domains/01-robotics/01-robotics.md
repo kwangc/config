@@ -40,7 +40,7 @@
 
 ## 참고
 
-- [VLA](../../02-model-class/03-vla.md/) — 비전·언어·액션 모델
+- [VLA](../../02-model-class/05-vla.md/) — 비전·언어·액션 모델
 - [Deployment](../../08-deployment/01-deployment.md/) — 폼팩터·on-device·양자화
 - [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real.md/) — 시뮬·전이
 - `../../04-research/`, `../../05-industry/` — 로봇 트렌드

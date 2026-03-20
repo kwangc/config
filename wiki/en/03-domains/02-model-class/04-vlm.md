@@ -30,8 +30,8 @@ Vision + language grounding models that turn what the robot sees into text and/o
 ## See also
 
 - [Robotics](../../01-robotics/01-robotics.md/)
-- [LLM](../02-llm.md/)
-- [VLA](../03-vla.md/)
+- [LLM](../03-llm.md/)
+- [VLA](../05-vla.md/)
 - `../../04-research/` — VLM papers (multimodal perception, grounding, video understanding)
 
 ---

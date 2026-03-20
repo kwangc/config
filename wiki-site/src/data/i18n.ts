@@ -4,7 +4,17 @@ export type Locale = (typeof locales)[number];
 export const i18n: Record<
   Locale,
   {
-    nav: { wiki: string; news: string; aboutMe: string; drawerTitle: string };
+    nav: {
+      wiki: string;
+      news: string;
+      aboutMe: string;
+      drawerTitle: string;
+      themeToggle: string;
+      themeSwitchToLight: string;
+      themeSwitchToDark: string;
+      themeLight: string;
+      themeDark: string;
+    };
     sidebar: { home: string; wikiDocs: string; companyGroup: string; companyAbout: string; productOverview: string };
     home: { title: string; lead: string; intro: string; newsLink: string; browseLabel: string };
     toc: { onThisPage: string; createdBy: string; lastEditedBy: string; lastEdited: string };
@@ -25,7 +35,17 @@ export const i18n: Record<
   }
 > = {
   en: {
-    nav: { wiki: 'Wiki', news: 'News', aboutMe: 'About me', drawerTitle: 'Menu' },
+    nav: {
+      wiki: 'Wiki',
+      news: 'News',
+      aboutMe: 'About me',
+      drawerTitle: 'Menu',
+      themeToggle: 'Toggle light or dark theme',
+      themeSwitchToLight: 'Switch to light mode',
+      themeSwitchToDark: 'Switch to dark mode',
+      themeLight: 'LIGHT',
+      themeDark: 'DARK',
+    },
     sidebar: {
       home: 'Wiki home',
       wikiDocs: 'Wiki',
@@ -74,7 +94,17 @@ export const i18n: Record<
     },
   },
   ko: {
-    nav: { wiki: 'Wiki', news: 'News', aboutMe: '소개', drawerTitle: '메뉴' },
+    nav: {
+      wiki: 'Wiki',
+      news: 'News',
+      aboutMe: '소개',
+      drawerTitle: '메뉴',
+      themeToggle: '라이트/다크 테마 전환',
+      themeSwitchToLight: '라이트 모드로 전환',
+      themeSwitchToDark: '다크 모드로 전환',
+      themeLight: 'LIGHT',
+      themeDark: 'DARK',
+    },
     sidebar: {
       home: 'Wiki 홈',
       wikiDocs: 'Wiki',

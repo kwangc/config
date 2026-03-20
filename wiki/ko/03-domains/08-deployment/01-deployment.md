@@ -52,7 +52,7 @@
 ## 참고
 
 - [Robotics](../../01-robotics/01-robotics.md/) — form factors, 하드웨어
-- [VLA](../../02-model-class/03-vla.md/) — 모델·액션 공간
+- [VLA](../../02-model-class/05-vla.md/) — 모델·액션 공간
 - [Foundation Model](../../../02-product/02-foundation-model.md/) — 인코딩·학습
 - [Evaluation](../../07-evaluation/01-overview.md/), [Safety](../../09-safety/01-overview.md/) — 평가·안전
 

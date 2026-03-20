@@ -98,6 +98,26 @@ const wikiNav = getWikiNav(locale, base);
         <a href={hrefKo} role="option" class:list={['topnav-lang-option', { 'is-current': locale === 'ko' }]} aria-selected={locale === 'ko'}>KOR</a>
       </div>
     </div>
+    <div class="topnav-theme-wrap">
+      <button
+        type="button"
+        class="topnav-theme-toggle"
+        id="theme-toggle"
+        data-i18n-theme-toggle={t.themeToggle}
+        data-i18n-to-light={t.themeSwitchToLight}
+        data-i18n-to-dark={t.themeSwitchToDark}
+        aria-label={t.themeToggle}
+        title={t.themeSwitchToLight}
+      >
+        <svg class="topnav-theme-icon topnav-theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="topnav-theme-icon topnav-theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </div>
   </nav>
 </header>
 
@@ -147,9 +167,16 @@ const wikiNav = getWikiNav(locale, base);
       )}
     </div>
     <div class="topnav-drawer-footer">
-      <a href={hrefEn} class:list={['topnav-drawer-lang', { 'is-current': locale === 'en' }]}>ENG</a>
-      <span class="topnav-drawer-lang-sep">|</span>
-      <a href={hrefKo} class:list={['topnav-drawer-lang', { 'is-current': locale === 'ko' }]}>KOR</a>
+      <span class="topnav-drawer-footer-row">
+        <a href={hrefEn} class:list={['topnav-drawer-lang', { 'is-current': locale === 'en' }]}>ENG</a>
+        <span class="topnav-drawer-lang-sep">|</span>
+        <a href={hrefKo} class:list={['topnav-drawer-lang', { 'is-current': locale === 'ko' }]}>KOR</a>
+      </span>
+      <span class="topnav-drawer-theme-block" role="group" aria-label={t.themeToggle}>
+        <button type="button" class="topnav-drawer-theme" data-theme-set="light">{t.themeLight}</button>
+        <span class="topnav-drawer-lang-sep">|</span>
+        <button type="button" class="topnav-drawer-theme" data-theme-set="dark">{t.themeDark}</button>
+      </span>
     </div>
   </div>
 </div>
@@ -181,6 +208,54 @@ const wikiNav = getWikiNav(locale, base);
       var sidebarToggle = document.getElementById('wiki-sidebar-toggle');
       var menuBtn = document.querySelector('.topnav-menu-wrap .topnav-menu');
       var fabBtn = document.getElementById('topnav-fab');
+      var themeToggle = document.getElementById('theme-toggle');
+
+      function wikiGetTheme() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+      function wikiSetTheme(mode) {
+        if (mode === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        else document.documentElement.removeAttribute('data-theme');
+        wikiSyncThemeUi();
+        try {
+          window.dispatchEvent(
+            new CustomEvent('wiki-theme-changed', { detail: { theme: mode, origin: 'user' } }),
+          );
+        } catch (_) {}
+      }
+      function wikiSyncThemeUi() {
+        var th = wikiGetTheme();
+        if (themeToggle) {
+          var toggleLabel = themeToggle.getAttribute('data-i18n-theme-toggle') || 'Toggle theme';
+          var toLight = themeToggle.getAttribute('data-i18n-to-light') || 'Light mode';
+          var toDark = themeToggle.getAttribute('data-i18n-to-dark') || 'Dark mode';
+          themeToggle.setAttribute('aria-pressed', th === 'light' ? 'true' : 'false');
+          themeToggle.setAttribute('title', th === 'dark' ? toLight : toDark);
+          themeToggle.setAttribute('aria-label', toggleLabel);
+        }
+        document.querySelectorAll('.topnav-drawer-theme[data-theme-set]').forEach(function (btn) {
+          var m = btn.getAttribute('data-theme-set');
+          btn.classList.toggle('is-current', m === th);
+        });
+      }
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          wikiSetTheme(wikiGetTheme() === 'dark' ? 'light' : 'dark');
+        });
+      }
+      document.querySelectorAll('.topnav-drawer-theme[data-theme-set]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var m = btn.getAttribute('data-theme-set');
+          if (m === 'light' || m === 'dark') wikiSetTheme(m);
+        });
+      });
+      wikiSyncThemeUi();
+      window.addEventListener('wiki-theme-changed', function () {
+        // OS change or other components updated the attribute.
+        wikiSyncThemeUi();
+      });
 
       function isMobile() {
         return window.matchMedia(MOBILE).matches;
@@ -473,7 +548,7 @@ const wikiNav = getWikiNav(locale, base);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-dropdown);
     z-index: 250;
   }
   .topnav-quick-panel[hidden] {
@@ -515,11 +590,11 @@ const wikiNav = getWikiNav(locale, base);
     gap: 0.5rem;
     font-weight: 700;
     font-size: 1.1rem;
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
   .topnav-brand:hover {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
   .topnav-logo-img {
@@ -587,7 +662,7 @@ const wikiNav = getWikiNav(locale, base);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-popover);
     z-index: 200;
   }
   .topnav-lang-dropdown[hidden] {
@@ -609,6 +684,46 @@ const wikiNav = getWikiNav(locale, base);
     color: var(--accent);
     font-weight: 600;
     background: rgba(51, 123, 250, 0.12);
+  }
+
+  .topnav-theme-wrap {
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .topnav-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .topnav-theme-toggle:hover,
+  .topnav-theme-toggle:focus-visible {
+    background: rgba(51, 123, 250, 0.12);
+    color: var(--accent);
+    outline: none;
+  }
+  .topnav-theme-icon {
+    display: block;
+  }
+  .topnav-theme-icon--moon {
+    display: none;
+  }
+  html[data-theme='light'] .topnav-theme-icon--sun {
+    display: none;
+  }
+  html[data-theme='light'] .topnav-theme-icon--moon {
+    display: block;
   }
 
   @media (max-width: 768px) {
@@ -637,7 +752,7 @@ const wikiNav = getWikiNav(locale, base);
   .topnav-drawer-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--overlay-backdrop);
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -654,7 +769,7 @@ const wikiNav = getWikiNav(locale, base);
     max-width: 300px;
     background: var(--surface);
     border-left: 1px solid var(--border);
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-drawer);
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
@@ -789,9 +904,40 @@ const wikiNav = getWikiNav(locale, base);
     padding: 0.75rem 1rem;
     border-top: 1px solid var(--border);
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .topnav-drawer-footer-row {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+  }
+  .topnav-drawer-theme-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.35rem;
+    padding-left: 0.85rem;
+    border-left: 1px solid var(--border);
+  }
+  .topnav-drawer-theme {
+    border: none;
+    background: transparent;
+    font: inherit;
     font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0;
+  }
+  .topnav-drawer-theme:hover {
+    color: var(--accent);
+  }
+  .topnav-drawer-theme.is-current {
+    color: var(--accent);
+    font-weight: 700;
   }
   .topnav-drawer-lang {
     color: var(--muted);
@@ -830,17 +976,14 @@ const wikiNav = getWikiNav(locale, base);
     display: none;
     align-items: center;
     justify-content: center;
-    /* Increase contrast on mobile: use highlight/accent-like background */
-    background: rgba(51, 123, 250, 0.95);
-    color: #fff;
-    box-shadow:
-      0 10px 25px rgba(51, 123, 250, 0.35),
-      0 0 0 1px rgba(51, 123, 250, 0.55);
+    background: var(--fab-bg);
+    color: var(--fab-color);
+    box-shadow: var(--fab-shadow);
     cursor: pointer;
     backdrop-filter: blur(10px);
   }
   .topnav-fab:hover {
-    background: rgba(0, 45, 203, 0.98);
+    background: var(--fab-bg-hover);
   }
   .topnav-fab-icon,
   .topnav-fab-icon::before,

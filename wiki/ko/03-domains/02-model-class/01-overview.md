@@ -14,7 +14,8 @@
 
 ## 참고
 
-- [VLM](../02-vlm.md/)
-- [LLM](../02-llm.md/)
-- [VLA](../03-vla.md/)
+- [ML Fundamentals](../02-ml-fundamentals.md/)
+- [LLM](../03-llm.md/)
+- [VLM](../04-vlm.md/)
+- [VLA](../05-vla.md/)
 - Model Algorithm (VLA deepdive) — 구현·학습 방식

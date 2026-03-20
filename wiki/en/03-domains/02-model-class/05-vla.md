@@ -23,7 +23,7 @@ Vision + Language + **Action** — multimodal model for robot control.
 ## See also
 
 - [Robotics](../../01-robotics/01-robotics.md/)
-- [LLM](../02-llm.md/)
+- [LLM](../03-llm.md/)
 - `../../04-research/` — VLA papers (RT-2, OpenVLA, etc.)
 
 ---
