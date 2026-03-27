@@ -100,6 +100,12 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
         { label: 'Generalist', href: w('05-industry/02-generalist.md') },
         { label: '1x', href: w('05-industry/03-1x.md') },
         { label: 'Figure', href: w('05-industry/04-figure.md') },
+        { label: 'Agility Robotics', href: w('05-industry/05-agility.md') },
+        { label: 'Boston Dynamics', href: w('05-industry/06-boston-dynamics.md') },
+        { label: 'Unitree Robotics', href: w('05-industry/07-unitree.md') },
+        { label: 'NVIDIA GR00T', href: w('05-industry/08-nvidia-groo-t.md') },
+        { label: 'Apptronik', href: w('05-industry/09-apptronik.md') },
+        { label: 'Machina Labs', href: w('05-industry/10-machina-labs.md') },
       ],
     },
     {
