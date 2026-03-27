@@ -7,7 +7,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
   const prefix = `${base}/${locale}`;
   const s = i18n[locale]?.sidebar ?? i18n.en.sidebar;
   const w = (path: string) => {
-    const clean = path.replace(/\/+$/, '');
+    const clean = path.replace(/\/+$/, '').replace(/\.md$/, '');
     return `${prefix}/wiki/${clean}/`;
   };
   return [

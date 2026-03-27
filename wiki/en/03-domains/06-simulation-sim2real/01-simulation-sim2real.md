@@ -31,10 +31,10 @@ Transferring policies trained in simulation to **real-world robots** and reducin
 
 ## See also
 
-- [Robotics](../../01-robotics/01-robotics.md/)
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
-- [Data Platform](../../../02-product/01-data-platform.md/)
-- [Glossary](../../../06-glossary/README.md/)
+- [Robotics](../../01-robotics/01-robotics/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/)
+- [Data Platform](../../../02-product/01-data-platform/)
+- [Glossary](../../../06-glossary/README/)
 
 ---
 

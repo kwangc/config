@@ -7,15 +7,15 @@
 
 ## 빠른 지도(Quick map)
 
-- [Robotics](../01-robotics/01-robotics.md/) — 하드웨어 폼팩터, 킨매틱스, 조작
-- [Model Class](../02-model-class/01-overview.md/) — LLM/VLM/VLA 역할과 지각→행동 연결
-- [Model Algorithm (VLA deepdive)](../03-model-algorithm/01-overview.md/) — fusion/action head, 학습 딥다이브
-- [Model Training](../04-model-training/01-overview.md/) — teleops, behavior cloning, RL, closed-loop refinement
-- [Data & Scaling](../05-data-scaling/01-data-scaling.md/) — 시나리오 커버리지, 라인리지, 품질 게이트
-- [Simulation](../06-simulation-sim2real/01-simulation-sim2real.md/) — reality gap, domain randomization, sim→real 루프
-- [Evaluation](../07-evaluation/01-overview.md/) — 로봇 성공에 중요한 것을 측정하는 방식
-- [Deployment](../08-deployment/01-deployment.md/) — 패키징, on-device 추론, 롤아웃/운영 기초
-- [Safety](../09-safety/01-overview.md/) — 안전 원칙, supervision, 평가 신호
+- [Robotics](../01-robotics/01-robotics/) — 하드웨어 폼팩터, 킨매틱스, 조작
+- [Model Class](../02-model-class/01-overview/) — LLM/VLM/VLA 역할과 지각→행동 연결
+- [Model Algorithm (VLA deepdive)](../03-model-algorithm/01-overview/) — fusion/action head, 학습 딥다이브
+- [Model Training](../04-model-training/01-overview/) — teleops, behavior cloning, RL, closed-loop refinement
+- [Data & Scaling](../05-data-scaling/01-data-scaling/) — 시나리오 커버리지, 라인리지, 품질 게이트
+- [Simulation](../06-simulation-sim2real/01-simulation-sim2real/) — reality gap, domain randomization, sim→real 루프
+- [Evaluation](../07-evaluation/01-overview/) — 로봇 성공에 중요한 것을 측정하는 방식
+- [Deployment](../08-deployment/01-deployment/) — 패키징, on-device 추론, 롤아웃/운영 기초
+- [Safety](../09-safety/01-overview/) — 안전 원칙, supervision, 평가 신호
 
 ---
 

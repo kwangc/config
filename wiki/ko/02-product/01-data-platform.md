@@ -98,7 +98,7 @@ Config의 접근:
 
 ## 참고
 
-- [About](../../01-company/about.md/)
-- [Foundation Model](../02-foundation-model.md/)
-- [Simulation & Sim2Real](../../03-domains/06-simulation-sim2real/01-simulation-sim2real.md/), [Data & Scaling](../../03-domains/05-data-scaling/01-data-scaling.md/)
+- [About](../../01-company/about/)
+- [Foundation Model](../02-foundation-model/)
+- [Simulation & Sim2Real](../../03-domains/06-simulation-sim2real/01-simulation-sim2real/), [Data & Scaling](../../03-domains/05-data-scaling/01-data-scaling/)
 

@@ -96,9 +96,9 @@ PPO(Proximal Policy Optimization)는 다음을 목표로 합니다.
 
 ## 참고
 
-- [Teleoperation](../02-teleops.md/)
-- [Behavior Cloning](../03-behavior-cloning.md/)
-- [VLA](../../02-model-class/05-vla.md/)
+- [Teleoperation](../02-teleops/)
+- [Behavior Cloning](../03-behavior-cloning/)
+- [VLA](../../02-model-class/05-vla/)
 
 ---
 

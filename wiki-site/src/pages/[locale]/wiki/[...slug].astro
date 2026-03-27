@@ -13,10 +13,11 @@ export async function getStaticPaths() {
     const [locale, ...parts] = e.id.split('/');
     if (locale !== 'en' && locale !== 'ko') continue;
     let slug = parts.join('/');
-    // Serve README.md at parent directory URL so ./sibling.md links resolve correctly
-    // in both local filesystem browsing and on the deployed Astro site.
-    if (slug.includes('/') && slug.endsWith('/README.md')) {
-      slug = slug.slice(0, -'/README.md'.length);
+    // Strip .md extension for clean URLs (no .md in browser address bar)
+    if (slug.endsWith('.md')) slug = slug.slice(0, -3);
+    // Serve README at parent directory URL so ./sibling links resolve correctly
+    if (slug.includes('/') && slug.endsWith('/README')) {
+      slug = slug.slice(0, -'/README'.length);
     }
     paths.push({ params: { locale, slug } });
   }
@@ -28,13 +29,14 @@ const slugStr = typeof slug === 'string' ? slug : (Array.isArray(slug) ? slug.jo
 const id = `${locale}/${slugStr}`;
 const entries = await getCollection('wiki');
 const entry = entries.find((e) => e.id === id)
+  ?? entries.find((e) => e.id === `${id}.md`)
   ?? entries.find((e) => e.id === `${id}/README.md`);
 if (!entry) return Astro.redirect(import.meta.env.BASE_URL.replace(/\/$/, '') + '/' + locale + '/');
 
 const { Content, headings } = await entry.render();
 const title = (entry.data as { title?: string }).title ?? slugStr.split('/').pop() ?? 'Wiki';
 const lastModifiedMap = wikiLastModified as Record<string, string>;
-const lastEdited = lastModifiedMap[id] ?? new Date().toISOString().slice(0, 10);
+const lastEdited = lastModifiedMap[entry.id] ?? new Date().toISOString().slice(0, 10);
 ---
 
 <WikiLayout title={title} locale={locale}>

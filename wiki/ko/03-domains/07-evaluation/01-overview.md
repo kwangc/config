@@ -110,7 +110,7 @@ Config의 접근: 시뮬 벤치마크보다 실세계 closed-loop 평가 우선.
 
 ## 참고
 
-- [Deployment](../../08-deployment/01-deployment.md/)
-- [Safety](../../09-safety/01-overview.md/)
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
-- [Research](../../../04-research/README.md/)
+- [Deployment](../../08-deployment/01-deployment/)
+- [Safety](../../09-safety/01-overview/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/)
+- [Research](../../../04-research/README/)

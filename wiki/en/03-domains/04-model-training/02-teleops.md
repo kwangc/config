@@ -90,9 +90,9 @@ In the popcorn-serving example, an initial scoop-holding strategy underperformed
 
 ## See also
 
-- [Behavior Cloning](../03-behavior-cloning.md/)
-- [Robotics](../../01-robotics/01-robotics.md/)
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
+- [Behavior Cloning](../03-behavior-cloning/)
+- [Robotics](../../01-robotics/01-robotics/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/)
 
 ---
 

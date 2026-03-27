@@ -14,7 +14,7 @@ Putting robots & VLAs on **real hardware** and into production — **form factor
 
 ## Form factors
 
-- See [Robotics](../../01-robotics/01-robotics.md/#form-factors) for hardware overview. Here: deployment angle only.
+- See [Robotics](../../01-robotics/01-robotics/#form-factors) for hardware overview. Here: deployment angle only.
 - **Dual arm / bimanual:** two arms/grippers, workspace, DOF, payload
 - **Compact gripper arm:** small bimanual, wearable, tabletop
 - **Mounting:** tabletop, mobile base, fixed — affects latency, power, compute
@@ -88,10 +88,10 @@ Track per-session:
 
 ## See also
 
-- [Robotics](../../01-robotics/01-robotics.md/)
-- [VLA](../../02-model-class/05-vla.md/)
-- [Foundation Model](../../../02-product/02-foundation-model.md/)
-- [Evaluation](../../07-evaluation/01-overview.md/), [Safety](../../09-safety/01-overview.md/)
+- [Robotics](../../01-robotics/01-robotics/)
+- [VLA](../../02-model-class/05-vla/)
+- [Foundation Model](../../../02-product/02-foundation-model/)
+- [Evaluation](../../07-evaluation/01-overview/), [Safety](../../09-safety/01-overview/)
 
 ---
 

@@ -19,7 +19,7 @@
 - **콤팩트 그리퍼 암:** 소형 바이매뉴얼·웨어러블·휴대형 등 (예: MiniBEE 스타일)
 - **장착 위치:** 테이블탑, 모바일 베이스, 고정 설비 — 지연·전력·연산 자원에 영향
 
-→ 상세 폼팩터 설명은 [Robotics](../../01-robotics/01-robotics.md/#form-factors-폼팩터) 참고.
+→ 상세 폼팩터 설명은 [Robotics](../../01-robotics/01-robotics/#form-factors-폼팩터) 참고.
 
 ---
 
@@ -90,10 +90,10 @@
 
 ## 참고
 
-- [Robotics](../../01-robotics/01-robotics.md/) — form factors, 하드웨어
-- [VLA](../../02-model-class/05-vla.md/) — 모델·액션 공간
-- [Foundation Model](../../../02-product/02-foundation-model.md/) — 인코딩·학습
-- [Evaluation](../../07-evaluation/01-overview.md/), [Safety](../../09-safety/01-overview.md/) — 평가·안전
+- [Robotics](../../01-robotics/01-robotics/) — form factors, 하드웨어
+- [VLA](../../02-model-class/05-vla/) — 모델·액션 공간
+- [Foundation Model](../../../02-product/02-foundation-model/) — 인코딩·학습
+- [Evaluation](../../07-evaluation/01-overview/), [Safety](../../09-safety/01-overview/) — 평가·안전
 
 ---
 

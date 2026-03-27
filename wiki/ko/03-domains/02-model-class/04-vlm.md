@@ -6,7 +6,7 @@
 
 ## LLM에서 VLM으로
 
-[LLM](./03-llm.md/)은 토큰 시퀀스를 처리한다. VLM은 여기서 한 걸음 더 나아가 **이미지를 토큰과 유사한 표현으로 변환**하고, 같은 Transformer 디코더가 이를 어텐션할 수 있게 만든다 — 동일한 어텐션 메커니즘, 이제 두 가지 모달리티에 걸쳐 적용된다.
+[LLM](./03-llm/)은 토큰 시퀀스를 처리한다. VLM은 여기서 한 걸음 더 나아가 **이미지를 토큰과 유사한 표현으로 변환**하고, 같은 Transformer 디코더가 이를 어텐션할 수 있게 만든다 — 동일한 어텐션 메커니즘, 이제 두 가지 모달리티에 걸쳐 적용된다.
 
 핵심 추가 요소: 이미지 패치를 임베딩 벡터로 매핑하는 **비전 인코더**와, 이를 텍스트 토큰과 결합하는 **퓨전** 단계.
 
@@ -202,9 +202,9 @@ VLM은 보통 여러 단계로 학습된다:
 
 ## 참고
 
-- [ML Fundamentals](./02-ml-fundamentals.md/) — Transformer, Attention, Q·K·V
-- [LLM](./03-llm.md/)
-- [VLA](./05-vla.md/)
+- [ML Fundamentals](./02-ml-fundamentals/) — Transformer, Attention, Q·K·V
+- [LLM](./03-llm/)
+- [VLA](./05-vla/)
 - `../../04-research/` — VLM 논문(멀티모달 지각, 그라운딩, 비디오 이해)
 
 ---

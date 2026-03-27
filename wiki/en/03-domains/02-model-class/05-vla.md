@@ -6,7 +6,7 @@ Vision + Language + **Action** — multimodal model for robot control.
 
 ## From VLM to VLA
 
-[VLMs](./04-vlm.md/) produce language (or structured tokens) from perception. VLAs take this further: instead of generating text, they generate **robot actions** — joint angles, end-effector poses, or other control signals.
+[VLMs](./04-vlm/) produce language (or structured tokens) from perception. VLAs take this further: instead of generating text, they generate **robot actions** — joint angles, end-effector poses, or other control signals.
 
 The key addition: an **action head** (or action-output layer) that converts the model's internal representations into executable robot commands.
 
@@ -177,9 +177,9 @@ VLAs are data-hungry; diversity and quality of demonstrations are critical:
 
 ## See also
 
-- [Robotics](../../01-robotics/01-robotics.md/)
-- [VLM](./04-vlm.md/)
-- [LLM](./03-llm.md/)
+- [Robotics](../../01-robotics/01-robotics/)
+- [VLM](./04-vlm/)
+- [LLM](./03-llm/)
 - `../../04-research/` — VLA papers (RT-2, OpenVLA, etc.)
 
 ---

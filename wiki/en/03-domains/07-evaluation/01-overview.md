@@ -110,7 +110,7 @@ Aligned with the tech preview's "closing the loop" strategy:
 
 ## See also
 
-- [Deployment](../../08-deployment/01-deployment.md/)
-- [Safety](../../09-safety/01-overview.md/)
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
-- [Research](../../../04-research/README.md/)
+- [Deployment](../../08-deployment/01-deployment/)
+- [Safety](../../09-safety/01-overview/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/)
+- [Research](../../../04-research/README/)

@@ -38,14 +38,14 @@ Config의 제품 스택은 **general-purpose 바이매뉴얼 로보틱스**에�
 
 | 제품                                 | 설명                                                                                         | 상세 문서                                          |
 | ---------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| **Data Platform**                  | general-purpose bimanipulation을 위한 데이터 인프라 — 액션 라벨링, scenario 마이닝/coverage, 품질 게이트, 실세계 검증 | [Data Platform](../01-data-platform.md/)       |
-| **Foundation Model**               | bimanual / general-purpose manipulation을 위한 CFG-1 파운데이션 정책 — 인코딩, 학습, 평가 루프                | [Foundation Model](../02-foundation-model.md/) |
+| **Data Platform**                  | general-purpose bimanipulation을 위한 데이터 인프라 — 액션 라벨링, scenario 마이닝/coverage, 품질 게이트, 실세계 검증 | [Data Platform](../01-data-platform/)       |
+| **Foundation Model**               | bimanual / general-purpose manipulation을 위한 CFG-1 파운데이션 정책 — 인코딩, 학습, 평가 루프                | [Foundation Model](../02-foundation-model/) |
  
 
 ---
 
 ## 참고
 
-- [Company — About](../../01-company/about.md/) — 회사 소개·미션
-- [Domains](../../README.md/#3-domains-도메인-지식) — AI/ML, VLA, Robotics, Sim2Real, Data & Scaling, Deployment
+- [Company — About](../../01-company/about/) — 회사 소개·미션
+- [Domains](../../README/#3-domains-도메인-지식) — AI/ML, VLA, Robotics, Sim2Real, Data & Scaling, Deployment
 

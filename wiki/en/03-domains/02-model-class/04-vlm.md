@@ -6,7 +6,7 @@ Vision + language grounding models that turn what the robot sees into text and/o
 
 ## From LLM to VLM
 
-[LLMs](./03-llm.md/) process token sequences. VLMs extend this by converting **images into token-like representations** that the same Transformer decoder can attend to — same attention mechanism, now spanning two modalities.
+[LLMs](./03-llm/) process token sequences. VLMs extend this by converting **images into token-like representations** that the same Transformer decoder can attend to — same attention mechanism, now spanning two modalities.
 
 The key addition: a **vision encoder** that maps image patches into embedding vectors, plus a **fusion** step to combine them with text tokens.
 
@@ -207,9 +207,9 @@ Standard VLM benchmarks (BLEU, CIDEr, VQA accuracy) don't capture what robots ne
 
 ## See also
 
-- [ML Fundamentals](./02-ml-fundamentals.md/) — Transformer, attention, Q·K·V
-- [LLM](./03-llm.md/)
-- [VLA](./05-vla.md/)
+- [ML Fundamentals](./02-ml-fundamentals/) — Transformer, attention, Q·K·V
+- [LLM](./03-llm/)
+- [VLA](./05-vla/)
 - `../../04-research/` — VLM papers (multimodal perception, grounding, video understanding)
 
 ---

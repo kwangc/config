@@ -37,16 +37,16 @@ Config sits in the **model-first + generalist** quadrant, differentiated by the 
 
 | Company | Focus | Funding | Config overlap | Config differentiation |
 |---------|-------|---------|----------------|------------------------|
-| [Physical Intelligence (π)](./01-physical-intelligence.md/) | Robotics foundation models | ~$470M | Closest: generalist model strategy | Config: data precision pipeline + bimanual focus |
-| [Generalist](./02-generalist.md/) | Embodied foundation models, dexterity | Undisclosed (2025 seed) | High: model-first, generalist | Config: product pipeline, not pure research |
-| [1X Technologies](./03-1x.md/) | Humanoid robots for home/real environments | ~$100M+ | Medium: real-world deployment focus | Config: software + data stack, not hardware |
-| [Figure](./04-figure.md/) | Autonomous humanoid robots | ~$675M+ | Medium: general-purpose manipulation | Config: bimanual precision + data infrastructure |
-| [Agility Robotics / Digit](./05-agility-robotics.md/) | Humanoid for logistics (Amazon partnership) | ~$150M+ | Low-medium: deployment in real warehouses | Config: data precision, not fixed-task pipeline |
-| [Boston Dynamics](./06-boston-dynamics.md/) | Advanced robot hardware + mobility | Acquired by Hyundai | Low: hardware-first, specific platforms | Config: embodiment-agnostic, data-driven |
-| [Unitree Robotics](./07-unitree.md/) | Low-cost humanoid and quadruped robots | Undisclosed | Low: hardware commoditization | Config: software/data stack, not price war |
-| [NVIDIA (GR00T / Isaac)](./08-nvidia-gr00t.md/) | Sim + foundation model platform | (Public; ~$3T market cap) | Medium: sim-to-real + foundation model infra | Config: real-world data, not sim-first |
-| [Apptronik / Apollo](./09-apptronik.md/) | General-purpose humanoid, Samsung partnership | ~$350M | Low-medium: general manipulation tasks | Config: precision bimanual data, not general humanoid |
-| [Machina Labs](./10-machina-labs.md/) | Robotic sheet metal forming | ~$32M | Low: industrial materials, single domain | Different market; interesting data-loop pattern |
+| [Physical Intelligence (π)](./01-physical-intelligence/) | Robotics foundation models | ~$470M | Closest: generalist model strategy | Config: data precision pipeline + bimanual focus |
+| [Generalist](./02-generalist/) | Embodied foundation models, dexterity | Undisclosed (2025 seed) | High: model-first, generalist | Config: product pipeline, not pure research |
+| [1X Technologies](./03-1x/) | Humanoid robots for home/real environments | ~$100M+ | Medium: real-world deployment focus | Config: software + data stack, not hardware |
+| [Figure](./04-figure/) | Autonomous humanoid robots | ~$675M+ | Medium: general-purpose manipulation | Config: bimanual precision + data infrastructure |
+| [Agility Robotics / Digit](./05-agility-robotics/) | Humanoid for logistics (Amazon partnership) | ~$150M+ | Low-medium: deployment in real warehouses | Config: data precision, not fixed-task pipeline |
+| [Boston Dynamics](./06-boston-dynamics/) | Advanced robot hardware + mobility | Acquired by Hyundai | Low: hardware-first, specific platforms | Config: embodiment-agnostic, data-driven |
+| [Unitree Robotics](./07-unitree/) | Low-cost humanoid and quadruped robots | Undisclosed | Low: hardware commoditization | Config: software/data stack, not price war |
+| [NVIDIA (GR00T / Isaac)](./08-nvidia-gr00t/) | Sim + foundation model platform | (Public; ~$3T market cap) | Medium: sim-to-real + foundation model infra | Config: real-world data, not sim-first |
+| [Apptronik / Apollo](./09-apptronik/) | General-purpose humanoid, Samsung partnership | ~$350M | Low-medium: general manipulation tasks | Config: precision bimanual data, not general humanoid |
+| [Machina Labs](./10-machina-labs/) | Robotic sheet metal forming | ~$32M | Low: industrial materials, single domain | Different market; interesting data-loop pattern |
 
 ---
 
@@ -70,5 +70,5 @@ Config sits in the **model-first + generalist** quadrant, differentiated by the 
 ## See also
 
 - Individual company pages linked in the table above
-- [About Config](../01-company/about.md/)
-- [Product Strategy](../02-product/05-product-strategy.md/)
+- [About Config](../01-company/about/)
+- [Product Strategy](../02-product/05-product-strategy/)

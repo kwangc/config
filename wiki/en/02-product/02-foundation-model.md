@@ -83,7 +83,7 @@ CFG-1 is designed around Config's target embodiment (bimanual, hand-gripper-styl
 
 ## See also
 
-- [About](../../01-company/about.md/)
-- [Data Platform](../01-data-platform.md/)
-- [VLA](../../03-domains/02-model-class/05-vla.md/)
-- [Deployment](../../03-domains/08-deployment/01-deployment.md/)
+- [About](../../01-company/about/)
+- [Data Platform](../01-data-platform/)
+- [VLA](../../03-domains/02-model-class/05-vla/)
+- [Deployment](../../03-domains/08-deployment/01-deployment/)

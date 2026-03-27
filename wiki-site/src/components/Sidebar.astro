@@ -18,7 +18,7 @@ function isActive(href: string): boolean {
   if (linkNorm === `/${locale}` || linkNorm === '/') {
     return pathNorm === `/${locale}` || pathNorm === '/';
   }
-  return path === linkPath || path.startsWith(linkPath);
+  return path === linkPath;
 }
 ---
 

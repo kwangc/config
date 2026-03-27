@@ -125,7 +125,7 @@ Safety starts before training:
 
 ## See also
 
-- [Evaluation](../../07-evaluation/01-overview.md/)
-- [Deployment](../../08-deployment/01-deployment.md/)
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/)
-- [Research](../../../04-research/README.md/)
+- [Evaluation](../../07-evaluation/01-overview/)
+- [Deployment](../../08-deployment/01-deployment/)
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/)
+- [Research](../../../04-research/README/)

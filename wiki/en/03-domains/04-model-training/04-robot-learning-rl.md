@@ -89,9 +89,9 @@ This makes training **more stable**, which is important for robot deployments.
 
 ## See also
 
-- [Teleoperation](../02-teleops.md/)
-- [Behavior Cloning](../03-behavior-cloning.md/)
-- [VLA](../../02-model-class/05-vla.md/)
+- [Teleoperation](../02-teleops/)
+- [Behavior Cloning](../03-behavior-cloning/)
+- [VLA](../../02-model-class/05-vla/)
 
 ---
 

@@ -33,10 +33,10 @@
 
 ## 참고
 
-- [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real.md/) — 시뮬·전이
-- [Robotics](../../01-robotics/01-robotics.md/) — teleop, 데모 수집
-- [Data Platform](../../../02-product/01-data-platform.md/) — 구성·기술 스택
-- [Research](../../../04-research/README.md/) — 데이터 스케일링 논문
+- [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real/) — 시뮬·전이
+- [Robotics](../../01-robotics/01-robotics/) — teleop, 데모 수집
+- [Data Platform](../../../02-product/01-data-platform/) — 구성·기술 스택
+- [Research](../../../04-research/README/) — 데이터 스케일링 논문
 
 ---
 

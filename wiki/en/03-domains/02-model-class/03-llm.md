@@ -4,7 +4,7 @@
 
 ## From Transformer to LLM
 
-[ML Fundamentals](./02-ml-fundamentals.md/) covered the core mechanics: Transformer + attention. LLMs apply that architecture at **scale**:
+[ML Fundamentals](./02-ml-fundamentals/) covered the core mechanics: Transformer + attention. LLMs apply that architecture at **scale**:
 
 - **More parameters** — billions to hundreds of billions of weights in deeper, wider Transformer stacks
 - **More data** — hundreds of billions to trillions of tokens of web-scale text
@@ -274,9 +274,9 @@ No single metric is sufficient. For robotics use, **action-sequence accuracy**, 
 
 ## See also
 
-- [ML Fundamentals](./02-ml-fundamentals.md/) — Transformer, attention, Q·K·V
-- [VLM](./04-vlm.md/)
-- [VLA](./05-vla.md/)
+- [ML Fundamentals](./02-ml-fundamentals/) — Transformer, attention, Q·K·V
+- [VLM](./04-vlm/)
+- [VLA](./05-vla/)
 - `../../04-research/` — LLM papers
 - `../../study/llm/` — notes
 

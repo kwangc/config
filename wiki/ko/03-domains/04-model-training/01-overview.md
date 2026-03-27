@@ -14,6 +14,6 @@
 
 ## 참고
 
-- [Teleops](../02-teleops.md/)
-- [Behavior Cloning](../03-behavior-cloning.md/)
-- [Robot Learning (RL)](../04-robot-learning-rl.md/)
+- [Teleops](../02-teleops/)
+- [Behavior Cloning](../03-behavior-cloning/)
+- [Robot Learning (RL)](../04-robot-learning-rl/)

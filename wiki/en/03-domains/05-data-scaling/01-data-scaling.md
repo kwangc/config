@@ -33,10 +33,10 @@
 
 ## See also
 
-- [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real.md/)
-- [Robotics](../../01-robotics/01-robotics.md/)
-- [Data Platform](../../../02-product/01-data-platform.md/)
-- [Research](../../../04-research/README.md/)
+- [Simulation & Sim2Real](../../06-simulation-sim2real/01-simulation-sim2real/)
+- [Robotics](../../01-robotics/01-robotics/)
+- [Data Platform](../../../02-product/01-data-platform/)
+- [Research](../../../04-research/README/)
 
 ---
 

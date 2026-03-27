@@ -40,5 +40,5 @@ Operations also ensure that “data remains usable”:
 
 ## See also
 
-- [Data Platform](../01-data-platform.md/)
-- [Foundation Model](../02-foundation-model.md/)
+- [Data Platform](../01-data-platform/)
+- [Foundation Model](../02-foundation-model/)

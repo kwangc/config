@@ -40,5 +40,5 @@ tech preview에서는 라운드 간 **trajectory consistency**와 **workspace co
 
 ## 참고
 
-- [Data Platform](../01-data-platform.md/)
-- [Foundation Model](../02-foundation-model.md/)
+- [Data Platform](../01-data-platform/)
+- [Foundation Model](../02-foundation-model/)

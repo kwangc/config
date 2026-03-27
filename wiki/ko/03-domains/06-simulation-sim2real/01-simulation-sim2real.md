@@ -31,10 +31,10 @@
 
 ## 참고
 
-- [Robotics](../../01-robotics/01-robotics.md/) — 로봇·데이터 수집
-- [Data & Scaling](../../05-data-scaling/01-data-scaling.md/) — 데이터 스케일·다양성
-- [Data Platform](../../../02-product/01-data-platform.md/) — 데이터 인프라
-- [Glossary](../../../06-glossary/README.md/) — Sim2Real, domain gap, domain randomization
+- [Robotics](../../01-robotics/01-robotics/) — 로봇·데이터 수집
+- [Data & Scaling](../../05-data-scaling/01-data-scaling/) — 데이터 스케일·다양성
+- [Data Platform](../../../02-product/01-data-platform/) — 데이터 인프라
+- [Glossary](../../../06-glossary/README/) — Sim2Real, domain gap, domain randomization
 
 ---
 

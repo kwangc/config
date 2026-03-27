@@ -74,8 +74,8 @@ Software is where we can standardize interfaces, encode safety/supervision patte
 
 ## See also
 
-- [Robotics](../../README.md/#domains)
-- [Data & Scaling](../../README.md/#domains)
-- [Simulation & Sim2Real](../../README.md/#domains)
-- [Deployment](../../README.md/#domains)
+- [Robotics](../../README/#domains)
+- [Data & Scaling](../../README/#domains)
+- [Simulation & Sim2Real](../../README/#domains)
+- [Deployment](../../README/#domains)
 
