@@ -1,6 +1,28 @@
 {
   "items": [
     {
+      "id": "26-03-26-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-03-26-not-much",
+      "date": "2026-03-26",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-03-25-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-03-25-not-much",
