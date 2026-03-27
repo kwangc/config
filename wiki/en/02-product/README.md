@@ -37,12 +37,12 @@ We build the data infrastructure and technology that enable robots to perform di
 
 | Product | Description | Doc |
 |---------|-------------|-----|
-| **Data Platform** | Data infrastructure for general-purpose bimanipulation — action labeling, scenario mining/coverage, quality gates, real-world validation | [Data Platform](../01-data-platform/) |
-| **Foundation Model** | CFG-1 foundation policy for bimanual / general-purpose manipulation — encoding, training, evaluation loop | [Foundation Model](../02-foundation-model/) |
+| **Data Platform** | Data infrastructure for general-purpose bimanipulation — action labeling, scenario mining/coverage, quality gates, real-world validation | [Data Platform](./01-data-platform/) |
+| **Foundation Model** | CFG-1 foundation policy for bimanual / general-purpose manipulation — encoding, training, evaluation loop | [Foundation Model](./02-foundation-model/) |
 
 ---
 
 ## See also
 
-- [Company — About](../../01-company/about/)
-- [Domains](../../README/#3-domains) — AI/ML, VLA, Robotics, Sim2Real, Data & Scaling, Deployment
+- [Company — About](../01-company/about/)
+- [Domains](../README/#3-domains) — AI/ML, VLA, Robotics, Sim2Real, Data & Scaling, Deployment
