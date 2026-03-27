@@ -39,11 +39,50 @@ Putting robots & VLAs on **real hardware** and into production — **form factor
 
 ---
 
-## Rollout & ops (TBD)
+## Rollout & ops
 
-- **Shadow mode** — collect predictions without controlling
-- **Canary / A/B** — small rollout, then metrics & safety checks
-- **Rollback & versioning** — policy/model versions, emergency rollback
+### Policy versioning
+
+Every deployed policy is a versioned artifact: model weights + config + action representation schema. Version identifiers link the deployed policy to the exact training run, dataset version, and evaluation results. This makes rollback and audit possible.
+
+```
+Policy version structure:
+  cfg1-v1.3.2-task-scoop-2026Q1
+  ├── model weights (quantized or full precision)
+  ├── action schema (7-DoF end-effector delta)
+  ├── inference config (sliding window size, temperature)
+  └── eval results (success rate, safe success rate, benchmark)
+```
+
+### Shadow mode
+
+Before handing control to the policy, run in **shadow mode**: the policy generates action predictions, but the robot does not execute them. The operator controls manually while policy outputs are logged side-by-side.
+
+- **Purpose**: verify that policy predictions are sane before granting control
+- **Duration**: typically 5–10 trials or until predicted actions consistently match operator behavior
+- **Gate**: shadow-mode action distribution should overlap with operator action distribution (KL divergence check or visual inspection)
+
+### Canary rollout
+
+1. Deploy new policy version to 1 robot (canary) in a controlled evaluation set
+2. Run 20–50 trials; monitor: success rate, safe success rate, safety-stop count, failure mode breakdown
+3. Compare against baseline (previous version) — look for regressions
+4. Pass gate → expand to full fleet; fail gate → rollback
+
+### Rollback
+
+- Previous policy version stays warm (loaded, ready to serve) for the duration of one deployment cycle
+- Rollback = switch the active policy pointer; takes < 1 minute; no hardware restart required
+- Automatic rollback triggers: safe success rate drops > 10% from baseline, or any safety-stop event outside expected range
+- All rollback events are logged with timestamp, version, and triggering metric
+
+### Monitoring during deployment
+
+Track per-session:
+- Success rate and safe success rate (rolling 10-trial window)
+- Failure mode distribution (grasp / placement / coordination / safety-stop)
+- Inference latency p50/p95 (target: < 150ms per action step)
+- Any operator interventions (frequency and type)
 
 ---
 

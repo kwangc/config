@@ -2,13 +2,14 @@
 interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
-const { title, description = 'Config Wiki — AI, LLM, VLA, Robotics' } = Astro.props;
+const { title, description = 'Config Wiki — AI, LLM, VLA, Robotics', lang = 'ko' } = Astro.props;
 const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 ---
 
 <!doctype html>
-<html lang="ko">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <script is:inline>

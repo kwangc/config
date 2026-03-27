@@ -2,6 +2,7 @@
 import type { Locale } from '../data/i18n';
 import { i18n } from '../data/i18n';
 import { getWikiNav } from '../data/wikiNav';
+import Search from './Search.astro';
 
 interface Props {
   currentPath: string;
@@ -88,6 +89,7 @@ const wikiNav = getWikiNav(locale, base);
     <a href={prefix + '/'} class:list={['topnav-link', { 'is-active': isWiki }]}>{t.wiki}</a>
     <a href={prefix + '/news/'} class:list={['topnav-link', { 'is-active': isNews }]}>{t.news}</a>
     <a href={prefix + '/about/'} class:list={['topnav-link', { 'is-active': isAboutMe }]}>{t.aboutMe}</a>
+    <Search locale={locale} />
     <div class="topnav-lang-wrap">
       <button type="button" class="topnav-lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" id="lang-trigger">
         <span class="topnav-lang-current">{currentLabel}</span>

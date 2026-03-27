@@ -56,6 +56,31 @@ CFG-1의 입력은 Data Platform에서 생성되는 action representation과 연
 
 ---
 
+## 5) 핵심 설계 트레이드오프
+
+### Autoregressive vs. Diffusion action head
+
+CFG-1은 autoregressive 액션 디코더를 사용합니다(RT-2와 유사하게 액션 토큰을 순차 예측). 대안은 diffusion 기반 액션 헤드(예: Diffusion Policy)로, 액션 분포를 denoising 과정으로 모델링합니다.
+
+| 측면 | Autoregressive | Diffusion head |
+|------|----------------|----------------|
+| 멀티모달성 | 온도/샘플링으로 | 자연스러움 (전체 분포 모델링) |
+| 속도 | 빠름 (1-2 순전파) | 느림 (10–100 denoising 스텝) |
+| 학습 복잡도 | 표준 cross-entropy | Score matching / DDPM 목적함수 |
+| 장기 기억 | 강함 (AR에 메모리 내장) | 명시적 메모리 없으면 약함 |
+
+CFG-1의 long-horizon memory 요구사항은 autoregressive 접근을 선호합니다. diffusion head는 접촉 집약 정밀 태스크(예: ACT 스타일 action chunking)에 강점이 있습니다.
+
+### Action chunking
+
+한 번에 한 액션 대신 미래 액션 묶음(예: 10스텝 앞)을 예측하면 behavior cloning의 오류 누적 문제가 줄어듭니다. CFG-1은 최근 프레임의 슬라이딩 윈도우를 사용해 고정밀 예측을 안정화합니다 — 유사한 아이디어입니다.
+
+### 엠보디먼트 일반화
+
+CFG-1은 Config의 타겟 엠보디먼트(바이매뉴얼, hand-gripper 스타일 엔드이펙터)를 중심으로 설계되었습니다. 액션 표현은 이 엠보디먼트에 얼라인되어 있습니다. 새 엠보디먼트로 일반화하려면 액션 표현 공간을 재추정하고 타겟 로봇 텔레옵 데이터로 파인튜닝이 필요합니다.
+
+---
+
 ## 참고
 
 - [About](../../01-company/about.md/)

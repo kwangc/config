@@ -33,7 +33,7 @@ const lastEdited = lastModifiedMap[id] ?? new Date().toISOString().slice(0, 10);
 
 <WikiLayout title={title} locale={locale}>
   <div class="content-with-toc">
-    <article class="wiki-article">
+    <article class="wiki-article" data-pagefind-body>
       <Content />
     </article>
     <TableOfContents headings={headings} lastEdited={lastEdited} />

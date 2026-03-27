@@ -56,6 +56,31 @@ Evaluation is not only “offline success.” In this product approach:
 
 ---
 
+## 5) Key design tradeoffs
+
+### Autoregressive vs. diffusion action head
+
+CFG-1 uses an autoregressive action decoder (predicting action tokens sequentially, similar to RT-2). An alternative is a diffusion-based action head (e.g., Diffusion Policy), which models the action distribution as a denoising process.
+
+| Aspect | Autoregressive | Diffusion head |
+|--------|---------------|----------------|
+| Multimodality | Via temperature/sampling | Natural (models full distribution) |
+| Speed | Fast (1-2 forward passes) | Slower (10–100 denoising steps) |
+| Training complexity | Standard cross-entropy | Score matching / DDPM objective |
+| Long-horizon | Strong (memory baked into AR) | Weaker without explicit memory |
+
+CFG-1's long-horizon memory requirement favors the autoregressive approach; diffusion heads are strong for contact-rich precision tasks (e.g., ACT-style action chunking).
+
+### Action chunking
+
+Predicting a chunk of future actions (e.g., 10 steps ahead) rather than one action at a time reduces the compounding error problem in behavior cloning. CFG-1 uses a sliding window of recent frames to stabilize high-precision prediction — a related idea.
+
+### Embodiment generalization
+
+CFG-1 is designed around Config's target embodiment (bimanual, hand-gripper-style end-effectors). The action representation is aligned to this embodiment. Generalizing to new embodiments requires re-estimating the action representation space and fine-tuning with target-robot teleop data.
+
+---
+
 ## See also
 
 - [About](../../01-company/about.md/)

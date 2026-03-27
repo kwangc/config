@@ -75,16 +75,24 @@ The tech preview provides concrete examples:
 
 ---
 
-## Tech stack (TBD)
+## Tech stack
 
+| Area | Approach | Key requirement |
+|------|----------|-----------------|
+| **Action estimation** | Human gripper → 7-DoF robot-aligned action estimation | Precision/accuracy of estimated labels |
+| **Scenario mining** | Text embedding → UMAP (3D) → HDBSCAN clustering | Scenario coverage, not just volume |
+| **Data versioning** | Dataset manifests with raw-to-label lineage | Reproducibility across pipeline changes |
+| **Quality gates** | Automated precision/accuracy/diversity checks | Filter out degraded data before training |
+| **Failure attribution** | Per-trial failure mode tagging | Directs next data collection cycle |
+| **Online rollout logging** | Closed-loop trial logs with operator intervention markers | Drives strategy refinement decisions |
 
-| Area                                | Tech / tools                                    | Notes                               |
-| ----------------------------------- | ----------------------------------------------- | ----------------------------------- |
-| Storage & versioning                | Dataset manifests, lineage tracking             | (to fill with real tooling)         |
-| Action estimation & labeling        | Human gripper → robot-aligned action estimation | precision/accuracy critical         |
-| Scenario mining & coverage tracking | embeddings + UMAP/HDBSCAN                       | scenario-level diversity management |
-| Quality scoring & gates             | automated checks + failure attribution          | keep “data usable”                  |
-| Online closed-loop iteration        | rollout logging + strategy refinement           | impacts deployment timeline         |
+### Why these design choices
+
+**Human gripper over pure robot teleoperation**: robot teleoperation is slow and expensive to scale. A human-operated gripper that mimics the target end-effector lets non-expert operators collect aligned action data at ~20k hours/month. The precision comes from the gripper design, not from operator training.
+
+**UMAP + HDBSCAN over uniform sampling**: random sampling of scenarios creates gaps in coverage and wastes collection budget on already-dense areas. Embedding + clustering makes coverage visible and guides collectors toward under-represented scenarios.
+
+**Data lineage over just storing files**: the action representation is estimated (not ground-truth labeled), so every downstream consumer of the dataset needs to know: what gripper hardware, what estimation algorithm version, what calibration parameters. Without lineage, debugging a model regression is impossible.
 
 
 ---

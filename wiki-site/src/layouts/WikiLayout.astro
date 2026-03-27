@@ -17,7 +17,7 @@ const isNoSidebar =
   new RegExp(`^/${locale}/about(/|$)`).test(path);
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} lang={locale}>
   <TopNav currentPath={currentPath} locale={locale} menuMode={isNoSidebar ? 'dropdown' : 'sidebar'} />
   <div class="wiki-app">
     <div class="wiki-layout" id="wiki-layout" class:list={{ 'wiki-layout--no-sidebar': isNoSidebar }}>

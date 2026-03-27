@@ -1,0 +1,234 @@
+---
+import type { Locale } from '../data/i18n';
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'en' } = Astro.props;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const placeholder = locale === 'ko' ? '검색 (⌘K)' : 'Search (⌘K)';
+const closeLabel = locale === 'ko' ? '닫기' : 'Close';
+---
+
+<!-- Search trigger button -->
+<button
+  type="button"
+  id="search-trigger"
+  class="search-trigger"
+  aria-label={placeholder}
+  title={placeholder}
+>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <circle cx="11" cy="11" r="8"/>
+    <path d="m21 21-4.35-4.35"/>
+  </svg>
+</button>
+
+<!-- Search modal overlay -->
+<div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label={placeholder}>
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-panel">
+    <div class="search-modal-header">
+      <div id="search-ui-container"></div>
+      <button type="button" class="search-modal-close" id="search-modal-close" aria-label={closeLabel}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .search-trigger:hover {
+    color: var(--text);
+    background: var(--surface);
+    border-color: var(--accent);
+  }
+
+  .search-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+  }
+  .search-modal[aria-hidden="false"] {
+    display: flex;
+  }
+
+  .search-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+  }
+
+  .search-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(640px, calc(100vw - 32px));
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+    max-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-modal-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 8px 8px 16px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  #search-ui-container {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .search-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .search-modal-close:hover {
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* Pagefind UI overrides */
+  :global(#search-ui-container .pagefind-ui) {
+    --pagefind-ui-scale: 0.9;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--surface);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-tag: var(--surface);
+    --pagefind-ui-font: inherit;
+  }
+  :global(#search-ui-container .pagefind-ui__search-input) {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+  }
+  :global(#search-ui-container .pagefind-ui__result) {
+    border-color: var(--border) !important;
+  }
+  :global(#search-ui-container .pagefind-ui__result-link) {
+    color: var(--accent) !important;
+  }
+  :global(#search-ui-container .pagefind-ui__result-excerpt) {
+    color: var(--muted) !important;
+  }
+</style>
+
+<script define:vars={{ base }}>
+  const trigger = document.getElementById('search-trigger');
+  const modal = document.getElementById('search-modal');
+  const backdrop = document.getElementById('search-modal-backdrop');
+  const closeBtn = document.getElementById('search-modal-close');
+  const container = document.getElementById('search-ui-container');
+
+  let initialized = false;
+
+  async function initPagefind() {
+    if (initialized) return;
+    initialized = true;
+    try {
+      // Load Pagefind CSS
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = `${base}/pagefind/pagefind-ui.css`;
+      document.head.appendChild(link);
+
+      // Load Pagefind UI JS
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = `${base}/pagefind/pagefind-ui.js`;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+
+      // Init PagefindUI
+      new window.PagefindUI({
+        element: '#search-ui-container',
+        showImages: false,
+        showEmptyFilters: false,
+        resetStyles: false,
+        baseUrl: base || '/',
+      });
+
+      // Focus the input after init
+      setTimeout(() => {
+        const input = container.querySelector('input[type="text"], input[type="search"]');
+        if (input) input.focus();
+      }, 50);
+    } catch (e) {
+      container.innerHTML = '<p style="padding:16px;color:var(--muted);font-size:14px;">Search index not available. Run <code>npm run build</code> first.</p>';
+    }
+  }
+
+  function openModal() {
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    initPagefind().then(() => {
+      setTimeout(() => {
+        const input = container.querySelector('input[type="text"], input[type="search"]');
+        if (input) input.focus();
+      }, 50);
+    });
+  }
+
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+      } else {
+        openModal();
+      }
+    }
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
+  });
+</script>

@@ -89,6 +89,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
       label: 'Industry',
       children: [
         { label: 'Overview', href: w('05-industry/README.md') },
+        { label: 'Competitive Landscape', href: w('05-industry/00-landscape.md') },
         { label: 'Physical Intelligence', href: w('05-industry/01-physical-intelligence.md') },
         { label: 'Generalist', href: w('05-industry/02-generalist.md') },
         { label: '1x', href: w('05-industry/03-1x.md') },
