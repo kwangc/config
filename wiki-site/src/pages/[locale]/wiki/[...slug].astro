@@ -12,7 +12,12 @@ export async function getStaticPaths() {
     if (!e.id.includes('/')) continue;
     const [locale, ...parts] = e.id.split('/');
     if (locale !== 'en' && locale !== 'ko') continue;
-    const slug = parts.join('/');
+    let slug = parts.join('/');
+    // Serve README.md at parent directory URL so ./sibling.md links resolve correctly
+    // in both local filesystem browsing and on the deployed Astro site.
+    if (slug.includes('/') && slug.endsWith('/README.md')) {
+      slug = slug.slice(0, -'/README.md'.length);
+    }
     paths.push({ params: { locale, slug } });
   }
   return paths;
@@ -22,7 +27,8 @@ const { locale, slug } = Astro.params as { locale: Locale; slug: string | string
 const slugStr = typeof slug === 'string' ? slug : (Array.isArray(slug) ? slug.join('/') : '');
 const id = `${locale}/${slugStr}`;
 const entries = await getCollection('wiki');
-const entry = entries.find((e) => e.id === id);
+const entry = entries.find((e) => e.id === id)
+  ?? entries.find((e) => e.id === `${id}/README.md`);
 if (!entry) return Astro.redirect(import.meta.env.BASE_URL.replace(/\/$/, '') + '/' + locale + '/');
 
 const { Content, headings } = await entry.render();

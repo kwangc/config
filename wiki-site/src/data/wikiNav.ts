@@ -16,7 +16,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     {
       label: 'Product',
       children: [
-        { label: s.productOverview, href: w('02-product/README.md') },
+        { label: s.productOverview, href: w('02-product') },
         { label: 'Data Platform', href: w('02-product/01-data-platform.md') },
         { label: 'Foundation Model', href: w('02-product/02-foundation-model.md') },
         { label: 'Task & Applications', href: w('02-product/03-task-and-applications') },
@@ -27,7 +27,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     {
       label: 'Domains',
       children: [
-        { label: 'Overview', href: w('03-domains/README.md') },
+        { label: 'Overview', href: w('03-domains') },
         {
           id: 'robotics',
           label: 'Robotics',
@@ -77,7 +77,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     {
       label: 'Research',
       children: [
-        { label: 'Overview', href: w('04-research/README.md') },
+        { label: 'Overview', href: w('04-research') },
         { label: 'Attention Is All You Need', href: w('04-research/attention-is-all-you-need.md') },
         { label: 'CLIP', href: w('04-research/clip.md') },
         { label: 'Diffusion Policy', href: w('04-research/diffusion-policy.md') },
@@ -94,7 +94,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     {
       label: 'Industry',
       children: [
-        { label: 'Overview', href: w('05-industry/README.md') },
+        { label: 'Overview', href: w('05-industry') },
         { label: 'Competitive Landscape', href: w('05-industry/00-landscape.md') },
         { label: 'Physical Intelligence', href: w('05-industry/01-physical-intelligence.md') },
         { label: 'Generalist', href: w('05-industry/02-generalist.md') },
@@ -110,7 +110,7 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
     },
     {
       label: 'Glossary',
-      children: [{ label: 'Overview', href: w('06-glossary/README.md') }],
+      children: [{ label: 'Overview', href: w('06-glossary') }],
     },
   ];
 }

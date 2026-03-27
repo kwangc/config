@@ -7,20 +7,20 @@ Market, competitors, trends, news.
 ## Companies to monitor (docs)
 
 ### Model & Data-First (closest competitors)
-- [Physical Intelligence](../01-physical-intelligence.md/) — robotics foundation models / general-purpose physical AI
-- [Generalist](../02-generalist.md/) — embodied foundation models for dexterity and general-purpose robots
-- [NVIDIA GR00T](../08-nvidia-groo-t.md/) — cloud-based foundation model service for embodied AI
+- [Physical Intelligence](./01-physical-intelligence.md) — robotics foundation models / general-purpose physical AI
+- [Generalist](./02-generalist.md) — embodied foundation models for dexterity and general-purpose robots
+- [NVIDIA GR00T](./08-nvidia-groo-t.md) — cloud-based foundation model service for embodied AI
 
 ### Hardware-First (humanoid & mobile)
-- [1x (1X Technologies)](../03-1x.md/) — humanoid robots for home/real environments
-- [Figure](../04-figure.md/) — autonomous humanoid robots (hardware-first, large funding)
-- [Agility Robotics](../05-agility.md/) — legged humanoid (Digit) for warehouse logistics and mobility
-- [Boston Dynamics](../06-boston-dynamics.md/) — advanced locomotion (Atlas) and mobile manipulation (Stretch)
-- [Apptronik](../09-apptronik.md/) — full-body humanoid (Apollo) for workforce augmentation
-- [Machina Labs](../10-machina-labs.md/) — humanoid robot (Eva) for precision manufacturing
+- [1x (1X Technologies)](./03-1x.md) — humanoid robots for home/real environments
+- [Figure](./04-figure.md) — autonomous humanoid robots (hardware-first, large funding)
+- [Agility Robotics](./05-agility.md) — legged humanoid (Digit) for warehouse logistics and mobility
+- [Boston Dynamics](./06-boston-dynamics.md) — advanced locomotion (Atlas) and mobile manipulation (Stretch)
+- [Apptronik](./09-apptronik.md) — full-body humanoid (Apollo) for workforce augmentation
+- [Machina Labs](./10-machina-labs.md) — humanoid robot (Eva) for precision manufacturing
 
 ### Alternative Platforms (legged, international)
-- [Unitree Robotics](../07-unitree.md/) — affordable legged robots (quadrupeds, bipeds) for research and logistics
+- [Unitree Robotics](./07-unitree.md) — affordable legged robots (quadrupeds, bipeds) for research and logistics
 
 ---
 
