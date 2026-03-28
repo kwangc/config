@@ -291,6 +291,7 @@ DISCORD_KO
 
 Rules:
 - Output 0 bullets if the input section is empty (just the marker).
+- Output exactly 1 bullet if the section has little or no real content (e.g. "not much happened", quiet day, no major topics).
 - Otherwise output up to 10 bullets per section (aim 6-10). If there are fewer major themes, output fewer bullets.
 - Use only "-" bullet lines. No numbering.
 `.trim();
