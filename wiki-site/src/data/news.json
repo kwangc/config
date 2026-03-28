@@ -1,6 +1,62 @@
 {
   "items": [
     {
+      "id": "26-03-27-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-03-27-not-much",
+      "date": "2026-03-27",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [
+            "새로운 Anthropic 티어인 \"Capybara\"가 Opus보다 상위에 있으며 코딩, 추론 및 사이버 보안에서 뛰어난 성능을 제공하지만 비용 및 안전 문제로 인해 배포가 제한적입니다.",
+            "Anthropic의 확장 노력은 ~10T 파라미터 모델에 대한 추측과 함께 분명하며, Google은 Anthropic의 데이터 센터에 자금을 지원할 것으로 알려져 최첨단 AI 경쟁에서 컴퓨팅 인프라의 중요성이 커지고 있음을 강조합니다.",
+            "Anthropic은 광범위한 사용자 불만과 함께 심각한 서비스 중단을 경험했으며, 이는 확장 야망과 현재 서비스 용량 간의 균형을 맞추기 위한 어려움을 나타냅니다.",
+            "Zhipu의 GLM-5.1 출시는 폐쇄형 코딩 모델에 대한 경쟁을 심화시키고 있으며, 성능 향상은 오픈 소스 및 폐쇄 소스 옵션 간의 격차를 좁히고 있습니다.",
+            "로컬 LLM 배포 경제는 개선되고 있으며, 사용자는 Qwen 3.5 14B 및 27B와 같은 로컬 모델이 다양한 작업에 충분하다고 판단하고 상당한 컨텍스트 압축을 달성하고 있습니다.",
+            "TurboQuant 및 RotorQuant와 같은 양자화 및 캐시 관리의 혁신은 효율적인 로컬 LLM 배포를 가능하게 하는 데 중요하며, INT4는 특정 하드웨어에 대한 강력한 추론 옵션으로 부상하고 있습니다.",
+            "Google의 TurboQuant 논문에 대한 논란이 발생했으며, RaBitQ 방법의 잘못된 표현과 불공정한 벤치마킹 비교에 대한 주장이 제기되었습니다.",
+            "Nous Research의 Hermes Agent는 Hugging Face를 통합하고 메모리 및 영구 액세스와 같은 기능을 제공하는 오픈 에이전트 플랫폼으로 인기를 얻고 있으며, 사용자는 다른 설정에 비해 마찰이 적다고 보고합니다.",
+            "에이전트 인프라는 추적, 평가 및 디버깅 가능성에 중점을 두고 성숙하고 있으며, Agent Data Protocol 및 에이전트 평가 및 프롬프트 관리를 위한 LangChain의 도구로 대표됩니다.",
+            "AA-AgentPerf와 같은 새로운 에이전트 벤치마크가 등장하고 있으며, 실제 코딩 궤적 및 가속기당 동시 사용자 수와 같은 배포 관련 지표에 중점을 둡니다."
+          ],
+          "bulletsEn": [
+            "A new Anthropic tier, \"Capybara,\" is reportedly above Opus, offering superior performance in coding, reasoning, and cybersecurity, though its rollout is limited by cost and safety concerns.",
+            "Anthropic's focus on scaling is evident, with speculation about a ~10T parameter model, and Google is reportedly close to funding Anthropic's data center, highlighting the growing importance of compute infrastructure in frontier AI competition.",
+            "Anthropic experienced significant service disruptions with widespread user complaints about 529 errors, indicating a struggle to balance scaling ambitions with current serving capacity.",
+            "Zhipu's GLM-5.1 release is intensifying competition for closed coding models, with its improved performance narrowing the gap between open and closed-source options.",
+            "Local LLM deployment economics are improving, with users finding local models like Qwen 3.5 14B and 27B sufficient for various tasks and achieving significant context compression.",
+            "Innovations in quantization and cache management, such as TurboQuant and RotorQuant, are crucial for enabling efficient local LLM deployment, with INT4 emerging as a strong inference option for certain hardware.",
+            "A controversy has arisen regarding Google's TurboQuant paper, with allegations of misrepresentation of the RaBitQ method and unfair benchmarking comparisons.",
+            "Nous Research's Hermes Agent is gaining traction as an open-agent platform, integrating Hugging Face and offering features like memory and persistent access, with users reporting lower friction compared to other setups.",
+            "Agent infrastructure is maturing with a focus on traces, evaluations, and debuggability, exemplified by the Agent Data Protocol and LangChain's tools for agent evaluation and prompt management.",
+            "New agent benchmarks like AA-AgentPerf are emerging, focusing on real-world coding trajectories and deployment-relevant metrics like concurrent users per accelerator."
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [
+            "TurboQuant 및 RotorQuant와 같은 양자화 기술의 혁신은 LLM의 효율성과 성능을 개선하는 데 중점을 두고 논의되고 있으며, 특히 로컬 배포에 중점을 두고 있습니다.",
+            "GLM-5.1 및 코딩 작업에서의 기능에 대한 비교 및 토론은 기존 폐쇄 소스 모델에 대한 경쟁 우위를 강조하고 있습니다.",
+            "사용자는 로컬 LLM 하드웨어 설정을 적극적으로 공유하고 비교하며 최적의 성능과 비용 효율성을 위해 다양한 구성 요소 및 구성 간의 절충점을 논의하고 있습니다."
+          ],
+          "bulletsEn": [
+            "Innovations in quantization techniques like TurboQuant and RotorQuant are being discussed, focusing on improving the efficiency and performance of LLMs, particularly for local deployments.",
+            "Comparisons and discussions around GLM-5.1 and its capabilities, especially in coding tasks, are highlighting its competitive edge against established closed-source models.",
+            "Users are actively sharing and comparing their local LLM hardware setups, discussing the trade-offs between different components and configurations for optimal performance and cost-effectiveness."
+          ]
+        },
+        "discord": {
+          "bulletsKo": [
+            "확인된 서브레딧 및 트위터 계정 전반에 걸쳐 새로운 주요 개발이나 중요한 토론이 보고되지 않은 조용한 날이었습니다."
+          ],
+          "bulletsEn": [
+            "A quiet day with no major new developments or significant discussions reported across the checked subreddits and Twitter accounts."
+          ]
+        }
+      },
+      "summaryKo": "새로운 Anthropic 티어인 \"Capybara\"가 Opus보다 상위에 있으며 코딩, 추론 및 사이버 보안에서 뛰어난 성능을 제공하지만 비용 및 안전 문제로 인해 배포가 제한적입니다.\nAnthropic의 확장 노력은 ~10T 파라미터 모델에 대한 추측과 함께 분명하며, Google은 Anthropic의 데이터 센터에 자금을 지원할 것으로 알려져 최첨단 AI 경쟁에서 컴퓨팅 인프라의 중요성이 커지고 있음을 강조합니다.\nAnthropic은 광범위한 사용자 불만과 함께 심각한 서비스 중단을 경험했으며, 이는 확장 야망과 현재 서비스 용량 간의 균형을 맞추기 위한 어려움을 나타냅니다.\nZhipu의 GLM-5.1 출시는 폐쇄형 코딩 모델에 대한 경쟁을 심화시키고 있으며, 성능 향상은 오픈 소스 및 폐쇄 소스 옵션 간의 격차를 좁히고 있습니다.\n로컬 LLM 배포 경제는 개선되고 있으며, 사용자는 Qwen 3.5 14B 및 27B와 같은 로컬 모델이 다양한 작업에 충분하다고 판단하고 상당한 컨텍스트 압축을 달성하고 있습니다.\nTurboQuant 및 RotorQuant와 같은 양자화 및 캐시 관리의 혁신은 효율적인 로컬 LLM 배포를 가능하게 하는 데 중요하며, INT4는 특정 하드웨어에 대한 강력한 추론 옵션으로 부상하고 있습니다.\nGoogle의 TurboQuant 논문에 대한 논란이 발생했으며, RaBitQ 방법의 잘못된 표현과 불공정한 벤치마킹 비교에 대한 주장이 제기되었습니다.\nNous Research의 Hermes Agent는 Hugging Face를 통합하고 메모리 및 영구 액세스와 같은 기능을 제공하는 오픈 에이전트 플랫폼으로 인기를 얻고 있으며, 사용자는 다른 설정에 비해 마찰이 적다고 보고합니다.\n에이전트 인프라는 추적, 평가 및 디버깅 가능성에 중점을 두고 성숙하고 있으며, Agent Data Protocol 및 에이전트 평가 및 프롬프트 관리를 위한 LangChain의 도구로 대표됩니다.\nAA-AgentPerf와 같은 새로운 에이전트 벤치마크가 등장하고 있으며, 실제 코딩 궤적 및 가속기당 동시 사용자 수와 같은 배포 관련 지표에 중점을 둡니다.\nTurboQuant 및 RotorQuant와 같은 양자화 기술의 혁신은 LLM의 효율성과 성능을 개선하는 데 중점을 두고 논의되고 있으며, 특히 로컬 배포에 중점을 두고 있습니다.\nGLM-5.1 및 코딩 작업에서의 기능에 대한 비교 및 토론은 기존 폐쇄 소스 모델에 대한 경쟁 우위를 강조하고 있습니다.\n사용자는 로컬 LLM 하드웨어 설정을 적극적으로 공유하고 비교하며 최적의 성능과 비용 효율성을 위해 다양한 구성 요소 및 구성 간의 절충점을 논의하고 있습니다.\n확인된 서브레딧 및 트위터 계정 전반에 걸쳐 새로운 주요 개발이나 중요한 토론이 보고되지 않은 조용한 날이었습니다."
+    },
+    {
       "id": "26-03-26-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-03-26-not-much",
@@ -8,21 +64,65 @@
       "source": "smol-ai",
       "recaps": {
         "twitter": {
-          "bulletsKo": [],
-          "bulletsEn": []
+          "bulletsKo": [
+            "Meta는 광범위한 fMRI 데이터를 기반으로 훈련된 삼중 모달 뇌 인코더인 TRIBE v2를 출시했으며, 보이지 않는 주제와 작업에 대한 제로샷 예측에서 상당한 개선을 달성했습니다.",
+            "Anthropic의 Claude Code는 이제 웹 및 모바일 세션을 위한 원격 PR 팔로우 자동 수정을 제공하여 무인 CI 실패 해결 및 댓글 처리를 가능하게 합니다.",
+            "Andrej Karpathy는 풀스택 소프트웨어 자동화의 주요 과제가 코드 생성 자체가 아니라 AI 에이전트가 점점 더 다루기 쉬워지고 있는 DevOps 및 서비스 오케스트레이션에 있다고 강조했습니다.",
+            "Cline의 코딩 에이전트용 멀티 에이전트 워크트리 오케스트레이션 출시는 상당한 개발자 관심을 끌었으며, 이러한 고급 도구에 대한 강력한 수요를 나타냅니다.",
+            "Cohere와 Mistral은 Cohere Transcribe와 Mistral Voxtral이라는 프로덕션 지향 오디오 모델을 출시했으며, 이는 허용적인 라이선싱과 즉각적인 인프라 지원으로 인해 인기를 얻고 있습니다."
+          ],
+          "bulletsEn": [
+            "Meta released TRIBE v2, a trimodal brain encoder trained on extensive fMRI data, achieving significant improvements in zero-shot prediction for unseen subjects and tasks.",
+            "Anthropic's Claude Code now offers remote PR-following auto-fix for web and mobile sessions, enabling unattended CI-failure resolution and comment handling.",
+            "Andrej Karpathy highlighted that the primary challenge in full-stack software automation lies in DevOps and service orchestration, rather than just code generation, which is becoming increasingly tractable for AI agents.",
+            "The launch of Cline's multi-agent worktree orchestration for coding agents has garnered substantial developer interest, indicating a strong demand for such advanced tooling.",
+            "Cohere and Mistral have released production-oriented audio models, Cohere Transcribe and Mistral Voxtral, which are gaining traction due to their permissive licensing and immediate infrastructure support."
+          ]
         },
         "reddit": {
-          "bulletsKo": [],
-          "bulletsEn": []
+          "bulletsKo": [
+            "Mistral AI의 Voxtral TTS 모델은 30억 개의 매개변수를 가진 모델로, 인간 선호도 테스트에서 ElevenLabs Flash v2.5를 능가하는 것으로 알려져 있으며 낮은 RAM 요구 사항과 빠른 최초 오디오 시간으로 효율적으로 작동합니다.",
+            "사용자들은 이전 Mistral 모델에 대해 회의적인 반응을 보였지만, Mistral 콘솔에서 Voxtral을 테스트한 결과 인상적인 출력 품질을 보여 TTS 기술의 상당한 발전을 나타냈습니다.",
+            "TTS 환경은 Voxtral, Qwen-3 TTS 및 TADA에 대한 논의와 함께 경쟁이 치열하며, 지연 시간 및 스트리밍 기능과 같은 중요한 성능 메트릭에 중점을 둡니다.",
+            "일부 사용자는 NVIDIA 모델이 특정 작업에서는 뛰어나지만 벤치마크 성능이 뛰어나더라도 로컬 모델의 다재다능함이 부족한 \"일회성 말\"이라고 생각합니다.",
+            "Intel의 곧 출시될 GPU는 AI 워크로드에 상당한 VRAM과 대역폭을 제공하는 R9700 AI PRO와 같은 기존 하드웨어의 직접적인 경쟁자가 될 것으로 예상됩니다.",
+            "Intel의 32GB VRAM을 갖춘 GPU 출시 전략은 대규모 언어 모델(LLM)을 지원할 수 있는 하드웨어에 대한 수요 증가를 충족시킵니다.",
+            "96GB VRAM을 갖춘 GPU 생산의 타당성에 대한 논의가 진행 중이며, 잠재적인 기술 및 시장 문제를 강조합니다.",
+            "Intel Arc Pro B70 및 B65 GPU는 vLLM에 통합되어 즉시 지원을 제공하지만, B70의 성능은 다중 GPU 설정에 대한 경쟁력 있는 가격에도 불구하고 RTX 4000 PRO에 뒤처집니다.",
+            "Arc Pro B70은 32GB VRAM 덕분에 로컬 추론에 대한 비용 효율적인 옵션으로 자리 잡고 있으며, 일부 경쟁사에 비해 더 많은 메모리와 향상된 프롬프트 처리 효율성을 제공하지만 추론 속도는 느립니다.",
+            "사용자는 Arc Pro B70에 대한 Intel의 드라이버 지원에 좌절감을 느끼고 있으며, 매력적인 하드웨어 사양을 갖추고 있지만 소프트웨어 지원이 경쟁사에 비해 열등하여 시장 혁신을 제한한다고 지적합니다."
+          ],
+          "bulletsEn": [
+            "Mistral AI's Voxtral TTS model, a 3-billion-parameter model, reportedly surpasses ElevenLabs Flash v2.5 in human preference tests and operates efficiently with low RAM requirements and fast time-to-first-audio.",
+            "Users have expressed skepticism about previous Mistral models, but testing of Voxtral on the Mistral Console has shown impressive output quality, indicating significant advancements in their TTS technology.",
+            "The TTS landscape is competitive, with discussions around Voxtral, Qwen-3 TTS, and TADA, focusing on critical performance metrics like latency and streaming capabilities.",
+            "Some users find NVIDIA's models to be \"one trick ponies,\" excelling in specific tasks but lacking the versatility of local models, despite strong benchmark performances.",
+            "Intel's upcoming GPU is anticipated to be a direct competitor to existing hardware like the R9700 AI PRO, which offers substantial VRAM and bandwidth for AI workloads.",
+            "Intel's strategic release of GPUs with 32GB VRAM caters to the increasing demand for hardware capable of supporting large language models (LLMs).",
+            "Discussions are ongoing regarding the feasibility of producing GPUs with 96GB VRAM, highlighting potential technical and market challenges.",
+            "The Intel Arc Pro B70 and B65 GPUs are integrated into vLLM, offering day-one support, but the B70's performance lags behind the RTX 4000 PRO, despite competitive pricing for multi-GPU setups.",
+            "The Arc Pro B70 is positioned as a cost-effective option for local inference due to its 32GB VRAM, offering more memory and improved prompt processing efficiency compared to some competitors, despite slower inference speeds.",
+            "Users are experiencing frustration with Intel's driver support for the Arc Pro B70, noting that while it has tempting hardware specifications, its software support is inferior to competitors, limiting its market innovation."
+          ]
         },
         "discord": {
-          "bulletsKo": [],
+          "bulletsKo": [
+            "사용자는 Claude의 사용량 제한에 대한 문제를 겪고 있으며, 제한이 비정상적으로 빠르게 도달하고 있다고 보고했으며, 한 사용자는 재설정 후 단 8분 만에 간단한 작업으로 제한이 소진되었다고 언급했습니다.",
+            "Claude의 핸드오프 기능에 대한 좌절감이 있으며, 사용자는 모델이 지침을 일관되게 따르거나 예상대로 작업을 완료하지 못하고 있어 추론 또는 실행에 잠재적인 문제가 있음을 시사합니다.",
+            "일부 사용자는 TurboQuant의 참신성과 효과에 대해 의문을 제기하고 있으며, 그래픽 프로그래밍의 기존 기술과 유사점을 그리고 제시된 시각화에 대한 회의론을 표현합니다.",
+            "양자화에서 클리포드 대수의 적용은 예상치 못한 혁신으로 주목되며, AI 기술의 발전에 대한 학제 간 특성을 강조합니다.",
+            "Google AI Pro 기능에 대한 논의가 있으며, 사용자는 지역 가용성과 Gemini 2.5 Pro 액세스에 대한 잠재적 영향을 질문하여 일반적인 소프트웨어 롤아웃 문제를 나타냅니다."
+          ],
           "bulletsEn": [
-            "Mistral AI has launched Voxtral, a 3-billion-parameter TTS model that reportedly surpasses ElevenLabs Flash v2.5 in human preference tests. This model is highly efficient, requiring only 3 GB of RAM and achieving a rapid"
+            "Users are experiencing issues with Claude's usage limits, reporting that limits are being reached unusually quickly, with one user noting that a simple task exhausted the limit in just 8 minutes after a reset.",
+            "There is frustration over Claude's hand-off capabilities, with users indicating that the model is not consistently following instructions or completing tasks as expected, suggesting potential issues with its reasoning or execution.",
+            "Some users are questioning the novelty and effectiveness of TurboQuant, drawing parallels to existing techniques in graphics programming and expressing skepticism about the presented visualizations.",
+            "The application of Clifford algebras in quantization is noted as an unexpected innovation, highlighting the interdisciplinary nature of advancements in AI techniques.",
+            "There are discussions about Google AI Pro features, with users questioning regional availability and potential impacts on access to Gemini 2.5 Pro, indicating common software rollout issues."
           ]
         }
       },
-      "summaryKo": ""
+      "summaryKo": "Meta는 광범위한 fMRI 데이터를 기반으로 훈련된 삼중 모달 뇌 인코더인 TRIBE v2를 출시했으며, 보이지 않는 주제와 작업에 대한 제로샷 예측에서 상당한 개선을 달성했습니다.\nAnthropic의 Claude Code는 이제 웹 및 모바일 세션을 위한 원격 PR 팔로우 자동 수정을 제공하여 무인 CI 실패 해결 및 댓글 처리를 가능하게 합니다.\nAndrej Karpathy는 풀스택 소프트웨어 자동화의 주요 과제가 코드 생성 자체가 아니라 AI 에이전트가 점점 더 다루기 쉬워지고 있는 DevOps 및 서비스 오케스트레이션에 있다고 강조했습니다.\nCline의 코딩 에이전트용 멀티 에이전트 워크트리 오케스트레이션 출시는 상당한 개발자 관심을 끌었으며, 이러한 고급 도구에 대한 강력한 수요를 나타냅니다.\nCohere와 Mistral은 Cohere Transcribe와 Mistral Voxtral이라는 프로덕션 지향 오디오 모델을 출시했으며, 이는 허용적인 라이선싱과 즉각적인 인프라 지원으로 인해 인기를 얻고 있습니다.\nMistral AI의 Voxtral TTS 모델은 30억 개의 매개변수를 가진 모델로, 인간 선호도 테스트에서 ElevenLabs Flash v2.5를 능가하는 것으로 알려져 있으며 낮은 RAM 요구 사항과 빠른 최초 오디오 시간으로 효율적으로 작동합니다.\n사용자들은 이전 Mistral 모델에 대해 회의적인 반응을 보였지만, Mistral 콘솔에서 Voxtral을 테스트한 결과 인상적인 출력 품질을 보여 TTS 기술의 상당한 발전을 나타냈습니다.\nTTS 환경은 Voxtral, Qwen-3 TTS 및 TADA에 대한 논의와 함께 경쟁이 치열하며, 지연 시간 및 스트리밍 기능과 같은 중요한 성능 메트릭에 중점을 둡니다.\n일부 사용자는 NVIDIA 모델이 특정 작업에서는 뛰어나지만 벤치마크 성능이 뛰어나더라도 로컬 모델의 다재다능함이 부족한 \"일회성 말\"이라고 생각합니다.\nIntel의 곧 출시될 GPU는 AI 워크로드에 상당한 VRAM과 대역폭을 제공하는 R9700 AI PRO와 같은 기존 하드웨어의 직접적인 경쟁자가 될 것으로 예상됩니다.\nIntel의 32GB VRAM을 갖춘 GPU 출시 전략은 대규모 언어 모델(LLM)을 지원할 수 있는 하드웨어에 대한 수요 증가를 충족시킵니다.\n96GB VRAM을 갖춘 GPU 생산의 타당성에 대한 논의가 진행 중이며, 잠재적인 기술 및 시장 문제를 강조합니다.\nIntel Arc Pro B70 및 B65 GPU는 vLLM에 통합되어 즉시 지원을 제공하지만, B70의 성능은 다중 GPU 설정에 대한 경쟁력 있는 가격에도 불구하고 RTX 4000 PRO에 뒤처집니다.\nArc Pro B70은 32GB VRAM 덕분에 로컬 추론에 대한 비용 효율적인 옵션으로 자리 잡고 있으며, 일부 경쟁사에 비해 더 많은 메모리와 향상된 프롬프트 처리 효율성을 제공하지만 추론 속도는 느립니다.\n사용자는 Arc Pro B70에 대한 Intel의 드라이버 지원에 좌절감을 느끼고 있으며, 매력적인 하드웨어 사양을 갖추고 있지만 소프트웨어 지원이 경쟁사에 비해 열등하여 시장 혁신을 제한한다고 지적합니다.\n사용자는 Claude의 사용량 제한에 대한 문제를 겪고 있으며, 제한이 비정상적으로 빠르게 도달하고 있다고 보고했으며, 한 사용자는 재설정 후 단 8분 만에 간단한 작업으로 제한이 소진되었다고 언급했습니다.\nClaude의 핸드오프 기능에 대한 좌절감이 있으며, 사용자는 모델이 지침을 일관되게 따르거나 예상대로 작업을 완료하지 못하고 있어 추론 또는 실행에 잠재적인 문제가 있음을 시사합니다.\n일부 사용자는 TurboQuant의 참신성과 효과에 대해 의문을 제기하고 있으며, 그래픽 프로그래밍의 기존 기술과 유사점을 그리고 제시된 시각화에 대한 회의론을 표현합니다.\n양자화에서 클리포드 대수의 적용은 예상치 못한 혁신으로 주목되며, AI 기술의 발전에 대한 학제 간 특성을 강조합니다.\nGoogle AI Pro 기능에 대한 논의가 있으며, 사용자는 지역 가용성과 Gemini 2.5 Pro 액세스에 대한 잠재적 영향을 질문하여 일반적인 소프트웨어 롤아웃 문제를 나타냅니다."
     },
     {
       "id": "26-03-25-not-much",
@@ -32,22 +132,59 @@
       "source": "smol-ai",
       "recaps": {
         "twitter": {
-          "bulletsKo": [],
-          "bulletsEn": []
+          "bulletsKo": [
+            "이번 이슈의 AI 트위터 섹션에 대한 중요한 업데이트는 제공되지 않았습니다."
+          ],
+          "bulletsEn": [
+            "No significant updates were provided for the AI Twitter section in this issue."
+          ]
         },
         "reddit": {
-          "bulletsKo": [],
+          "bulletsKo": [
+            "Intel GPU 출시 및 기능: Intel이 새로운 GPU를 출시했으며, 서브레딧 토론에서 상세한 기능들이 논의되었습니다.",
+            "LiteLLM 공급망 공격 및 대안: LiteLLM에 대한 공급망 공격이 논의되었으며, 대안 솔루션 및 보안 조치에 대한 대화가 촉발되었습니다.",
+            "새로운 AI 모델 출시 및 벤치마크: 여러 새로운 AI 모델이 출시되고 벤치마크되었으며, 커뮤니티 회원들은 성능과 기능을 공유했습니다.",
+            "Sora 종료 및 영향: 중요한 AI 모델인 Sora의 종료가 주요 주제였으며, 영향과 향후 전망에 대한 논의가 이루어졌습니다.",
+            "Claude 코드 기능 및 문제점: Anthropic의 Claude 모델의 코드 관련 기능이 검토되었으며, 발전 사항과 발생한 문제점 모두 포함되었습니다.",
+            "AI 모델 출시 및 벤치마크: 추가적인 AI 모델 출시와 그 비교 벤치마크에 대한 논의가 이어졌으며, 해당 분야의 지속적인 발전을 강조했습니다."
+          ],
           "bulletsEn": [
-            "Intel launched new GPUs with specific features, marking their entry into the competitive AI hardware market. These new offerings aim to provide alternatives for AI computation, potentially impacting local LLM development. The community is evaluating their performance and compatibility with existing AI workflows.",
-            "A supply chain attack impacted LiteLLM, prompting"
+            "Intel GPU Launch and Features: Intel has launched new GPUs with advanced features, detailed in the subreddit discussions.",
+            "LiteLLM Supply Chain Attack and Alternatives: A supply chain attack on LiteLLM was discussed, prompting conversations about alternative solutions and security measures.",
+            "New AI Model Releases and Benchmarks: Several new AI models were released and benchmarked, with community members sharing their performance and capabilities.",
+            "Sora Shutdown and Impact: The shutdown of Sora, a significant AI model, was a major topic, with discussions focusing on its impact and future implications.",
+            "Claude Code Features and Issues: Anthropic's Claude model's code-related features were examined, including both its advancements and any encountered issues.",
+            "AI Model Releases and Benchmarks: Further discussions covered additional AI model releases and their comparative benchmarks, highlighting ongoing progress in the field."
           ]
         },
         "discord": {
-          "bulletsKo": [],
-          "bulletsEn": []
+          "bulletsKo": [
+            "ARC-AGI-3 벤치마크 출시: 퍼즐과 같은 환경 및 인간과 유사한 학습 효율성에 초점을 맞춘 일반 에이전트 추론 평가를 위한 새로운 벤치마크인 ARC-AGI-3가 소개되었습니다.",
+            "채점 프로토콜 논란: ARC-AGI-3의 효율성 기반 채점에 대한 논의가 집중되었으며, 이전 버전과의 비교 및 추가 단계에 대한 페널티에 대한 논쟁이 있었습니다.",
+            "ARC-AGI-3에 대한 커뮤니티 반응: 채점에 대한 비판에도 불구하고, 커뮤니티는 일반적으로 ARC-AGI-3가 현재 LLM 에이전트의 대화형, 희소 피드백 기능의 약점을 강조한다는 점을 인정했습니다.",
+            "에이전트 스택 진화: 여러 출시를 통해 더 의견이 분명하고 배포 가능한 에이전트 스택으로의 추세가 나타났으며, 재사용 가능한 스킬, 하네스 및 샌드박스가 핵심 제품 기본 요소가 되었습니다.",
+            "학습 가능한 브라우저, 코딩 및 워크플로우 에이전트: 에이전트 개발은 단순한 프롬프트 래퍼가 아닌 학습 가능한 시스템으로 전환되고 있으며, 사용자 정의 브라우저 에이전트 및 자체 호스팅 클라우드 에이전트 학습을 위한 새로운 도구가 등장했습니다.",
+            "\"에이전트 = 앱\" 인프라: 에이전트를 소프트웨어 진입점으로 보는 개념은 이벤트 기반 동작 및 API 상호 작용을 위한 에이전트 스킬이 보편화되면서 인프라에 의해 점점 더 지원되고 있습니다.",
+            "Google Lyria 3 음악 생성 확장: Google은 더 긴 시간 동안 음악 생성을 확장하고, 더 나은 곡 구조 제어를 제공하며, Gemini 및 Google AI Studio와 통합되는 Lyria 3 Pro를 발표했습니다.",
+            "LongCat-Next 오픈 멀티모달 출시: Meituan은 네이티브 이산 멀티모달리티와 모든 해상도 비전 토크나이저를 갖춘 언어, 비전 및 오디오를 다루는 대규모 MoE 멀티모달 모델인 LongCat-Next를 출시했습니다.",
+            "월드 모델 및 자가 개선 에이전트 연구: 연구에서는 컴팩트한 JEPA 스타일 월드 모델링을 위한 LeWorldModel과 에이전트에서 편집 가능한 자가 개선 프로세스를 위한 Hyperagents를 강조했습니다.",
+            "Sakana AI의 \"AI 과학자\" 출판: 과학적 발견을 자동화할 수 있는 Sakana AI의 \"The AI Scientist\" 시스템이 Nature에 게재되었으며, 이는 \"과학의 스케일링 법칙\"을 시사합니다."
+          ],
+          "bulletsEn": [
+            "ARC-AGI-3 Benchmark Launch: A new benchmark, ARC-AGI-3, was introduced for evaluating general agentic reasoning, focusing on puzzle-like environments and human-like learning efficiency.",
+            "Scoring Protocol Controversy: Discussions centered on the efficiency-based scoring of ARC-AGI-3, with debates about its comparison to previous versions and the penalization of extra steps.",
+            "Community Reception of ARC-AGI-3: Despite criticisms of the scoring, the community generally acknowledged that ARC-AGI-3 highlights a weakness in current LLM agents' interactive, sparse-feedback capabilities.",
+            "Agent Stack Evolution: Several launches indicated a trend towards more opinionated and deployable agent stacks, with reusable skills, harnesses, and sandboxes becoming key product primitives.",
+            "Trainable Browser, Coding, and Workflow Agents: The development of agents is shifting towards trainable systems rather than simple prompt wrappers, with new tools for training custom browser agents and self-hosted cloud agents.",
+            "\"Agent = App\" Infrastructure: The concept of agents as software entrypoints is increasingly supported by infrastructure, with event-driven behaviors and agent skills for API interaction becoming more common.",
+            "Google Lyria 3 Music Generation Expansion: Google announced Lyria 3 Pro, extending music generation capabilities to longer durations, offering better song structure control, and integrating with Gemini and Google AI Studio.",
+            "LongCat-Next Open Multimodal Release: Meituan released LongCat-Next, a large MoE multimodal model covering language, vision, and audio with native discrete multimodality and an any-resolution vision tokenizer.",
+            "World Models and Self-Improving Agents Research: Research highlighted LeWorldModel for compact JEPA-style world modeling and Hyperagents for editable self-improvement processes in agents.",
+            "Sakana AI's \"AI Scientist\" Publication: Sakana AI's \"The AI Scientist\" system, capable of automating scientific discovery, was published in Nature, suggesting a \"scaling law of science.\""
+          ]
         }
       },
-      "summaryKo": ""
+      "summaryKo": "이번 이슈의 AI 트위터 섹션에 대한 중요한 업데이트는 제공되지 않았습니다.\nIntel GPU 출시 및 기능: Intel이 새로운 GPU를 출시했으며, 서브레딧 토론에서 상세한 기능들이 논의되었습니다.\nLiteLLM 공급망 공격 및 대안: LiteLLM에 대한 공급망 공격이 논의되었으며, 대안 솔루션 및 보안 조치에 대한 대화가 촉발되었습니다.\n새로운 AI 모델 출시 및 벤치마크: 여러 새로운 AI 모델이 출시되고 벤치마크되었으며, 커뮤니티 회원들은 성능과 기능을 공유했습니다.\nSora 종료 및 영향: 중요한 AI 모델인 Sora의 종료가 주요 주제였으며, 영향과 향후 전망에 대한 논의가 이루어졌습니다.\nClaude 코드 기능 및 문제점: Anthropic의 Claude 모델의 코드 관련 기능이 검토되었으며, 발전 사항과 발생한 문제점 모두 포함되었습니다.\nAI 모델 출시 및 벤치마크: 추가적인 AI 모델 출시와 그 비교 벤치마크에 대한 논의가 이어졌으며, 해당 분야의 지속적인 발전을 강조했습니다.\nARC-AGI-3 벤치마크 출시: 퍼즐과 같은 환경 및 인간과 유사한 학습 효율성에 초점을 맞춘 일반 에이전트 추론 평가를 위한 새로운 벤치마크인 ARC-AGI-3가 소개되었습니다.\n채점 프로토콜 논란: ARC-AGI-3의 효율성 기반 채점에 대한 논의가 집중되었으며, 이전 버전과의 비교 및 추가 단계에 대한 페널티에 대한 논쟁이 있었습니다.\nARC-AGI-3에 대한 커뮤니티 반응: 채점에 대한 비판에도 불구하고, 커뮤니티는 일반적으로 ARC-AGI-3가 현재 LLM 에이전트의 대화형, 희소 피드백 기능의 약점을 강조한다는 점을 인정했습니다.\n에이전트 스택 진화: 여러 출시를 통해 더 의견이 분명하고 배포 가능한 에이전트 스택으로의 추세가 나타났으며, 재사용 가능한 스킬, 하네스 및 샌드박스가 핵심 제품 기본 요소가 되었습니다.\n학습 가능한 브라우저, 코딩 및 워크플로우 에이전트: 에이전트 개발은 단순한 프롬프트 래퍼가 아닌 학습 가능한 시스템으로 전환되고 있으며, 사용자 정의 브라우저 에이전트 및 자체 호스팅 클라우드 에이전트 학습을 위한 새로운 도구가 등장했습니다.\n\"에이전트 = 앱\" 인프라: 에이전트를 소프트웨어 진입점으로 보는 개념은 이벤트 기반 동작 및 API 상호 작용을 위한 에이전트 스킬이 보편화되면서 인프라에 의해 점점 더 지원되고 있습니다.\nGoogle Lyria 3 음악 생성 확장: Google은 더 긴 시간 동안 음악 생성을 확장하고, 더 나은 곡 구조 제어를 제공하며, Gemini 및 Google AI Studio와 통합되는 Lyria 3 Pro를 발표했습니다.\nLongCat-Next 오픈 멀티모달 출시: Meituan은 네이티브 이산 멀티모달리티와 모든 해상도 비전 토크나이저를 갖춘 언어, 비전 및 오디오를 다루는 대규모 MoE 멀티모달 모델인 LongCat-Next를 출시했습니다.\n월드 모델 및 자가 개선 에이전트 연구: 연구에서는 컴팩트한 JEPA 스타일 월드 모델링을 위한 LeWorldModel과 에이전트에서 편집 가능한 자가 개선 프로세스를 위한 Hyperagents를 강조했습니다.\nSakana AI의 \"AI 과학자\" 출판: 과학적 발견을 자동화할 수 있는 Sakana AI의 \"The AI Scientist\" 시스템이 Nature에 게재되었으며, 이는 \"과학의 스케일링 법칙\"을 시사합니다."
     },
     {
       "id": "26-03-24-not-much",
