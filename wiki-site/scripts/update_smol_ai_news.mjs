@@ -155,11 +155,31 @@ function htmlToPlainText(html) {
   );
 }
 
+// Pages repeat section headers multiple times (nav/TOC clusters + real content heading).
+// The real section heading is always the LAST occurrence of each marker in the page.
+// Using lastIndexOf for both start and end boundaries gives us the real section range.
+const SECTION_MARKERS = ['AI Twitter Recap', 'AI Reddit Recap', 'AI Discords'];
+
 function extractSectionText(plainText, startMarker, endMarkerOrNull) {
-  const startIdx = plainText.indexOf(startMarker);
+  // Real section headings always appear last (nav/TOC repetitions come earlier).
+  const startIdx = plainText.lastIndexOf(startMarker);
   if (startIdx < 0) return '';
-  const endIdx = endMarkerOrNull ? plainText.indexOf(endMarkerOrNull, startIdx + startMarker.length) : -1;
-  const sliceEnd = endIdx >= 0 ? endIdx : plainText.length;
+
+  let sliceEnd;
+  if (endMarkerOrNull) {
+    // End at the last occurrence of the end marker, provided it appears after the start.
+    const endIdx = plainText.lastIndexOf(endMarkerOrNull);
+    sliceEnd = endIdx > startIdx ? endIdx : plainText.length;
+  } else {
+    // No explicit end: stop at the last occurrence of any other section marker that
+    // appears AFTER this section's start (guards against footer noise).
+    const candidates = SECTION_MARKERS
+      .filter((m) => m !== startMarker)
+      .map((m) => plainText.lastIndexOf(m))
+      .filter((i) => i > startIdx);
+    sliceEnd = candidates.length ? Math.min(...candidates) : plainText.length;
+  }
+
   return normalizeWhitespace(plainText.slice(startIdx, sliceEnd));
 }
 
