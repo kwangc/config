@@ -54,7 +54,16 @@ export function getWikiNav(locale: Locale, base: string): WikiNavItem[] {
           label: 'Model Algorithm (VLA deepdive)',
           children: [
             { label: 'Overview', href: w('03-domains/03-model-algorithm/01-overview.md') },
-            { label: 'Deep Learning & VLA', href: w('03-domains/03-model-algorithm/02-deep-learning-vla.md') },
+            { label: 'DL Foundations', href: w('03-domains/03-model-algorithm/02-deep-learning-vla.md') },
+            { label: 'Perception Inputs', href: w('03-domains/03-model-algorithm/03-perception-inputs.md') },
+            { label: 'Multimodal Fusion', href: w('03-domains/03-model-algorithm/04-multimodal-fusion.md') },
+            { label: 'Action Space', href: w('03-domains/03-model-algorithm/05-action-space.md') },
+            { label: 'Action Heads', href: w('03-domains/03-model-algorithm/06-action-heads.md') },
+            { label: 'Action Chunking', href: w('03-domains/03-model-algorithm/07-action-chunking.md') },
+            { label: 'Policy Architectures', href: w('03-domains/03-model-algorithm/08-policy-architectures.md') },
+            { label: 'Training Strategies', href: w('03-domains/03-model-algorithm/09-training-strategies.md') },
+            { label: 'Generalization', href: w('03-domains/03-model-algorithm/10-generalization.md') },
+            { label: 'Inference & Deployment', href: w('03-domains/03-model-algorithm/11-inference-deployment.md') },
           ],
         },
         {
