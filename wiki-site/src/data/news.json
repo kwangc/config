@@ -1,18 +1,18 @@
 {
   "items": [
     {
-      "id": "26-03-26-not-much",
+      "id": "26-03-27-not-much",
       "title": "not much happened today",
-      "url": "https://news.smol.ai/issues/26-03-26-not-much",
-      "date": "2026-03-26",
+      "url": "https://news.smol.ai/issues/26-03-27-not-much",
+      "date": "2026-03-27",
       "source": "smol-ai",
       "recaps": {
         "twitter": {
           "bulletsKo": [
-            "AI 트위터 요약 섹션에는"
+            "이 섹션에는 특정 AI 트위터 요약 내용이 제공되지 않았습니다. 전반적인 이슈에서는 AI 뉴스"
           ],
           "bulletsEn": [
-            "The AI Twitter Recap section indicates that there was no specific news or significant activity to report from AI Twitter for this issue. This suggests a quiet period on the platform regarding major AI developments. The absence of detailed updates implies a lack of notable trends or discussions during the covered timeframe."
+            "There was no specific AI Twitter recap content provided in this section. The overall issue notes it was a quiet day for AI news. No major Twitter-specific themes were highlighted within the designated Twitter section."
           ]
         },
         "reddit": {
@@ -24,7 +24,31 @@
           "bulletsEn": []
         }
       },
-      "summaryKo": "AI 트위터 요약 섹션에는"
+      "summaryKo": "이 섹션에는 특정 AI 트위터 요약 내용이 제공되지 않았습니다. 전반적인 이슈에서는 AI 뉴스"
+    },
+    {
+      "id": "26-03-26-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-03-26-not-much",
+      "date": "2026-03-26",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "The AI Reddit Recap section provided a structured overview of key discussion areas, categorizing topics into new model/benchmark launches, Intel GPU developments, and innovative AI techniques. It also highlighted specific issues like Claude Code usage problems, the shutdown of Sora, and updates regarding Google'"
+          ]
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
     },
     {
       "id": "26-03-25-not-much",
@@ -34,11 +58,9 @@
       "source": "smol-ai",
       "recaps": {
         "twitter": {
-          "bulletsKo": [
-            "AI 트위터 요약 섹"
-          ],
+          "bulletsKo": [],
           "bulletsEn": [
-            "The AI Twitter Recap section indicates that not much significant activity or major news topics were specifically highlighted for Twitter on this particular day. This suggests a relatively quiet period for major AI-related announcements or discussions on the platform. Therefore, no specific trends or breakthroughs were deemed noteworthy enough for a detailed summary."
+            "The AI Twitter recap section indicated a quiet day in AI news, suggesting minimal significant developments or discussions on the platform. This particular issue's overall theme also highlighted that \"not much happened today,\" reinforcing the lack of major updates from the Twitter sphere. Therefore, the summary for this section reflects a period of low activity and fewer groundbreaking announcements."
           ]
         },
         "reddit": {
@@ -50,7 +72,7 @@
           "bulletsEn": []
         }
       },
-      "summaryKo": "AI 트위터 요약 섹"
+      "summaryKo": ""
     },
     {
       "id": "26-03-24-not-much",
