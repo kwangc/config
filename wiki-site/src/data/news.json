@@ -10,7 +10,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Anthropic's new \"Capybara\" tier, rumored to be above Opus, shows significantly improved performance in coding, academic reasoning, and cybersecurity, as corroborated by Fortune and leaked posts. This advanced model, potentially a ~10T parameter class, signifies Anthropic's aggressive scaling ambitions in the frontier AI space. Its rollout is reportedly constrained by high"
+            "Anthropic's Capybara Leak: Fortune has corroborated a higher Anthropic tier called \"Capybara\" above Opus, initially leaked as \"Claude Mythos.\" This new tier is described as larger and more intelligent than Claude Opus 4.6, showing substantially better scores in coding, academic reasoning, and cybersecurity. Its rollout is reportedly constrained by cost and safety"
           ]
         },
         "reddit": {
@@ -34,8 +34,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Google launched Gemini 3.1 Flash Live, a new realtime model for voice and vision agents, emphasizing lower latency and improved function calling. This model boasts 2x longer conversation memory in Gemini Live, supports 70 languages, and includes watermarking of generated audio via SynthID. Third-party benchmarks indicate a \"thinking level\" tradeoff, with higher reasoning achieving 95.9% Big Bench Audio at 2.98s TTFA.",
-            "Mistral AI released Voxtral TTS, an open-weight text-to-speech model designed for production voice agents, featuring 9-language support and low latency. This 3B/4B-class model achieves approximately 90 ms time-to-first-audio and shows favorable comparisons to ElevenLabs in preference tests. Its open-weight nature and strong performance metrics make it a significant entry in the speech synthesis market"
+            "Google launched Gemini 3.1 Flash Live, a new real-time model for voice and vision agents, emphasizing lower latency, improved function calling, and 2x longer conversation memory. This model supports 70 languages and 128k context, with generated audio watermarked via SynthID. Benchmarking indicates a tradeoff between reasoning level and"
           ]
         },
         "reddit": {
@@ -59,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "ARC-AGI-3 launched as a new benchmark for general agentic reasoning, featuring puzzle/game-like environments where humans achieve 100% success while frontier models score under 1%. The benchmark aims to measure zero-preparation generalization and human-like learning efficiency, sparking immediate controversy over its efficiency-based scoring protocol which heavily penalizes extra steps"
+            "ARC-AGI-3 was launched as a new benchmark for \"general\" agentic reasoning, designed to measure a system's ability to approach new tasks with human-like learning efficiency without prior exposure or intervention. This interactive benchmark, built around puzzle-like environments, reportedly sees humans solve 100% of tasks while frontier models score under 1"
           ]
         },
         "reddit": {
