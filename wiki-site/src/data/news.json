@@ -10,7 +10,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Claude Code now features computer use, allowing agents to interact with UIs directly from the CLI for closed-loop verification, a crucial step for reliable app iteration. Cross-agent composition is becoming standard, exemplified by OpenAI's Codex plugin for Claude Code, signaling a shift towards composable coding stacks rather than monolithic products. Harness quality and orchestration are now first-order variables"
+            "Claude Code Computer Use: Anthropic's Claude Code now allows agents to use computers, interact with UIs, and perform closed-loop verification, which is crucial for reliable app iteration. This feature addresses a key missing piece for developers, enabling agents to test and fix code directly from the CLI.",
+            "Agent Composition & Harness Quality: The trend is towards compos"
           ]
         },
         "reddit": {
@@ -34,7 +35,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Anthropic's leaked \"Capybara\" (Mythos) model, a new tier above Opus, demonstrates significant performance gains in coding, academic reasoning, and cybersecurity, indicating a strong push towards more capable frontier models. This aggressive scaling ambition, however, is coupled with visible infrastructure strain, as evidenced by widespread user complaints about 529 errors and elevated"
+            "Anthropic's \"Mythos\" system, a new Capybara tier above Opus, has been leaked, showing significantly improved performance in coding, academic reasoning, and cybersecurity. This advanced model, however, faces constraints due to high cost and safety concerns, indicating a push towards more powerful but resource-intensive AI.",
+            "The intense focus on compute power is"
           ]
         },
         "reddit": {
@@ -58,7 +60,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Google launched Gemini 3.1 Flash Live, a new real-time model for voice and vision agents, featuring lower latency, improved function calling, and enhanced robustness in noisy environments. This model also boasts 2x longer conversation memory in Gemini Live, supporting 70 languages and 128k context. Third-party benchmarks indicate a \"thinking level"
+            "Google launched Gemini 3.1 Flash Live, a new realtime model for voice and vision agents, emphasizing lower latency, improved function calling, better noisy-environment robustness, and 2x longer conversation memory. This model is rolling out across Gemini Live, Search Live, AI Studio preview, and enterprise CX surfaces, supporting 70 languages and 128k"
           ]
         },
         "reddit": {
