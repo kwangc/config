@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "26-03-31-claude-code-leak",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-03-31-claude-code-leak",
+      "date": "2026-03-31",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "The Claude Code source artifacts were extensively leaked via source maps, leading to rapid public reverse-engineering and widespread discussion within the AI community. This incident, while embarrassing for Anthropic, primarily exposed the sophisticated orchestration logic and agent harness design rather than the core model weights. The leak quickly became a focal point for understanding state-of-the-art agent architecture."
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-03-30-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-03-30-not-much",
@@ -10,8 +34,10 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Claude Code Computer Use: Anthropic's Claude Code now allows agents to use computers, interact with UIs, and perform closed-loop verification, which is crucial for reliable app iteration. This feature addresses a key missing piece for developers, enabling agents to test and fix code directly from the CLI.",
-            "Agent Composition & Harness Quality: The trend is towards compos"
+            "Claude Code now features computer use, allowing agents to open apps, interact with UIs, and test code directly from the CLI in a research preview for Pro/Max users. This capability is crucial for closed-loop verification, enabling a full code-run-inspect-fix-retest cycle that engineers consider the missing piece for reliable app iteration. It significantly enhances the practical utility of coding agents by providing direct environmental interaction.",
+            "Cross-agent composition is becoming a standard, exemplified by OpenAI's Codex plugin for Claude Code, which enables triggering reviews and rescue flows from within Anthropic's toolchain using a ChatGPT subscription. This development signals a shift towards composable coding stacks rather than monolithic products, fostering a more integrated and flexible AI development environment. The observation that late-night Codex tasks run longer suggests a pattern of delegating complex, time-consuming tasks to background agents.",
+            "The quality of AI harnesses, encompassing tooling, prompt/runtime orchestration, and review loops, is now visibly a first-order variable, with model capability deltas narrowing. Performance differences are increasingly attributed to the surrounding infrastructure rather than just the base model, as demonstrated by Opus scoring higher in Cursor than in Claude Code. This highlights the growing importance of engineering the environment in which AI models operate.",
+            "Nous shipped a major Hermes Agent update, driving widespread migrations from OpenClaw-like setups due to its improved compaction, adaptability, and faster shipping cadence. The"
           ]
         },
         "reddit": {
@@ -35,8 +61,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Anthropic's \"Mythos\" system, a new Capybara tier above Opus, has been leaked, showing significantly improved performance in coding, academic reasoning, and cybersecurity. This advanced model, however, faces constraints due to high cost and safety concerns, indicating a push towards more powerful but resource-intensive AI.",
-            "The intense focus on compute power is"
+            "Anthropic is reportedly introducing a new, more intelligent \"Capybara\" tier above Opus, demonstrating significant performance gains in coding and reasoning. This leak highlights Anthropic's aggressive scaling ambitions, with speculation around a ~10T parameter model and Google's potential funding for their data center, though this intense scaling is causing visible infrastructure strain and user complaints"
           ]
         },
         "reddit": {
