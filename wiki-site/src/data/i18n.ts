@@ -78,7 +78,7 @@ export const i18n: Record<
     },
     news: {
       title: 'News',
-      lead: 'News & paper scraping & summaries. Update wiki-site/src/data/news.json via automation/scripts to reflect here.',
+      lead: 'Daily AI news summaries from news.smol.ai, updated automatically every morning.',
     },
     dirNames: {
       root: 'Wiki',
@@ -136,7 +136,7 @@ export const i18n: Record<
     },
     news: {
       title: 'News',
-      lead: '뉴스·논문 스크래핑 & 요약. automation/scripts에서 wiki-site/src/data/news.json을 갱신하면 여기에 반영됩니다.',
+      lead: 'news.smol.ai의 AI 뉴스를 매일 아침 자동으로 요약합니다.',
     },
     dirNames: {
       root: 'Wiki',

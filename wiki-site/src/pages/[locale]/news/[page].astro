@@ -4,52 +4,56 @@ import newsData from '../../../data/news.json';
 import { i18n } from '../../../data/i18n';
 import type { Locale } from '../../../data/i18n';
 
+const PAGE_SIZE = 10;
+
+type NewsItem = {
+  id: string;
+  title: string;
+  url: string;
+  summary?: string;
+  summaryKo?: string;
+  date: string;
+  source?: string;
+  tags?: string[];
+  recaps?: {
+    twitter?: { bulletsKo?: string[]; bulletsEn?: string[]; summaryKo?: string; summaryEn?: string };
+    reddit?: { bulletsKo?: string[]; bulletsEn?: string[]; summaryKo?: string; summaryEn?: string };
+    discord?: { bulletsKo?: string[]; bulletsEn?: string[]; summaryKo?: string; summaryEn?: string };
+  };
+};
+
 export async function getStaticPaths() {
-  return [{ params: { locale: 'en' } }, { params: { locale: 'ko' } }];
+  const PAGE_SIZE = 10;
+  const items = (newsData as { items: NewsItem[] }).items;
+  const sorted = [...items].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
+  const paths = [];
+  for (const locale of ['en', 'ko'] as Locale[]) {
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({
+        params: { locale, page: String(page) },
+        props: {
+          pageItems: sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+          totalPages,
+          currentPage: page,
+          totalItems: sorted.length,
+        },
+      });
+    }
+  }
+  return paths;
 }
 
-const PAGE_SIZE = 10;
-const { locale } = Astro.params as { locale: Locale };
+const { locale, page: pageParam } = Astro.params as { locale: Locale; page: string };
+const { pageItems, totalPages, currentPage, totalItems } = Astro.props as {
+  pageItems: NewsItem[];
+  totalPages: number;
+  currentPage: number;
+  totalItems: number;
+};
+
 const t = i18n[locale] ?? i18n.en;
 const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
-
-const items = (newsData as {
-  items: {
-    id: string;
-    title: string;
-    url: string;
-    summary?: string;
-    summaryKo?: string;
-    date: string;
-    source?: string;
-    tags?: string[];
-    recaps?: {
-      twitter?: {
-        bulletsKo?: string[];
-        bulletsEn?: string[];
-        summaryKo?: string;
-        summaryEn?: string;
-      };
-      reddit?: {
-        bulletsKo?: string[];
-        bulletsEn?: string[];
-        summaryKo?: string;
-        summaryEn?: string;
-      };
-      discord?: {
-        bulletsKo?: string[];
-        bulletsEn?: string[];
-        summaryKo?: string;
-        summaryEn?: string;
-      };
-    };
-  }[];
-}).items;
-
-const sorted = [...items].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
-const currentPage = 1;
-const pageItems = sorted.slice(0, PAGE_SIZE);
 
 const labels =
   locale === 'ko'
@@ -59,29 +63,28 @@ const labels =
 function toBullets(val: unknown) {
   if (Array.isArray(val)) return val.map((x) => String(x).trim()).filter(Boolean);
   if (typeof val === 'string') {
-    return val
-      .split('\n')
-      .map((x) => x.trim())
-      .filter(Boolean)
+    return val.split('\n').map((x) => x.trim()).filter(Boolean)
       .map((line) => line.replace(/^([-•]|\d+\.)\s+/, ''));
   }
   return [];
 }
 
-function getSectionBullets(
-  item: (typeof items)[number],
-  section: 'twitter' | 'reddit' | 'discord'
-) {
+function getSectionBullets(item: NewsItem, section: 'twitter' | 'reddit' | 'discord') {
   const recap = item.recaps?.[section];
   if (!recap) return [];
-  if (locale === 'ko') {
-    return toBullets(recap.bulletsKo ?? recap.summaryKo);
-  }
+  if (locale === 'ko') return toBullets(recap.bulletsKo ?? recap.summaryKo);
   return toBullets(recap.bulletsEn ?? recap.summaryEn ?? recap.summaryKo);
 }
+
+const prevHref = currentPage === 2
+  ? `${base}/${locale}/news/`
+  : `${base}/${locale}/news/${currentPage - 1}/`;
+const nextHref = currentPage < totalPages
+  ? `${base}/${locale}/news/${currentPage + 1}/`
+  : null;
 ---
 
-<WikiLayout title={t.news.title} locale={locale}>
+<WikiLayout title={`${t.news.title} — ${locale === 'ko' ? `${currentPage}페이지` : `Page ${currentPage}`}`} locale={locale}>
   <article class="news-page">
     <h1>{t.news.title}</h1>
     <p class="lead">{t.news.lead}</p>
@@ -162,23 +165,27 @@ function getSectionBullets(
         );
       })}
     </ul>
-    {totalPages > 1 && (
-      <nav class="news-pagination" aria-label="Pagination">
-        <span class="news-pagination-info">
-          {locale === 'ko'
-            ? `${currentPage} / ${totalPages} 페이지 · 총 ${sorted.length}개`
-            : `Page ${currentPage} of ${totalPages} · ${sorted.length} items`}
-        </span>
-        <div class="news-pagination-controls">
-          <span class="news-pagination-btn news-pagination-btn--disabled" aria-disabled="true">
-            ← {locale === 'ko' ? '이전' : 'Prev'}
-          </span>
-          <a href={`${base}/${locale}/news/2/`} class="news-pagination-btn">
+    <nav class="news-pagination" aria-label="Pagination">
+      <span class="news-pagination-info">
+        {locale === 'ko'
+          ? `${currentPage} / ${totalPages} 페이지 · 총 ${totalItems}개`
+          : `Page ${currentPage} of ${totalPages} · ${totalItems} items`}
+      </span>
+      <div class="news-pagination-controls">
+        <a href={prevHref} class="news-pagination-btn">
+          ← {locale === 'ko' ? '이전' : 'Prev'}
+        </a>
+        {nextHref ? (
+          <a href={nextHref} class="news-pagination-btn">
             {locale === 'ko' ? '다음' : 'Next'} →
           </a>
-        </div>
-      </nav>
-    )}
+        ) : (
+          <span class="news-pagination-btn news-pagination-btn--disabled" aria-disabled="true">
+            {locale === 'ko' ? '다음' : 'Next'} →
+          </span>
+        )}
+      </div>
+    </nav>
   </article>
 </WikiLayout>
 

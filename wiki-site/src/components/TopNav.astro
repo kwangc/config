@@ -61,9 +61,18 @@ const wikiNav = getWikiNav(locale, base);
               item.children ? (
                 <div class="topnav-quick-group">
                   <div class="topnav-quick-group-title">{item.label}</div>
-                  {item.children.map((child) => (
-                    <a href={child.href} class="topnav-quick-link" role="menuitem">{child.label}</a>
-                  ))}
+                  {item.children.map((child) =>
+                    child.children ? (
+                      <>
+                        <div class="topnav-quick-subgroup-title">{child.label}</div>
+                        {child.children.map((grand) => (
+                          <a href={grand.href} class="topnav-quick-link topnav-quick-link--deep" role="menuitem">{grand.label}</a>
+                        ))}
+                      </>
+                    ) : (
+                      <a href={child.href} class="topnav-quick-link" role="menuitem">{child.label}</a>
+                    )
+                  )}
                 </div>
               ) : (
                 <a href={item.href} class="topnav-quick-link topnav-quick-link--flat" role="menuitem">{item.label}</a>
@@ -695,6 +704,18 @@ const wikiNav = getWikiNav(locale, base);
   .topnav-quick-link--flat {
     padding-left: 0.75rem;
     margin: 0.15rem 0;
+  }
+  .topnav-quick-subgroup-title {
+    padding: 0.4rem 0.75rem 0.1rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
+  .topnav-quick-link--deep {
+    padding-left: 1.5rem;
   }
   .topnav-brand {
     display: inline-flex;
