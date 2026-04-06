@@ -10,7 +10,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Google's Gemma 4 launched under Apache 2.0, emphasizing reasoning, agents, and on-device use, immediately gaining widespread ecosystem support across various platforms and hardware. This open-weights release was met with strong community approval and rapid integration, showcasing its potential for broad downstream usability. It represents a significant step towards more accessible and versatile AI models."
+            "Gemma 4's Apache 2.0 launch marked a significant open-model release, emphasizing its capabilities for reasoning, agentic workflows, and on-device use. Google highlighted its efficiency, claiming it outperforms models 10x larger, with the community praising its \"real\" open-weights nature for broad usability.",
+            "The ecosystem demonstrated unprecedented day-"
           ]
         },
         "reddit": {
@@ -34,8 +35,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Google DeepMind has launched Gemma 4, an open-weight model family under a commercially permissive Apache 2.0 license, marking a significant shift and capability jump for reasoning, agentic workflows, and local/edge deployment. This release is positioned as Google's biggest open-weight licensing and capability advancement in a year, with Jeff Dean highlighting its rapid adoption. The model family builds on the success of Gemma 3, which saw 400 million downloads and 100,000 variants.",
-            "The Gemma 4 lineup includes four sizes: a 31B dense model, a 26B MoE model (with ~4B active parameters), and two edge-optimized models (E4B and E2B) for mobile/IoT, all featuring native multimodal support for text, vision, and audio. Key capabilities highlighted by DeepMind include robust function calling, structured JSON output, and an impressive long context window of up to 256K tokens for larger models"
+            "Gemma 4 Release & Key Specs: Google DeepMind launched Gemma 4 as open-weight, Apache 2.0, multimodal models for reasoning/agentic workflows and local deployment. It includes four sizes (31B dense, 26B MoE, E4B, E2B) with native multimodal support, function calling, structured JSON"
           ]
         },
         "reddit": {
@@ -59,7 +59,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Arcee's Trinity-Large-Thinking, an open-weight 400B total / 13B active model, was released under Apache 2.0, targeting developers and enterprises for inspection, hosting, distillation, and post-training. It claims strong agentic performance, including #2 on PinchBench and SOTA on Tau2-"
+            "Arcee's Trinity-Large-Thinking, an open-weight 400B-class model, was released under Apache 2.0, demonstrating strong agentic performance and being hailed as a significant \"American open source\" milestone for enterprise development. This model's architecture, featuring a 13B active component, was quickly integrated"
           ]
         },
         "reddit": {
