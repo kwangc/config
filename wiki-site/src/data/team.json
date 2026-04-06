@@ -1,6 +1,266 @@
 {
   "members": [
     {
+      "id": "minjoon-seo",
+      "name": "Minjoon Seo",
+      "nameKo": "서민준",
+      "photo": "/images/minjoon-seo.png",
+      "title": "CEO",
+      "intro": "CEO of Config Inc. AI researcher known for BiDAF and LLM research. Former KAIST CS professor and Allen AI researcher.",
+      "introKo": "Config Inc. CEO. BiDAF 및 LLM 연구로 알려진 AI 연구자. 전 KAIST AI 조교수, Allen AI 연구원.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/minjoon"
+      },
+      "education": [
+        {
+          "school": "University of Washington",
+          "degree": "Ph.D. Computer Science"
+        }
+      ],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "CEO",
+          "desc": "Data infrastructure & foundation models for general-purpose bimanual robotics.",
+          "descKo": "범용 양팔 로보틱스를 위한 데이터 인프라 및 파운데이션 모델."
+        },
+        {
+          "period": "2021.~2026.",
+          "company": "KAIST",
+          "role": "Assistant Professor, School of Computing",
+          "desc": "NLP and LLM research.",
+          "descKo": "NLP 및 LLM 연구."
+        },
+        {
+          "period": "2019.~2021.",
+          "company": "Allen Institute for AI (AI2)",
+          "role": "Research Scientist"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "NLP, LLMs, reading comprehension, knowledge-grounded language models, AI for robotics.",
+      "focusKo": "NLP, LLM, 독해, 지식 기반 언어 모델, 로보틱스 AI."
+    },
+    {
+      "id": "hyungmok-son",
+      "name": "Hyungmok Son",
+      "nameKo": "손형목",
+      "photo": "/images/hyungmok-son.png",
+      "title": "CTO",
+      "intro": "CTO of Config Inc. Robotics and ML engineer.",
+      "introKo": "Config Inc. CTO. 로보틱스 및 머신러닝 엔지니어.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/hyungmokson"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "CTO"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "Robotics systems, ML infrastructure, foundation models.",
+      "focusKo": "로보틱스 시스템, ML 인프라, 파운데이션 모델."
+    },
+    {
+      "id": "jack-bang",
+      "name": "Jack Bang",
+      "nameKo": "방극재,
+      "photo": "/images/jack-bang.png",
+      "title": "COO",
+      "intro": "COO of Config Inc. Operations and business strategy.",
+      "introKo": "Config Inc. COO. 운영 및 비즈니스 전략 담당.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/jack-bang-68a6b42a"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "COO"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "Operations, business development, go-to-market strategy.",
+      "focusKo": "운영, 사업 개발, 시장 진출 전략."
+    },
+    {
+      "id": "kimin-lee",
+      "name": "Kimin Lee",
+      "nameKo": "이기민",
+      "photo": "/images/kimin-lee.png",
+      "title": "Chief Scientist",
+      "intro": "Chief Scientist at Config Inc. AI researcher specializing in reinforcement learning, preference learning, and visual RL. Known for PEBBLE, SURF, and masked world models for robotics.",
+      "introKo": "Config Inc. 수석 과학자. 강화학습, 선호 학습, 시각적 RL 전문 AI 연구자. PEBBLE, SURF, 로보틱스용 마스킹 월드 모델 등으로 유명.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/kimin-lee-849826136"
+      },
+      "education": [
+        {
+          "school": "KAIST",
+          "degree": "Ph.D. Computer Science"
+        }
+      ],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "Chief Scientist"
+        },
+        {
+          "period": "~2026.",
+          "company": "Google DeepMind",
+          "role": "Research Scientist",
+          "desc": "RL, preference-based learning, visual control.",
+          "descKo": "RL, 선호 기반 학습, 시각적 제어 연구."
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "Reinforcement learning, preference-based RL, visual robot learning, generative models.",
+      "focusKo": "강화학습, 선호 기반 RL, 시각적 로봇 학습, 생성 모델."
+    },
+    {
+      "id": "sungdong-kim",
+      "name": "Sungdong Kim",
+      "nameKo": "김성동",
+      "photo": "/images/sungdong-kim.png",
+      "title": "Research Scientist",
+      "intro": "Research Scientist at Config Inc. NLP and LLM researcher. Previously at NAVER AI Lab and KAIST, focused on instruction tuning and large language models.",
+      "introKo": "Config Inc. 리서치 사이언티스트. NLP 및 LLM 연구자. 전 NAVER AI Lab, KAIST 소속. 인스트럭션 튜닝 및 대규모 언어 모델 연구.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/sungdong-kim-791904136"
+      },
+      "education": [
+        {
+          "school": "KAIST",
+          "degree": "Ph.D. Computer Science"
+        }
+      ],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "Research Scientist"
+        },
+        {
+          "period": "~2026.",
+          "company": "NAVER AI Lab",
+          "role": "Research Scientist",
+          "desc": "NLP, instruction tuning, LLMs.",
+          "descKo": "NLP, 인스트럭션 튜닝, LLM 연구."
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "NLP, instruction tuning, large language models, VLMs.",
+      "focusKo": "NLP, 인스트럭션 튜닝, 대규모 언어 모델, VLM."
+    },
+    {
+      "id": "suchae-jeong",
+      "name": "Suchae Jeong",
+      "nameKo": "정수채",
+      "photo": "/images/suchae-jeong.png",
+      "title": "Researcher",
+      "intro": "Researcher at Config Inc.",
+      "introKo": "Config Inc. 리서처.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/suchae-jeong"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "Researcher"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "AI research, robotics.",
+      "focusKo": "AI 연구, 로보틱스."
+    },
+    {
+      "id": "jaehwi-song",
+      "name": "Jaehwi Song",
+      "nameKo": "송재휘",
+      "photo": "/images/jaehwi-song.png",
+      "title": "Researcher",
+      "intro": "Researcher at Config Inc.",
+      "introKo": "Config Inc. 리서처.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/jaehwi-song-110b6029b"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "Researcher"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "AI research, robotics.",
+      "focusKo": "AI 연구, 로보틱스."
+    },
+    {
+      "id": "byeongguk-jeon",
+      "name": "Byeongguk Jeon",
+      "nameKo": "전병국",
+      "photo": "/images/byeongguk-jeon.png",
+      "title": "Researcher",
+      "intro": "Researcher at Config Inc.",
+      "introKo": "Config Inc. 리서처.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/byeongguk-jeon-4b62b627a"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "Researcher"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "AI research, robotics.",
+      "focusKo": "AI 연구, 로보틱스."
+    },
+    {
+      "id": "changhoi-kim",
+      "name": "Changhoi Kim",
+      "nameKo": "김창회",
+      "photo": "/images/changhoi-kim.png",
+      "title": "DevOps",
+      "intro": "DevOps engineer at Config Inc.",
+      "introKo": "Config Inc. DevOps 엔지니어.",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/changhoi",
+        "github": "https://github.com/changhoi"
+      },
+      "education": [],
+      "experience": [
+        {
+          "period": "2026.04.~",
+          "company": "Config Intelligence Inc.",
+          "role": "DevOps"
+        }
+      ],
+      "totalExperience": "",
+      "totalExperienceKo": "",
+      "focus": "DevOps, infrastructure, cloud systems.",
+      "focusKo": "DevOps, 인프라, 클라우드 시스템."
+    },
+    {
       "id": "tony-lee",
       "name": "Tony Lee",
       "nameKo": "이광현",
