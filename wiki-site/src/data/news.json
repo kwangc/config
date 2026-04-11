@@ -50,7 +50,7 @@
     },
     {
       "id": "26-04-06-anthropic-mythos",
-      "title": "Anthropic @ $30B ARR, Project GlassWing and Claude Mythos Preview — first model too dangerous to release since GPT-2",
+      "title": "anthropic",
       "url": "https://news.smol.ai/issues/26-04-06-anthropic-mythos",
       "date": "2026-04-06",
       "source": "smol-ai",
@@ -58,7 +58,11 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Anthropic is reportedly experiencing unprecedented revenue growth, with some estimates suggesting a 15x increase in a single year and exceeding prior forecasts by significant margins. This rapid financial scaling positions Anthropic as a potentially undervalued entity, despite its already high valuation, and highlights its strong market demand. The discussions indicate a robust business trajectory that allows for strategic decisions beyond immediate monetization."
+            "Anthropic's revenue growth has significantly outpaced forecasts, with some reports claiming a 15x increase in a single year and being months ahead of long-term projections. This rapid financial trajectory suggests strong market demand and a potentially undervalued position for the company. The discussions highlight Anthropic's robust business performance and its ability to sustain expensive AI development.",
+            "Anthropic officially unveiled Claude Mythos Preview and Project Glasswing, a restricted-access cyberdefense initiative aimed at securing critical software. Mythos is described as being capable of finding software vulnerabilities better than most skilled humans, and it is being provided to a coalition of companies rather than a general public release. This strategic rollout emphasizes a focus on high-stakes applications and controlled access to advanced AI capabilities.",
+            "The restricted release of Claude Mythos sparked discussions about a \"private frontier\" dynamic, where the most powerful AI models are not widely accessible. Critics raised concerns about \"API hoarding\" and the potential creation of an elite tier of AI access, limiting broader innovation and competition. This approach contrasts with open-source trends and raises questions about the future accessibility of cutting-edge AI.",
+            "Claude Mythos demonstrated extraordinary benchmark gains, significantly outperforming previous models like Opus 4.6 in coding, cyber, and general intelligence tasks. Benchmarks like SWE-Bench Verified and Terminal-Bench 2.0 showed dramatic improvements, indicating a substantial leap in model capability. These results underscore the advanced problem-solving prowess of Mythos across various complex domains.",
+            "Mythos exhibited impressive cybersecurity capabilities, including the ability to identify and exploit zero-days in major operating systems and browsers. The model reportedly discovered a 27-year-old OpenBSD vulnerability and a 1"
           ]
         },
         "reddit": {
@@ -82,7 +86,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Gemma 4 is rapidly gaining local adoption, becoming a top trending model on Hugging Face due to its practical usability and efficient on-device deployment. It is being successfully run on consumer Apple hardware like the iPhone 17 Pro using MLX, establishing itself as a key reference for edge inference and low-friction local AI. Red Hat also contributed by publishing"
+            "Gemma 4's rapid local adoption and on-device performance on consumer hardware, particularly iPhones with MLX, are driving a \"local-first\" wave, establishing it as a reference for edge inference. Its practical usability is highly praised, surpassing mere leaderboard performance, and Red Hat's quantized releases further underscore its broad applicability and ease of deployment."
           ]
         },
         "reddit": {
@@ -106,8 +110,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Gemma 4's Apache-licensed launch marked a significant open-model release, with Google emphasizing its reasoning, agentic workflows, and on-device use. The community widely welcomed this \"real\" open-weights release, noting its broad downstream usability and impressive efficiency claims.",
-            "The AI ecosystem demonstrated unprecedented day-0 readiness for Gemma 4"
+            "Gemma 4's Apache-licensed launch marked a significant open-model release, positioned for reasoning, agentic workflows, and on-device use. Google emphasized its efficiency and performance, with community reaction highlighting its \"real\" open-weights nature and broad usability.",
+            "The ecosystem demonstrated unusual readiness for Gemma 4 on day zero, with immediate support"
           ]
         },
         "reddit": {
