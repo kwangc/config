@@ -1,6 +1,54 @@
 {
   "items": [
     {
+      "id": "26-04-10-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-10-not-much",
+      "date": "2026-04-10",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "GLM-5.1 has broken into the frontier tier for coding, reaching #3 on Code Arena and reportedly surpassing Gemini 3.1 and GPT-5.4. Z.ai now holds the #1 open model rank, with tooling vendors quickly adopting the release. This performance update is complemented by a three-part open-model strategy focusing on accessibility,"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
+      "id": "26-04-09-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-09-not-much",
+      "date": "2026-04-09",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "Restricted cyber-capable models from Anthropic and OpenAI are becoming normalized, sparking debate on their safety and the evidence supporting dramatic claims. Community pushback focuses on eval design, benchmark ceilings, and security realism, with some arguing that fixing routine CVEs might be more impactful than discovering exotic zero-days. The discussion highlights the need for robust evaluation and a nuanced understanding of these"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-08-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-04-08-not-much",
@@ -10,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Meta Superintelligence Labs officially launched Muse Spark, its first model, designed as a natively multimodal reasoning model with advanced capabilities like tool use and multi-agent orchestration. The model is currently available in meta.ai and the Meta AI app, with plans to open-source future versions after a private API preview for select partners. Meta researchers highlighted that the entire stack"
+            "Meta Superintelligence Labs officially launched Muse Spark, their first natively multimodal reasoning model, featuring tool use, visual chain of thought, and multi-agent orchestration. The model is available in meta.ai and the Meta AI app, with plans to open-source future versions, and was developed in approximately nine months, marking a significant step in Meta's scaling roadmap."
           ]
         },
         "reddit": {
