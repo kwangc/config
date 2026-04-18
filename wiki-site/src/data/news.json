@@ -10,7 +10,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Anthropic launched Claude Opus 4.7, their most capable model yet, showing material improvements in coding and agent benchmarks like SWE-bench Pro and TerminalBench. It offers enhanced long-running task performance, instruction-following, and computer-use workflows, with a new xhigh reasoning tier. The model maintains the same list price as its predecessor and is"
+            "Anthropic launched Claude Opus 4.7, its most capable Opus yet, featuring significant improvements in coding and agentic performance for long-running tasks and complex workflows. This release includes a new xhigh reasoning tier and maintains the previous pricing structure, indicating a focus on enhanced capability and broader accessibility. Third-party benchmarks confirm substantial gains in software engineering and agent evaluations,"
           ]
         },
         "reddit": {
@@ -34,7 +34,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI open-sourced its Agents SDK harness, separating compute and storage, enabling durable, long-running agents with new primitives for file/computer use, skills, memory, and compaction. This strategic move fosters reproducibility for \"Codex-style\" agents by third parties and shifts differentiation towards orchestration and secure execution, with major players like Cloudflare, Modal,"
+            "OpenAI significantly expanded its Agents SDK, open-sourcing the agent harness and enabling long-running, durable agents with primitives for file/computer use, skills, memory, and compaction. This strategic move shifts differentiation towards orchestration, state management, and secure execution, allowing third parties to reproduce \"Codex-style\" agents more effectively.",
+            "A robust"
           ]
         },
         "reddit": {
@@ -58,7 +59,8 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Agent Infrastructure Advancements: Google Chrome introduced \"Skills\" for browser-based agentization, allowing users to save prompts as reusable workflows. Hermes Agent emerged as a robust open-source local agent stack, gaining traction for its reliability, memory management, and operational stability with a significant v0.9.0 update. LangChain's \"deep agents\" are evolving"
+            "Agent Infrastructure & Browser Integration: Google Chrome introduced \"Skills,\" allowing users to save Gemini prompts as reusable browser workflows, effectively bringing lightweight agentization into the browser. This innovation simplifies complex tasks by turning multi-step processes into one-click actions, significantly enhancing user productivity and demonstrating a shift towards more integrated AI assistance.",
+            "Open Local Agent Stacks & Platform Development"
           ]
         },
         "reddit": {
