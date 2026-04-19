@@ -1,6 +1,31 @@
 {
   "items": [
     {
+      "id": "26-04-17-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-17-not-much",
+      "date": "2026-04-17",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "Anthropic launched Claude Design, a research-preview tool powered by Claude Opus 4.7, enabling prototype and slide generation from natural language instructions. This move positions Anthropic beyond chat/coding into design tooling, directly challenging existing platforms like Figma, and sparked significant market reaction and discussion about its features.",
+            "Claude Opus 4.7 received broadly favorable"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-16-opus-47",
       "title": "Anthropic&#39;s Claude Opus 4.7",
       "url": "https://news.smol.ai/issues/26-04-16-opus-47",
@@ -9,13 +34,13 @@
       "recaps": {
         "twitter": {
           "bulletsKo": [],
-          "bulletsEn": [
-            "Anthropic launched Claude Opus 4.7, its most capable Opus yet, featuring significant improvements in coding and agentic performance for long-running tasks and complex workflows. This release includes a new xhigh reasoning tier and maintains the previous pricing structure, indicating a focus on enhanced capability and broader accessibility. Third-party benchmarks confirm substantial gains in software engineering and agent evaluations,"
-          ]
+          "bulletsEn": []
         },
         "reddit": {
           "bulletsKo": [],
-          "bulletsEn": []
+          "bulletsEn": [
+            "The new Qwen3.6-35B-A3B model has been released, showcasing superior performance in agentic coding and reasoning tasks, outperforming predecessors like Qwen3.5-27B and Gemma4-31B. This sparse MoE model, with 3"
+          ]
         },
         "discord": {
           "bulletsKo": [],
@@ -34,8 +59,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI significantly expanded its Agents SDK, open-sourcing the agent harness and enabling long-running, durable agents with primitives for file/computer use, skills, memory, and compaction. This strategic move shifts differentiation towards orchestration, state management, and secure execution, allowing third parties to reproduce \"Codex-style\" agents more effectively.",
-            "A robust"
+            "OpenAI has significantly expanded its Agents SDK, open-sourcing the harness to decouple it from compute and storage, thereby enabling the creation of long-running, durable agents with primitives for file/computer use, skills, memory, and compaction. This strategic move allows third parties to more easily reproduce \"Codex-style\" agents and shifts the focus of differentiation towards orchestration,"
           ]
         },
         "reddit": {
