@@ -1,0 +1,28 @@
+# Deps & build outputs (rebuilt in container)
+**/node_modules
+wiki-site/dist
+wiki-site/.astro
+wiki-site/src/content/wiki
+wiki-site/src/data/wiki-last-modified.json
+wiki-site/public/pagefind
+
+# Local env & editor state
+.env
+.env.*
+!.env.example
+.vscode
+.idea
+.DS_Store
+*.log
+
+# Platform-specific (not needed for container build)
+.github
+.vercel
+.gstack
+.cursor
+.claude
+
+# Study/personal scratchpad — not wiki content
+study
+automation
+references

@@ -1,10 +1,8 @@
-name: Deploy Wiki to GitHub Pages
+name: Deploy Wiki to GitHub Pages (disabled — superseded by deploy-eks.yml)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'wiki/**'
-      - 'wiki-site/**'
+  # Disabled after transfer to configint org: repo is now private, GH Pages
+  # deploy is replaced by EKS + Tailscale. Left as workflow_dispatch-only in
+  # case we ever want to publish a public snapshot again.
   workflow_dispatch:
 jobs:
   deploy:
