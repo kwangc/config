@@ -1,6 +1,79 @@
 {
   "items": [
     {
+      "id": "26-04-22-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-22-not-much",
+      "date": "2026-04-22",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "Alibaba released Qwen3.6-27B, a dense, Apache 2.0 open model with strong coding claims, beating larger predecessors on major benchmarks. It supports native vision-language reasoning and saw immediate ecosystem support from vLLM, Unsloth, ggml, and Ollama. Early user reports highlighted its strong performance for local frontend/design and image tasks, indicating its practical utility.",
+            "OpenAI quietly open-sourced a practical Privacy Filter, a lightweight Apache 2.0 MoE model designed for PII detection and masking. This 1.5B total / 50M active MoE model features a 128"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
+      "id": "26-04-21-image-2",
+      "title": "GPT-Image-2",
+      "url": "https://news.smol.ai/issues/26-04-21-image-2",
+      "date": "2026-04-21",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "OpenAI launched GPT-Image-2, a significant product update for ChatGPT, Codex, and API, featuring stronger text rendering, layout fidelity, editing, multilingual support, and \"thinking\" capabilities for image generation. The model can search the web, generate multiple candidates, self-check outputs, and produce complex artifacts like slides, infographics, and QR codes, with rapid"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
+      "id": "26-04-20-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-20-not-much",
+      "date": "2026-04-20",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "Moonshot's Kimi K2.6 was released as an open-weight 1T-parameter MoE model with 256K context and native multimodality. It demonstrated strong benchmark performance in coding and agent tasks, along with impressive long-horizon execution capabilities like 4,000+ tool calls and 12"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-17-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-04-17-not-much",
