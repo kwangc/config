@@ -10,7 +10,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "DeepSeek released DeepSeek-V4 Pro and V4 Flash, marking its first major architectural refresh since V3 and introducing a clear two-tier lineup. These models feature a 1M-token context, hybrid reasoning modes, and an MIT license, accompanied by a technical report widely praised by researchers. The consensus is that V4 significantly advances open-weight"
+            "DeepSeek V4 Pro and Flash models have been released, marking a significant architectural refresh with a 1M-token context and an MIT license. The accompanying technical report was highly praised by researchers for its detail and importance. This release is seen as a material advancement for open-weight long-context and agentic coding performance, though it remains somewhat behind top"
           ]
         },
         "reddit": {
@@ -34,7 +34,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI launched GPT-5.5 as its new flagship frontier model, positioning it for \"real work and powering agents\" with enhanced capabilities in coding, computer use, knowledge work, and multi-step execution. The model was immediately rolled out in ChatGPT and Codex, though API access is delayed pending additional safety requirements. This release marks a significant step towards more autonomous AI"
+            "OpenAI launched GPT-5.5 as its new flagship model for \"real work and powering agents,\" immediately rolling it out in ChatGPT and Codex while delaying API access due to higher safety requirements. The model is designed for lower-micromanagement agentic work, excelling in coding, computer use, knowledge work, scientific research, and longer multi-step execution."
           ]
         },
         "reddit": {
@@ -58,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Alibaba released Qwen3.6-27B, a dense, Apache 2.0 open coding model featuring thinking/non-thinking modes and unified multimodal capabilities. It claims to surpass larger models on major coding benchmarks, and the ecosystem quickly provided day-0 support through vLLM, Unsloth, ggml, and Ollama, with"
+            "Alibaba released Qwen3.6-27B, a powerful new open-source coding model under Apache 2.0, featuring dense architecture and multimodal capabilities. It significantly outperforms larger predecessors on major coding benchmarks like SWE-bench and Terminal-Bench, and supports native vision-language reasoning. The model saw immediate ecosystem support from vLLM,"
           ]
         },
         "reddit": {
@@ -769,30 +769,6 @@
         }
       },
       "summaryKo": "REDDIT_EN"
-    },
-    {
-      "id": "26-03-12-not-much",
-      "title": "not much happened today",
-      "url": "https://news.smol.ai/issues/26-03-12-not-much",
-      "date": "2026-03-12",
-      "source": "smol-ai",
-      "recaps": {
-        "twitter": {
-          "bulletsKo": [],
-          "bulletsEn": [
-            "Anthropic launched interactive charts and diagrams in chat, demonstrating a clear move towards richer frontends for LLMs beyond simple text. This innovation allows for more dynamic and visual interactions, enhancing the overall user experience and utility of AI models. It signifies a broader trend in AI development focusing on multimodal outputs and interactive interfaces."
-          ]
-        },
-        "reddit": {
-          "bulletsKo": [],
-          "bulletsEn": []
-        },
-        "discord": {
-          "bulletsKo": [],
-          "bulletsEn": []
-        }
-      },
-      "summaryKo": ""
     }
   ]
 }
