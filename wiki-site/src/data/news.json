@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "26-04-27-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-27-not-much",
+      "date": "2026-04-27",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "OpenAI has significantly loosened its Azure exclusivity, allowing it to distribute products across all clouds like Google TPU and AWS Bedrock, with Microsoft's IP license becoming non-exclusive. AWS has confirmed OpenAI models are coming to Bedrock soon, marking a major strategic shift for OpenAI's market reach and potentially signaling the end of the AGI clause. This development"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-24-deepseek-v4",
       "title": "DeepSeek v4",
       "url": "https://news.smol.ai/issues/26-04-24-deepseek-v4",
@@ -10,7 +34,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "DeepSeek V4 Pro and Flash models have been released, marking a significant architectural refresh with a 1M-token context and an MIT license. The accompanying technical report was highly praised by researchers for its detail and importance. This release is seen as a material advancement for open-weight long-context and agentic coding performance, though it remains somewhat behind top"
+            "DeepSeek has launched its V4 Pro and Flash models, marking a significant architectural refresh with a 1M-token context window and an MIT license. These models are lauded for advancing open-weight long-context and agentic coding performance, though they remain somewhat behind the top closed frontier models. The accompanying technical report is considered one of the year'"
           ]
         },
         "reddit": {
@@ -34,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI launched GPT-5.5 as its new flagship model for \"real work and powering agents,\" immediately rolling it out in ChatGPT and Codex while delaying API access due to higher safety requirements. The model is designed for lower-micromanagement agentic work, excelling in coding, computer use, knowledge work, scientific research, and longer multi-step execution."
+            "OpenAI launched GPT-5.5 as its new flagship model, designed for \"real work and powering agents\" with an emphasis on lower micromanagement and enhanced multi-step execution. It was immediately integrated into ChatGPT and Codex, though API access is temporarily delayed due to stringent safety requirements. This strategic rollout aims to push the boundaries of agentic AI capabilities."
           ]
         },
         "reddit": {
@@ -741,34 +765,6 @@
         }
       },
       "summaryKo": ""
-    },
-    {
-      "id": "26-03-13-not-much",
-      "title": "not much happened today",
-      "url": "https://news.smol.ai/issues/26-03-13-not-much",
-      "date": "2026-03-13",
-      "source": "smol-ai",
-      "recaps": {
-        "twitter": {
-          "bulletsKo": [
-            "REDDIT_EN"
-          ],
-          "bulletsEn": [
-            "TWITTER_KO"
-          ]
-        },
-        "reddit": {
-          "bulletsKo": [],
-          "bulletsEn": [
-            "The OmniCoder-9B and Qwen 3.5 9B models are gaining attention for their impressive performance, often compared to much larger models despite their smaller size. These models demonstrate significant potential for local deployment on consumer hardware, offering an alternative to cloud-based solutions with increasing quota restrictions."
-          ]
-        },
-        "discord": {
-          "bulletsKo": [],
-          "bulletsEn": []
-        }
-      },
-      "summaryKo": "REDDIT_EN"
     }
   ]
 }
