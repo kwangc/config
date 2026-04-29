@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "26-04-28-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-28-not-much",
+      "date": "2026-04-28",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "Inference systems are rapidly optimizing for efficiency, with vLLM 0.20 introducing TurboQuant 2-bit KV cache and support for DeepSeek V4 MegaMoE on diverse hardware. SemiAnalysis highlighted DeepSeek V4 Pro's performance on disaggregated setups, claiming B300 can be 8x faster than H200"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-27-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-04-27-not-much",
@@ -10,7 +34,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI has significantly loosened its Azure exclusivity, allowing it to distribute products across all clouds like Google TPU and AWS Bedrock, with Microsoft's IP license becoming non-exclusive. AWS has confirmed OpenAI models are coming to Bedrock soon, marking a major strategic shift for OpenAI's market reach and potentially signaling the end of the AGI clause. This development"
+            "OpenAI has significantly loosened its Azure exclusivity, allowing distribution across all clouds, with AWS Bedrock confirmed to host OpenAI models soon. This strategic shift extends product/model commitments to 2032 and revenue share through 2030, effectively signaling the end of the old AGI clause. The move enables OpenAI to leverage diverse cloud infrastructures, broadening"
           ]
         },
         "reddit": {
@@ -34,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "DeepSeek has launched its V4 Pro and Flash models, marking a significant architectural refresh with a 1M-token context window and an MIT license. These models are lauded for advancing open-weight long-context and agentic coding performance, though they remain somewhat behind the top closed frontier models. The accompanying technical report is considered one of the year'"
+            "DeepSeek V4 Pro and V4 Flash have been released, marking the first major architecture refresh since V3 and introducing a clear two-tier lineup. These models feature 1M-token context, an MIT license, and a technical report praised by researchers as one of the year's most important. V4 significantly advances open-weight long-context and agent"
           ]
         },
         "reddit": {
