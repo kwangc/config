@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "26-04-29-not-much",
+      "title": "not much happened today",
+      "url": "https://news.smol.ai/issues/26-04-29-not-much",
+      "date": "2026-04-29",
+      "source": "smol-ai",
+      "recaps": {
+        "twitter": {
+          "bulletsKo": [],
+          "bulletsEn": [
+            "OpenAI is transforming Codex from a coding tool into a general work surface, expanding its capabilities for broader knowledge-work tasks like research synthesis and spreadsheets, and offering $0 seat fees for eligible business customers. This strategic move signals a significant shift towards making Codex a versatile platform for enterprise automation, supported by new integrations and team rollout features. The expansion emphasizes persistent context, tools,"
+          ]
+        },
+        "reddit": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        },
+        "discord": {
+          "bulletsKo": [],
+          "bulletsEn": []
+        }
+      },
+      "summaryKo": ""
+    },
+    {
       "id": "26-04-28-not-much",
       "title": "not much happened today",
       "url": "https://news.smol.ai/issues/26-04-28-not-much",
@@ -10,7 +34,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "Inference systems are rapidly optimizing for efficiency, with vLLM 0.20 introducing TurboQuant 2-bit KV cache and support for DeepSeek V4 MegaMoE on diverse hardware. SemiAnalysis highlighted DeepSeek V4 Pro's performance on disaggregated setups, claiming B300 can be 8x faster than H200"
+            "vLLM's latest v0.20.0 release significantly enhances inference systems, focusing on memory and MoE serving efficiency through features like TurboQuant 2-bit KV cache and fused RMSNorm. This update also broadens hardware support, including DeepSeek V4 MegaMoE on Blackwell and Intel XPU, while SemiAnalysis highlights the superior"
           ]
         },
         "reddit": {
@@ -34,7 +58,7 @@
         "twitter": {
           "bulletsKo": [],
           "bulletsEn": [
-            "OpenAI has significantly loosened its Azure exclusivity, allowing distribution across all clouds, with AWS Bedrock confirmed to host OpenAI models soon. This strategic shift extends product/model commitments to 2032 and revenue share through 2030, effectively signaling the end of the old AGI clause. The move enables OpenAI to leverage diverse cloud infrastructures, broadening"
+            "OpenAI has updated its Microsoft partnership, loosening Azure exclusivity and allowing broader distribution across all clouds, with AWS Bedrock confirmed to host OpenAI models soon. This strategic shift extends product/model commitments to 2032 and revenue share through 2030, potentially signaling the effective removal of the AGI clause. The move allows OpenAI to leverage diverse cloud"
           ]
         },
         "reddit": {
